@@ -5,7 +5,7 @@ group: "Core Syntax"
 section: "Core Syntax"
 order: 7
 slug: "operators"
-summary: "Read arithmetic, comparison, and logic in ordinary expressions."
+summary: "Read arithmetic, comparison, and logic in expressions."
 ---
 Operators are compact names for common operations. Arithmetic, comparison, and logical operators are useful because people already read them quickly.
 
@@ -17,10 +17,10 @@ Compact syntax is only helpful when it stays obvious. A price comparison like `s
 
 Parentheses are not a failure. If grouping matters to a business rule, show the grouping. A discount formula should not make a reader remember an operator table before trusting the answer.
 
-## Operators and domain language
+## Operators and app language
 
-Some domains naturally use operators: ranges, totals, equality checks, and ordering. For more specific actions, a named function often reads better than a clever operator expression.
+Some topics naturally use operators: ranges, totals, equality checks, and ordering. For more specific actions, a named function often reads better than a clever operator expression.
 
-Core forms are the small hand tools of the language. Literals are raw materials, calls ask for work, operators join values, ranges mark spans, and lambdas carry a small action around. Each form should feel boring before you rely on it inside larger data or effect code.
+Core forms are the basic parts of the language. Literals are values, calls ask for work, operators join values, ranges mark spans, and lambdas carry a small action. Learn each form before using it in larger data or effect code.
 
-When a core form feels hard, place it in a plain story. A ticket price plus a fee, a room number in a range, a message sent through a callable, or a small action saved as a lambda is enough. The syntax matters because it keeps that story exact.
+When a core form feels hard, use a simple example. Try a ticket price plus a fee, a room number in a range, a message sent through a callable, or a small action saved as a lambda. The syntax keeps that example exact.

@@ -1,31 +1,31 @@
 ---
-title: "Testing and Tooling"
-description: "Read Testing and Tooling as a Python habit shift, with links to the Musi Book definition."
+title: "Testing and Tools"
+description: "Read Testing and Tools as a guide for Python readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "Python Developers"
 order: 12
 slug: "testing-tooling"
-summary: "Translate the Python habit, then use the Musi Book for the full rule."
+summary: "Start from Python habits, then use the Musi Book for the full rule."
 ---
 
-A Python reader brings habits from names, dictionaries, classes, protocols, exceptions, None, imports, and duck typing. That helps with code around domain words before machinery, but the Musi page asks a narrower question: what contract should this tests as domain promises example make visible?
+For a Python reader, this guide starts from familiar habits. It shows how Musi handles tests as what the program should dos.
 
 {{compare:python-testing-tooling}}
 
-## Reading Testing and Tooling from Python
+## Reading Testing and Tools from Python
 
-On the Musi side, Musi tests should state the domain promise first, then check the function or value that proves it. Read the shared example through Python eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, tests should state the what the program should do first, then check the function or value that proves it. For a Python reader, the key topic is testing and tools.
 
-## False friend
+## Common mistake
 
-Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For a Python reader, the trap is trusting runtime convention where Musi expects a visible type or effect; Musi `class` is closer to an explicit protocol/typeclass than a Python class with attributes and methods.
+Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For Python, common mistake: trusting runtime convention where Musi expects a visible type or effect. Musi `class` is closer to a clear protocol than a Python class with attributes and methods.
 
 ## When this pays off
 
-Use this style when a future reader needs to know which behavior broke, not only which line failed. The Python instinct still helps here: Keep the Python habit of naming the real-world thing first.
+Use this style when a future reader needs to know which behavior broke, not only which line failed. The Python habit still helps here: Keep the Python habit of naming the real-world thing first.
 
 ## Keep close
 
 - [Testing](/learn/book/advanced/testing)
-- [Running and tooling](/learn/book/advanced/running-and-tooling)
+- [Running and tools](/learn/book/advanced/running-and-tooling)
 - [Packages](/learn/book/organization/packages)

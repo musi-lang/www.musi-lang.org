@@ -1,31 +1,31 @@
 ---
-title: "Testing and Tooling"
-description: "Read Testing and Tooling as a Go habit shift, with links to the Musi Book definition."
+title: "Testing and Tools"
+description: "Read Testing and Tools as a guide for Go readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "Go Developers"
 order: 14
 slug: "testing-tooling"
-summary: "Translate the Go habit, then use the Musi Book for the full rule."
+summary: "Start from Go habits, then use the Musi Book for the full rule."
 ---
 
-A Go reader brings habits from packages, structs, slices, nil, multiple returns, interfaces, goroutines, channels, and explicit errors. That helps with small named operations and direct data flow, but the Musi page asks a narrower question: what contract should this tests as domain promises example make visible?
+For a Go reader, this guide starts from familiar habits. It shows how Musi handles tests as what the program should dos.
 
 {{compare:go-testing-tooling}}
 
-## Reading Testing and Tooling from Go
+## Reading Testing and Tools from Go
 
-On the Musi side, Musi tests should state the domain promise first, then check the function or value that proves it. Read the shared example through Go eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, tests should state the what the program should do first, then check the function or value that proves it. For a Go reader, the key topic is testing and tools.
 
-## False friend
+## Common mistake
 
-Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For a Go reader, the trap is using absence or failure as a side channel because Go makes that cheap; Musi `class` is closer to an explicit interface constraint with instances; it is not a struct and not a method set attached by package convention.
+Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For Go, common mistake: using absence or failure as a hidden path because Go makes that cheap. Musi `class` is closer to an interface rule with instances. It is not a struct. It is not a method set from package convention.
 
 ## When this pays off
 
-Use this style when a future reader needs to know which behavior broke, not only which line failed. The Go instinct still helps here: Keep the Go habit of writing the small thing first and naming package boundaries clearly.
+Use this style when a future reader needs to know which behavior broke, not only which line failed. The Go habit still helps here: Keep the Go habit of writing the small thing first and naming package edges clearly.
 
 ## Keep close
 
 - [Testing](/learn/book/advanced/testing)
-- [Running and tooling](/learn/book/advanced/running-and-tooling)
+- [Running and tools](/learn/book/advanced/running-and-tooling)
 - [Packages](/learn/book/organization/packages)

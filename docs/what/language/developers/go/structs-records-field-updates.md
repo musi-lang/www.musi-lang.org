@@ -1,28 +1,28 @@
 ---
 title: "Structs, Records, and Field Updates"
-description: "Read Structs, Records, and Field Updates as a Go habit shift, with links to the Musi Book definition."
+description: "Read Structs, Records, and Field Updates as a guide for Go readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "Go Developers"
 order: 5
 slug: "structs-records-field-updates"
-summary: "Translate the Go habit, then use the Musi Book for the full rule."
+summary: "Start from Go habits, then use the Musi Book for the full rule."
 ---
 
-A Go reader brings habits from packages, structs, slices, nil, multiple returns, interfaces, goroutines, channels, and explicit errors. That helps with small named operations and direct data flow, but the Musi page asks a narrower question: what contract should this field-shaped data example make visible?
+For a Go reader, this guide starts from familiar habits. It shows how Musi handles field-based data.
 
 {{compare:go-structs-records-field-updates}}
 
 ## Reading Structs, Records, and Field Updates from Go
 
-On the Musi side, Musi records and data variants describe stored shape. Behavior belongs in functions or classes/instances, not inside an object by default. Read the shared example through Go eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, records and data variants describe stored data. Behavior belongs in functions or classes/instances, not inside an object by default. For a Go reader, the key topic is structs, records, and field updates.
 
-## False friend
+## Common mistake
 
-Do not read `class` as object shape. If the page is about a pet, invoice, room, or vehicle, start with fields or variants. For a Go reader, the trap is using absence or failure as a side channel because Go makes that cheap; Musi `class` is closer to an explicit interface constraint with instances; it is not a struct and not a method set attached by package convention.
+Do not read `class` as object data. If the page is about a pet, invoice, room, or vehicle, start with fields or variants. For Go, common mistake: using absence or failure as a hidden path because Go makes that cheap. Musi `class` is closer to an interface rule with instances. It is not a struct. It is not a method set from package convention.
 
 ## When this pays off
 
-Use records when names like `owner`, `age`, `amount`, or `route` are the point of the value. The Go instinct still helps here: Keep the Go habit of writing the small thing first and naming package boundaries clearly.
+Use records when names like `owner`, `age`, `amount`, or `route` are the point of the value. The Go habit still helps here: Keep the Go habit of writing the small thing first and naming package edges clearly.
 
 ## Keep close
 

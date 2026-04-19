@@ -1,31 +1,31 @@
 ---
-title: "Testing and Tooling"
-description: "Read Testing and Tooling as a Rust habit shift, with links to the Musi Book definition."
+title: "Testing and Tools"
+description: "Read Testing and Tools as a guide for Rust readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "Rust Developers"
 order: 11
 slug: "testing-tooling"
-summary: "Translate the Rust habit, then use the Musi Book for the full rule."
+summary: "Start from Rust habits, then use the Musi Book for the full rule."
 ---
 
-A Rust reader brings habits from ownership, enums, traits, Result, modules, pattern matching, and explicit unsafe blocks. That helps with the type that carries the invariant, but the Musi page asks a narrower question: what contract should this tests as domain promises example make visible?
+For a Rust reader, this guide starts from familiar habits. It shows how Musi handles tests as what the program should dos.
 
 {{compare:rust-testing-tooling}}
 
-## Reading Testing and Tooling from Rust
+## Reading Testing and Tools from Rust
 
-On the Musi side, Musi tests should state the domain promise first, then check the function or value that proves it. Read the shared example through Rust eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, tests should state the what the program should do first, then check the function or value that proves it. For a Rust reader, the key topic is testing and tools.
 
-## False friend
+## Common mistake
 
-Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For a Rust reader, the trap is expecting Musi syntax to mirror Rust even when the ideas are separated differently; Musi `class` is closest to a Rust trait plus law text; instances play the role of implementations for behavior.
+Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For Rust, common mistake: expecting Musi syntax to mirror Rust even when the ideas are separated differently. Musi `class` is closest to a Rust trait plus law text. Instances give behavior.
 
 ## When this pays off
 
-Use this style when a future reader needs to know which behavior broke, not only which line failed. The Rust instinct still helps here: Keep the Rust habit of asking which type carries the invariant.
+Use this style when a future reader needs to know which behavior broke, not only which line failed. The Rust habit still helps here: Keep the Rust habit of asking which type carries the invariant.
 
 ## Keep close
 
 - [Testing](/learn/book/advanced/testing)
-- [Running and tooling](/learn/book/advanced/running-and-tooling)
+- [Running and tools](/learn/book/advanced/running-and-tooling)
 - [Packages](/learn/book/organization/packages)

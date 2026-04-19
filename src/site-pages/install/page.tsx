@@ -24,13 +24,13 @@ export function InstallPage(_props: { route: AppRoute }) {
 	const installSteps = [
 		{
 			label: "1",
-			title: "Check prerequisites",
-			copy: "Rust, Cargo, and native library pieces come first.",
+			title: "Check needed tools",
+			copy: "Install Rust, Cargo, and native libraries first.",
 		},
 		{
 			label: "2",
-			title: "Choose command lane",
-			copy: "Script bootstrap is quickest; Cargo path keeps source visible.",
+			title: "Choose command",
+			copy: "The install script is fastest. Cargo keeps the code on your computer.",
 		},
 		{
 			label: "3",
@@ -39,8 +39,8 @@ export function InstallPage(_props: { route: AppRoute }) {
 		},
 		{
 			label: "4",
-			title: "Use current commands",
-			copy: "Package commands cover normal work; direct commands handle files.",
+			title: "Use commands",
+			copy: "Use musi for projects. Use music for one file.",
 		},
 	];
 	return (
@@ -147,7 +147,7 @@ export function InstallPage(_props: { route: AppRoute }) {
 						</caption>
 						<thead>
 							<tr>
-								<th scope="col">{siteCopy.ui.lane}</th>
+								<th scope="col">{siteCopy.ui.useFor}</th>
 								<th scope="col">{siteCopy.ui.command}</th>
 								<th scope="col">{siteCopy.ui.description}</th>
 							</tr>

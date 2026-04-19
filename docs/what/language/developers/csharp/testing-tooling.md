@@ -1,31 +1,31 @@
 ---
-title: "Testing and Tooling"
-description: "Read Testing and Tooling as a C# habit shift, with links to the Musi Book definition."
+title: "Testing and Tools"
+description: "Read Testing and Tools as a guide for C# readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "C# Developers"
 order: 13
 slug: "testing-tooling"
-summary: "Translate the C# habit, then use the Musi Book for the full rule."
+summary: "Start from C# habits, then use the Musi Book for the full rule."
 ---
 
-A C# reader brings habits from nullable flow analysis, records, LINQ, async tasks, extension methods, interfaces, namespaces, and attributes. That helps with domain code through named APIs and tooling feedback, but the Musi page asks a narrower question: what contract should this tests as domain promises example make visible?
+For a C# reader, this guide starts from familiar habits. It shows how Musi handles tests as what the program should dos.
 
 {{compare:csharp-testing-tooling}}
 
-## Reading Testing and Tooling from C#
+## Reading Testing and Tools from C#
 
-On the Musi side, Musi tests should state the domain promise first, then check the function or value that proves it. Read the shared example through C# eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, tests should state the what the program should do first, then check the function or value that proves it. For a C# reader, the key topic is testing and tools.
 
-## False friend
+## Common mistake
 
-Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For a C# reader, the trap is mapping Musi classes to object classes or service containers; Musi `class` is a typeclass-style behavior contract, not a CLR class with fields, constructors, and inheritance.
+Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For C#, common mistake: mapping Musi classes to object classes or service containers. Musi `class` is a behavior, not a CLR class with fields, constructors, and inheritance.
 
 ## When this pays off
 
-Use this style when a future reader needs to know which behavior broke, not only which line failed. The C# instinct still helps here: Keep the C# habit of making api shape readable at the call site.
+Use this style when a future reader needs to know which behavior broke, not only which line failed. The C# habit still helps here: Keep the C# habit of making API calls easy to read.
 
 ## Keep close
 
 - [Testing](/learn/book/advanced/testing)
-- [Running and tooling](/learn/book/advanced/running-and-tooling)
+- [Running and tools](/learn/book/advanced/running-and-tooling)
 - [Packages](/learn/book/organization/packages)

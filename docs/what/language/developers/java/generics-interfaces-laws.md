@@ -1,28 +1,28 @@
 ---
 title: "Generics, Interfaces, and Laws"
-description: "Read Generics, Interfaces, and Laws as a Java habit shift, with links to the Musi Book definition."
+description: "Read Generics, Interfaces, and Laws as a guide for Java readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "Java Developers"
 order: 10
 slug: "generics-interfaces-laws"
-summary: "Translate the Java habit, then use the Musi Book for the full rule."
+summary: "Start from Java habits, then use the Musi Book for the full rule."
 ---
 
-Java interfaces describe behavior through nominal types and implementations. Musi classes serve the behavior-contract role, while records/data handle the value shapes Java classes often contain.
+Java interfaces describe behavior through types by name and codes. Musi classes serve the behavior role, while records and data handle the value data Java classes often contain.
 
 {{compare:java-generics-interfaces-laws}}
 
 ## Reading Generics, Interfaces, and Laws from Java
 
-On the Musi side, Musi classes name behavior a type can provide, instances provide it, and laws document promises callers rely on. Read the shared example through Java eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, classes name behavior a type can provide, instances provide it, and laws document promises callers rely on. For a Java reader, the key topic is generics, interfaces, and laws.
 
-## False friend
+## Common mistake
 
-Do not confuse a Musi class with stored object state, inheritance, or a metatable. Shape and behavior are separate. For a Java reader, the trap is reading Musi `class` as a nominal object type with constructors and fields; Musi `class` is a behavior contract supplied by instances; records and data model object shape.
+Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. For Java, common mistake: reading Musi `class` as an object type by name with constructors and fields. Musi `class` is behavior supplied by instances. Records and data model data.
 
 ## When this pays off
 
-Use classes when many types share an operation such as compare, show, step, encode, or measure. The Java instinct still helps here: Keep the Java habit of naming APIs for future readers.
+Use classes when many types share an operation such as compare, show, step, encode, or measure. The Java habit still helps here: Keep the Java habit of naming APIs for future readers.
 
 ## Keep close
 

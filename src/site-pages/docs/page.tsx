@@ -57,7 +57,7 @@ export function DocsIndexPage(_props: { route: AppRoute }) {
 					href="/learn/guides"
 					kicker="Guides"
 					title="Musi for Developers"
-					description="Use these when you already know another language and want a translation map."
+					description="Use these when you know another language and want a guide."
 					action="Open guides"
 				/>
 			</section>
@@ -65,15 +65,15 @@ export function DocsIndexPage(_props: { route: AppRoute }) {
 				<DocsSearch
 					entries={docSearchEntries}
 					heading={siteCopy.ui.findDocs}
-					lede="Type a topic, command, source language, or question."
+					lede="Type a topic, command, language, or question."
 					showHeader={false}
 				/>
 			</MachinesSection>
 			<MachinesSection kicker={siteCopy.ui.learnSection} title="Musi Book">
 				<p className="site-copy site-copy--small">
-					This is the main book. It moves from first file to syntax, data,
-					types, effects, and tooling. Language guides are separate because they
-					answer a different question.
+					This is the main book. It moves from your first file to syntax, data,
+					types, effects, and commands. Language guides are separate because
+					they help readers from other languages.
 				</p>
 				<div className="mx-grid site-doc-groups">
 					{docGroups.map((group) => (
@@ -179,7 +179,7 @@ function DocPageRail(props: {
 					entries={docSearchEntries}
 					heading="Open chapter search"
 					inputLabel="Search chapters"
-					lede="Jump to another chapter without losing the current reading path."
+					lede="Jump to another chapter and keep the current reading path."
 					showHeader={false}
 					variant="disclosure"
 					initialLimit={4}

@@ -11,16 +11,16 @@ Runtime operations are the built-in doors to the host system. They cover things 
 
 {{snippet:chapter-runtime}}
 
-Treat runtime calls as boundary work. The result may depend on the machine, the current process, a file on disk, or the moment the code runs.
+Treat runtime calls as edge work. The result may depend on the machine, the current process, a file on disk, or the moment the code runs.
 
-## Boundary code stays narrow
+## Edge code stays narrow
 
-Read from the runtime at the edge of the program, then move back to ordinary values. A backup tool may read file text through the runtime, but parsing the backup manifest should be a plain function that accepts text.
+Read from the runtime at the edge of the program, then move back to normal values. A backup tool may read file text through the runtime, but parsing the backup package file should be a plain function that accepts text.
 
 ## Naming the outside world
 
-Runtime names should make the outside dependency obvious. `fsReadText`, `timeMonotonicMs`, and `envGet` tell different stories. That clarity helps formatting, highlighting, diagnostics, and human review all agree on what the code is doing.
+Runtime names should make the outside dependency obvious. `fsReadText`, `timeMonotonicMs`, and `envGet` tell different stories. That clarity helps formatting, highlighting, error messages, and human review all agree on what the code is doing.
 
 Effect chapters draw a line between local calculation and outside answers. Adding prices is local. Reading time, asking a process, or writing a log needs an answer from outside the expression.
 
-A useful test is to ask whether the result could be known from the input alone. If yes, keep the function plain. If no, name the request and make the effect boundary visible.
+A useful test is to ask whether the result could be known from the input alone. If yes, keep the function plain. If no, name the request and make the effect edge visible.

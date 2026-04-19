@@ -15,12 +15,12 @@ Method syntax reads from the value outward. That makes chains natural when each 
 
 ## Good receiver choices
 
-Put a method on the type that owns the idea. A car should know whether its fuel is low; a payment processor should not be hidden inside a car. When the receiver is obvious in ordinary speech, the method usually belongs there.
+Put a method on the type that owns the idea. A car should know whether its fuel is low; a payment processor should not be hidden inside a car. When the receiver is obvious in normal speech, the method belongs there.
 
 ## Avoiding mystery chains
 
 Chains become hard when each method changes the subject. Keep method chains for steady transformations. If a chain jumps from customer to order to warehouse to email, split the steps and name the intermediate values.
 
-Core forms are the small hand tools of the language. Literals are raw materials, calls ask for work, operators join values, ranges mark spans, and lambdas carry a small action around. Each form should feel boring before you rely on it inside larger data or effect code.
+Core forms are the basic parts of the language. Literals are values, calls ask for work, operators join values, ranges mark spans, and lambdas carry a small action. Learn each form before using it in larger data or effect code.
 
-When a core form feels hard, place it in a plain story. A ticket price plus a fee, a room number in a range, a message sent through a callable, or a small action saved as a lambda is enough. The syntax matters because it keeps that story exact.
+When a core form feels hard, use a simple example. Try a ticket price plus a fee, a room number in a range, a message sent through a callable, or a small action saved as a lambda. The syntax keeps that example exact.

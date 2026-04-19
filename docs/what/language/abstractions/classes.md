@@ -1,11 +1,11 @@
 ---
 title: "Classes"
-description: "Start abstraction work with class declarations alone before instances or laws."
+description: "Start abstraction work with class named parts alone before instances or laws."
 group: "Abstractions"
 section: "Abstractions"
 order: 21
 slug: "classes"
-summary: "Describe shared behavior with class declarations."
+summary: "Describe shared behavior with class named parts."
 ---
 Classes describe capabilities a type can provide. They are useful when several types can answer the same question in their own way: comparing people by age, formatting receipts, or advancing different kinds of counters.
 
@@ -23,4 +23,4 @@ A small class is easier to implement correctly and easier to test. Add methods b
 
 Abstraction chapters explain shared behavior. A record says what fields a value has. A class says what a type can do. An instance gives that behavior for one type. A law names a promise callers depend on.
 
-The false friend is the word class. In Musi it is not an object blueprint. Use records and data for shape. Use classes, instances, and laws when many shapes need to share behavior.
+The common mistake is the word class. In Musi it is not an object blueprint. Use records and data for stored data. Use classes, instances, and laws when many data types need to share behavior.

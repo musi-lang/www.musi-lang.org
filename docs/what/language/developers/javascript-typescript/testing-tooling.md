@@ -1,31 +1,31 @@
 ---
-title: "Testing and Tooling"
-description: "Read Testing and Tooling as a JavaScript and TypeScript habit shift, with links to the Musi Book definition."
+title: "Testing and Tools"
+description: "Read Testing and Tools as a guide for TypeScript readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "JavaScript and TypeScript Developers"
 order: 12
 slug: "testing-tooling"
-summary: "Translate the JavaScript and TypeScript habit, then use the Musi Book for the full rule."
+summary: "Start from TypeScript habits, then use the Musi Book for the full rule."
 ---
 
-A TypeScript reader brings habits from objects, structural types, unions, undefined, promises, imports, npm packages, and prototype-shaped history. That helps with flexible shapes and fast feedback from type tooling, but the Musi page asks a narrower question: what contract should this tests as domain promises example make visible?
+For a TypeScript reader, this guide starts from familiar habits. It shows how Musi handles tests as what the program should dos.
 
 {{compare:javascript-typescript-testing-tooling}}
 
-## Reading Testing and Tooling from JavaScript/TypeScript
+## Reading Testing and Tools from JavaScript/TypeScript
 
-On the Musi side, Musi tests should state the domain promise first, then check the function or value that proves it. Read the shared example through JavaScript/TypeScript eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, tests should state the what the program should do first, then check the function or value that proves it. For a TypeScript reader, the key topic is testing and tools.
 
-## False friend
+## Common mistake
 
-Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For a TypeScript reader, the trap is assuming runtime object shape and compile-time behavior contract are the same thing; Musi `class` is not a JS constructor or TS class; it is a behavior contract implemented separately from record/data shape.
+Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For TypeScript, common mistake: assuming runtime object data and compile-time behavior are the same thing. Musi `class` is not a JavaScript constructor or TypeScript class. It is behavior kept separate from records and data.
 
 ## When this pays off
 
-Use this style when a future reader needs to know which behavior broke, not only which line failed. The JavaScript/TypeScript instinct still helps here: Keep the TypeScript habit of reading the shape before reading implementation details.
+Use this style when a future reader needs to know which behavior broke, not only which line failed. The JavaScript/TypeScript habit still helps here: Keep the TypeScript habit of reading the fields before reading how it works.
 
 ## Keep close
 
 - [Testing](/learn/book/advanced/testing)
-- [Running and tooling](/learn/book/advanced/running-and-tooling)
+- [Running and tools](/learn/book/advanced/running-and-tooling)
 - [Packages](/learn/book/organization/packages)

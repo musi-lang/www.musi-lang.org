@@ -8,22 +8,22 @@ export function PlaygroundPage(_props: { route: AppRoute }) {
 	const statusCards = [
 		{
 			label: "Local install",
-			title: "Use local runner",
-			copy: "Use source install for checks and tests.",
+			title: "Run Musi locally",
+			copy: "Install Musi on your computer to check and test code.",
 			href: "/install",
 			action: "Install",
 		},
 		{
 			label: "Examples",
 			title: "Read examples",
-			copy: "Open runnable examples and commands.",
+			copy: "Open examples and commands you can try.",
 			href: "/learn/book",
 			action: "Open book",
 		},
 		{
 			label: "Status",
-			title: "Track work",
-			copy: "Follow playground and runtime work in public issues.",
+			title: "Read GitHub issues",
+			copy: "Read GitHub issues for playground work.",
 			href: "/community",
 			action: "Community",
 		},

@@ -1,28 +1,28 @@
 ---
 title: "Blocks, Control Flow, and Repetition"
-description: "Read Blocks, Control Flow, and Repetition as a Python habit shift, with links to the Musi Book definition."
+description: "Read Blocks, Control Flow, and Repetition as a guide for Python readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "Python Developers"
 order: 3
 slug: "blocks-control-flow"
-summary: "Translate the Python habit, then use the Musi Book for the full rule."
+summary: "Start from Python habits, then use the Musi Book for the full rule."
 ---
 
-A Python reader brings habits from names, dictionaries, classes, protocols, exceptions, None, imports, and duck typing. That helps with code around domain words before machinery, but the Musi page asks a narrower question: what contract should this branching and block results example make visible?
+For a Python reader, this guide starts from familiar habits. It shows how Musi handles branching and block results.
 
 {{compare:python-blocks-control-flow}}
 
 ## Reading Blocks, Control Flow, and Repetition from Python
 
-On the Musi side, Musi blocks and matches are expressions when they produce a value; the branch answer matters more than the statement container. Read the shared example through Python eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, blocks and matches are expressions when they produce a value; the branch answer matters more than the statement container. For a Python reader, the key topic is blocks, control flow, and repetition.
 
-## False friend
+## Common mistake
 
-Do not carry over temporary variables whose only job was to smuggle a branch result out of a statement block. For a Python reader, the trap is trusting runtime convention where Musi expects a visible type or effect; Musi `class` is closer to an explicit protocol/typeclass than a Python class with attributes and methods.
+Do not keep extra variables only to move a branch result out of a statement block. For Python, common mistake: trusting runtime convention where Musi expects a visible type or effect. Musi `class` is closer to a clear protocol than a Python class with attributes and methods.
 
 ## When this pays off
 
-Use this shape when a route fee, access decision, or small rule table chooses one value from several cases. The Python instinct still helps here: Keep the Python habit of naming the real-world thing first.
+Use this pattern when a route fee, access decision, or small rule table chooses one value from several cases. The Python habit still helps here: Keep the Python habit of naming the real-world thing first.
 
 ## Keep close
 

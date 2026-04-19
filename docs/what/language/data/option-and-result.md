@@ -7,9 +7,9 @@ order: 16
 slug: "option-and-result"
 summary: "Use Option for expected absence and Result for work that can explain why it failed."
 ---
-Some programs fail because something is broken. Many programs simply do not find a value. A library card may not exist yet. A seat may be full. A receipt may not have a discount. Treating all of those as crashes makes ordinary work sound dangerous.
+Some programs fail because something is broken. Many programs do not find a value. A library card may not exist yet. A seat may be full. A receipt may not have a discount. Treating all of those as crashes makes normal work sound dangerous.
 
-`Option` is for expected absence. It says, "there may be a value here." `Result` is for a recoverable success or failure. It says, "the work either produced a value or produced a reason it could not." Those are different stories, so Musi keeps them in different shapes.
+`Option` is for expected absence. It says, "there may be a value here." `Result` is for a recoverable success or failure. It says, "the work either produced a value or produced a reason it could not." Those are different stories, so Musi keeps them in different forms.
 
 {{snippet:chapter-option-and-result}}
 
@@ -23,9 +23,9 @@ Use `someOf` when the value exists. Use `noneOf` when the empty case is expected
 
 ## Result carries the reason
 
-Use `Result` when the caller needs a reason. A payment might fail because the card was declined. A parse might fail because the text was not a number. A file load might fail because the path was wrong. The reason matters because the caller can choose a message, retry, or ask the user for a different value.
+Use `Result` when the caller needs a reason. A payment can fail because the card was declined. A parse can fail because the text was not a number. A file load can fail because the path was wrong. The reason matters because the caller can choose a message, retry, or ask the user for a different value.
 
-Do not use `Result` only because a value is absent. If a search for an open table returns nothing, `Option` is usually enough. If the reservation service could not be reached, `Result` tells the caller what went wrong.
+Do not use `Result` only because a value is absent. If a search for an open table returns nothing, `Option` is enough. If the reservation service could not be reached, `Result` tells the caller what went wrong.
 
 ## How to choose
 

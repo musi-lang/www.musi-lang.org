@@ -1,28 +1,28 @@
 ---
 title: "Records, Structs, and Field Updates"
-description: "Read Records, Structs, and Field Updates as a Rust habit shift, with links to the Musi Book definition."
+description: "Read Records, Structs, and Field Updates as a guide for Rust readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "Rust Developers"
 order: 4
 slug: "records-structs"
-summary: "Translate the Rust habit, then use the Musi Book for the full rule."
+summary: "Start from Rust habits, then use the Musi Book for the full rule."
 ---
 
-A Rust reader brings habits from ownership, enums, traits, Result, modules, pattern matching, and explicit unsafe blocks. That helps with the type that carries the invariant, but the Musi page asks a narrower question: what contract should this field-shaped data example make visible?
+For a Rust reader, this guide starts from familiar habits. It shows how Musi handles field-based data.
 
 {{compare:rust-records-structs}}
 
 ## Reading Records, Structs, and Field Updates from Rust
 
-On the Musi side, Musi records and data variants describe stored shape. Behavior belongs in functions or classes/instances, not inside an object by default. Read the shared example through Rust eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, records and data variants describe stored data. Behavior belongs in functions or classes/instances, not inside an object by default. For a Rust reader, the key topic is records, structs, and field updates.
 
-## False friend
+## Common mistake
 
-Do not read `class` as object shape. If the page is about a pet, invoice, room, or vehicle, start with fields or variants. For a Rust reader, the trap is expecting Musi syntax to mirror Rust even when the ideas are separated differently; Musi `class` is closest to a Rust trait plus law text; instances play the role of implementations for behavior.
+Do not read `class` as object data. If the page is about a pet, invoice, room, or vehicle, start with fields or variants. For Rust, common mistake: expecting Musi syntax to mirror Rust even when the ideas are separated differently. Musi `class` is closest to a Rust trait plus law text. Instances give behavior.
 
 ## When this pays off
 
-Use records when names like `owner`, `age`, `amount`, or `route` are the point of the value. The Rust instinct still helps here: Keep the Rust habit of asking which type carries the invariant.
+Use records when names like `owner`, `age`, `amount`, or `route` are the point of the value. The Rust habit still helps here: Keep the Rust habit of asking which type carries the invariant.
 
 ## Keep close
 

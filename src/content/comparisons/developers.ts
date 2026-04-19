@@ -38,8 +38,8 @@ export const developerProfiles = {
 		label: "C99",
 		language: "c",
 		mindset: [
-			"Treat Musi modules as source boundaries, not header/source pairs.",
-			"Use data for shapes and variants; use classes only when a type must supply behavior.",
+			"Treat Musi modules as source edges, not header/source pairs.",
+			"Use data for forms and variants; use classes only when a type must supply behavior.",
 		],
 	},
 	cpp17: {
@@ -47,7 +47,7 @@ export const developerProfiles = {
 		language: "cpp",
 		mindset: [
 			"Read Musi classes closer to concepts or traits than C++ classes.",
-			"Use records/data for stored shape; use instances for behavior supplied by a type.",
+			"Use records and data for stored data; use instances for behavior a type supplies.",
 		],
 	},
 	csharp: {
@@ -62,7 +62,7 @@ export const developerProfiles = {
 		label: "Go",
 		language: "go",
 		mindset: [
-			"Read Musi classes as explicit behavior requirements, closer to interfaces than structs.",
+			"Read Musi classes as clear behavior rules, closer to interfaces than structs.",
 			"Use data and records for values; use instances where Go would lean on method sets.",
 		],
 	},
@@ -71,7 +71,7 @@ export const developerProfiles = {
 		language: "java",
 		mindset: [
 			"Do not read Musi class as Java class; it is a typeclass-style behavior contract.",
-			"Use records/data for composite values, and instances where Java would use interfaces plus implementations.",
+			"Use records and data for composite values, and instances where Java would use interfaces plus implementations.",
 		],
 	},
 	"javascript-typescript": {
@@ -79,7 +79,7 @@ export const developerProfiles = {
 		language: "typescript",
 		mindset: [
 			"Do not read Musi class as a prototype or object constructor; it is a behavior contract.",
-			"Use records/data for object-shaped values, and instances for shared typed behavior.",
+			"Use records and data for object-style values, and instances for shared typed behavior.",
 		],
 	},
 	lua: {
@@ -87,15 +87,15 @@ export const developerProfiles = {
 		language: "lua",
 		mindset: [
 			"Do not map tables/metatables directly to Musi classes; Musi classes name required behavior.",
-			"Use records/data for table-like shape, then instances for operations a type promises.",
+			"Use records and data for table-like data, then instances for operations a type promises.",
 		],
 	},
 	python: {
 		label: "Python",
 		language: "python",
 		mindset: [
-			"Do not read Musi class as Python class; it is closer to an explicit protocol with instances.",
-			"Use records/data for object shape, and classes/laws for behavior callers rely on.",
+			"Do not read Musi class as Python class; it is closer to a clear protocol with instances.",
+			"Use records and data for object fields, and classes/laws for behavior callers rely on.",
 		],
 	},
 	rust: {

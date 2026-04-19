@@ -23,7 +23,7 @@ answer;`,
 		title: "Fallback value from an optional result",
 		caption:
 			"One value may be present or missing. Musi does this with the real stdlib <code>Option</code> family.",
-		note: "Think of a spare house key: if the usual key exists, use it; otherwise use the backup. Musi expresses that choice with explicit constructors and <code>match</code>.",
+		note: "Think of a spare house key: if the usual key exists, use it; otherwise use the backup. Musi writes that choice with constructors and <code>match</code>.",
 		sourceText: `let port := Option.some[Int](8080)
   |> Option.unwrapOr[Int](3000);`,
 		evidence: {
@@ -49,7 +49,7 @@ let answer := twice(21);`,
 		id: "import-stdlib",
 		title: "Import a standard library module",
 		caption:
-			"Import the standard library, then reach the family you need. Musi keeps stdlib access explicit through <code>@std</code>.",
+			"Import the standard library, then reach the family you need. Musi keeps stdlib access visible through <code>@std</code>.",
 		note: "Like checking out a toolbox before work: import once, then use the tools by name. In Musi, imports are values you can pass around.",
 		sourceText: `let Option := import "@std/option";
 
@@ -76,8 +76,8 @@ export let test () := Testing.it("adds values", Testing.toBe(1 + 2, 3));`,
 		id: "data-named-record",
 		title: "Named record data definition",
 		caption:
-			"Use named fields directly in a <code>data</code> definition, then construct values from that shape.",
-		note: "Like filling out a passport form: named boxes with known defaults. This form keeps field intent explicit in the type itself.",
+			"Use named fields directly in a <code>data</code> definition, then construct values from that form.",
+		note: "Like filling out a passport form: named boxes with known defaults. This form keeps field meaning visible in the type itself.",
 		sourceText: `let User := data {
 	  name : String;
 	  age : Int := 0;
@@ -94,7 +94,7 @@ export let test () := Testing.it("adds values", Testing.toBe(1 + 2, 3));`,
 		title: "Record and array spread updates",
 		caption:
 			"Build structured values, spread them, and update selected fields in one expression flow.",
-		note: "Like copying a form and editing only one line instead of rewriting everything. Spread/update keeps the unchanged parts intact and keeps changed fields explicit.",
+		note: "Like copying a form and editing only one line instead of rewriting everything. Spread/update keeps the unchanged parts intact and keeps changed fields visible.",
 		sourceText: `let xs := [1, 2];
 let ys := [0, ...xs, 3];
 

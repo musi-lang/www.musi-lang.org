@@ -30,7 +30,7 @@ export interface SiteCopy {
 		communityLinks: string;
 		installCommands: string;
 		commandReference: string;
-		lane: string;
+		useFor: string;
 		command: string;
 		description: string;
 		status: string;
@@ -128,7 +128,7 @@ export const siteCopy = {
 		communityLinks: "Community Links",
 		installCommands: "Install Commands",
 		commandReference: "Musi command reference",
-		lane: "Lane",
+		useFor: "Use for",
 		command: "Command",
 		description: "Description",
 		status: "Status",
@@ -141,12 +141,12 @@ export const siteCopy = {
 		eyebrow: "Home",
 		title: "What is Musi?",
 		description:
-			"Musi is an expression-first programming language with pattern matching, effects, and a small command surface. Learn the language, install it from source, check playground status, and find community links from one site.",
+			"Musi is a programming language where most code gives a value. It has pattern matching, effects, and a small set of commands. Learn the language, install Musi, check the playground, and find project links from one site.",
 		sectionsTitle: "Why Musi",
 		summary: [
-			"Expression-first flow with clear data movement.",
-			"Source-first setup with package and direct command lanes.",
-			"Learning, setup, playground status, and community each have their own path.",
+			"Most code gives a value, so data is easier to follow.",
+			"Install from source. Use musi for a project and music for one file.",
+			"Learn, install, playground, and project links each have their own page.",
 		],
 		primaryCta: "Start Learning",
 		secondaryCta: "Install",
@@ -154,39 +154,39 @@ export const siteCopy = {
 		statusItems: [
 			{
 				label: "Docs",
-				value: "Book-first",
-				copy: "Chapters stay close to runnable examples and current commands.",
+				value: "Start with the book",
+				copy: "Chapters use examples you can run and commands you can try.",
 			},
 			{
 				label: "Install",
-				value: "Source-first",
-				copy: "Build lanes use package and direct command paths.",
+				value: "Install from source",
+				copy: "Build Musi from source. Use musi for a project. Use music for one file.",
 			},
 			{
 				label: "Playground",
-				value: "Not public",
-				copy: "Browser execution is tracked openly, with install as the working path.",
+				value: "Not ready yet",
+				copy: "The browser runner is not ready. Install Musi to run code now.",
 			},
 		],
 		taskBoards: [
 			{
 				label: "Start here",
 				title: "Read Musi Book",
-				copy: "Begin with setup, then move through syntax, data, types, effects, and tooling.",
+				copy: "Start with setup. Then learn syntax, data, types, effects, and commands.",
 				href: "/learn/book",
 				actionLabel: "Open book",
 			},
 			{
 				label: "I know what I need",
 				title: "Install and Commands",
-				copy: "Go straight to prerequisites, bootstrap commands, and command lanes.",
+				copy: "Go straight to needed tools, install commands, and when to use musi or music.",
 				href: "/install",
 				actionLabel: "Open install path",
 			},
 			{
 				label: "Unusual cases",
 				title: "Source, issues, and FFI",
-				copy: "Find project links, unsafe/FFI docs, and current community tracking.",
+				copy: "Find project links, unsafe/FFI docs, and GitHub issues.",
 				href: "/community",
 				actionLabel: "Open project links",
 			},
@@ -194,19 +194,19 @@ export const siteCopy = {
 		sections: [
 			{
 				title: "Expression-first",
-				copy: "Read files top to bottom with let, match, and ordinary expressions instead of hidden control machinery.",
+				copy: "Read files from top to bottom with let, match, and code that gives values.",
 			},
 			{
-				title: "Effects stay readable",
-				copy: "Use effects and handlers without pushing ordinary code into framework ceremony.",
+				title: "Effects stay clear",
+				copy: "Use effects and handlers without extra setup code.",
 			},
 			{
-				title: "Two command lanes",
-				copy: "Use musi for package work and music for direct source or artifact work.",
+				title: "Two commands",
+				copy: "Use musi for a project. Use music for one file or one built file.",
 			},
 			{
-				title: "Clear public structure",
-				copy: "Learn, Install, Playground, and Community each own one public job.",
+				title: "Clear site pages",
+				copy: "Learn, Install, Playground, and Community each have one clear job.",
 			},
 		],
 	},
@@ -214,45 +214,45 @@ export const siteCopy = {
 		eyebrow: "Install",
 		title: "Install Musi with Script or Cargo",
 		description:
-			"Install Rust and libffi first, then choose a script bootstrap or a local cargo install. Both paths install music and musi into Cargo's bin directory.",
-		prerequisitesLabel: "Prerequisites",
+			"Install Rust and libffi first. Then use the install script or a local Cargo install. Both install music and musi into Cargo's bin directory.",
+		prerequisitesLabel: "Needed tools",
 		installScriptsLabel: "Install Script",
 		cargoInstallLabel: "Cargo Install",
 		quickStartLabel: "Quick Start",
 		commandMapLabel: "Command Map",
-		commandMapTitle: "Current Commands",
+		commandMapTitle: "Commands",
 		commandMapCopy:
-			"Use package commands most of the time. Use direct commands when you want one file or one artifact.",
+			"Use musi for a project most of the time. Use music when you want one file or one built file.",
 	},
 	playground: {
 		eyebrow: "Playground",
 		title: "Playground Status",
-		copy: "Browser execution support is planned but not public yet.",
-		statusTitle: "WASM Playground Is Not Public Yet",
+		copy: "The browser runner is planned, but it is not ready yet.",
+		statusTitle: "Browser Playground Is Not Ready Yet",
 		statusCopy:
-			"This page shows browser tooling status and points back to install and community work.",
+			"This page shows playground status and links to install steps and GitHub issues.",
 	},
 	community: {
 		eyebrow: "Community",
 		title: "Join the Musi Project",
 		description:
-			"Community keeps contribution, discussion, issue tracking, and repository links in one place.",
+			"Find code, issues, ways to help, and discussion links in one place.",
 		sections: [
 			{
 				title: "Repository",
-				copy: "Browse source, tags, issues, and release history.",
+				copy: "Browse code, tags, issues, and releases.",
 				href: "https://github.com/musi-lang/musi",
 				label: "Open GitHub",
 			},
 			{
 				title: "Contributing",
-				copy: "Read contribution expectations, workflow notes, and project standards.",
+				copy: "Read how to help and how project work happens.",
 				href: "https://github.com/musi-lang/musi/blob/main/CONTRIBUTING.md",
 				label: "Read contributing guide",
 			},
 			{
-				title: "Issue Tracking",
-				copy: "See active bugs, language work, and open tasks.",
+				title: "Issues",
+				copy: "See bugs, language work, and open tasks.",
 				href: "https://github.com/musi-lang/musi/issues",
 				label: "Open issues",
 			},
@@ -262,9 +262,9 @@ export const siteCopy = {
 		eyebrow: "Learn",
 		title: "Musi Book",
 		description:
-			"Read Musi in chapter order through small beginner-first language chapters. Learning pages stay close to install steps and current commands.",
-		startTitle: "Start at the Beginning",
-		questionsTitle: "Follow the Chapter Sequence",
+			"Read Musi in order with small beginner chapters. Learn with install steps and commands you can try.",
+		startTitle: "Start at the beginning",
+		questionsTitle: "Follow the chapters",
 		partsTitle: "Parts and Chapters",
 	},
 } satisfies SiteCopy;

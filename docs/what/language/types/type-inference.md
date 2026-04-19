@@ -15,12 +15,12 @@ Inference should make code quieter, not mysterious. If a reader has to jump thro
 
 ## Where inference feels natural
 
-Local totals, temporary strings, and values created from clear constructors usually infer well. A receipt line built from known text does not need to announce itself at every step.
+Local totals, short strings, and values from clear constructors infer well. A receipt line built from known text does not need to announce itself at every step.
 
 ## Where inference should stop
 
-Exports, callbacks, generic helpers, and effect declarations are public or abstract enough that written types help. The compiler may not need the annotation, but the reader and editor often do.
+Exports, callbacks, generic helpers, and effect named parts are public or abstract enough that written types help. The compiler may not need the annotation, but the reader and editor often do.
 
 Types are labels that prevent later guesswork. A ticket number, room name, function value, and generic box can all be written as values, but type notes say which promises the code expects to keep.
 
-Do not add type detail as decoration. Add it when it helps a reader, fixes an edge, explains a public surface, or lets generic code say exactly which kind of value it can accept.
+Do not add type detail as decoration. Add it when it helps a reader, fixes an edge, explains a public API, or lets generic code say exactly which kind of value it can accept.

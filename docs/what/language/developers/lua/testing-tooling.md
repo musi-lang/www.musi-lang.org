@@ -1,31 +1,31 @@
 ---
-title: "Testing and Tooling"
-description: "Read Testing and Tooling as a Lua habit shift, with links to the Musi Book definition."
+title: "Testing and Tools"
+description: "Read Testing and Tools as a guide for Lua readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "Lua Developers"
 order: 13
 slug: "testing-tooling"
-summary: "Translate the Lua habit, then use the Musi Book for the full rule."
+summary: "Start from Lua habits, then use the Musi Book for the full rule."
 ---
 
-A Lua reader brings habits from tables, metatables, nil, coroutines, embedding, modules, and small runtime boundaries. That helps with simple data and host/runtime edges without much ceremony, but the Musi page asks a narrower question: what contract should this tests as domain promises example make visible?
+For a Lua reader, this guide starts from familiar habits. It shows how Musi handles tests as what the program should dos.
 
 {{compare:lua-testing-tooling}}
 
-## Reading Testing and Tooling from Lua
+## Reading Testing and Tools from Lua
 
-On the Musi side, Musi tests should state the domain promise first, then check the function or value that proves it. Read the shared example through Lua eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, tests should state the what the program should do first, then check the function or value that proves it. For a Lua reader, the key topic is testing and tools.
 
-## False friend
+## Common mistake
 
-Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For a Lua reader, the trap is letting table shape, missing fields, and behavior conventions blur together; Musi `class` is not a metatable pattern; records/data hold table-like shape, classes/instances name promised behavior.
+Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For Lua, common mistake: letting table fields, missing fields, and behavior conventions blur together. Musi `class` is not a metatable pattern; records and data hold table-like data, classes/instances name promised behavior.
 
 ## When this pays off
 
-Use this style when a future reader needs to know which behavior broke, not only which line failed. The Lua instinct still helps here: Keep the Lua habit of using small names and simple values.
+Use this style when a future reader needs to know which behavior broke, not only which line failed. The Lua habit still helps here: Keep the Lua habit of using small names and simple values.
 
 ## Keep close
 
 - [Testing](/learn/book/advanced/testing)
-- [Running and tooling](/learn/book/advanced/running-and-tooling)
+- [Running and tools](/learn/book/advanced/running-and-tooling)
 - [Packages](/learn/book/organization/packages)

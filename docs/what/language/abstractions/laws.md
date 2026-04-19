@@ -1,11 +1,11 @@
 ---
 title: "Laws"
-description: "Add semantic expectations after class and instance basics."
+description: "Add meaning expectations after class and instance basics."
 group: "Abstractions"
 section: "Abstractions"
 order: 23
 slug: "laws"
-summary: "Use laws to document the meaning of an abstraction, not just its shape."
+summary: "Use laws to document the meaning of an abstraction, not just its form."
 ---
 Laws state expectations that instances should obey. They are like the rules of a board game: each player may have a different strategy, but the moves still have to follow the same rules.
 
@@ -23,4 +23,4 @@ A good law is small and checkable. It should describe one property of the class,
 
 Abstraction chapters explain shared behavior. A record says what fields a value has. A class says what a type can do. An instance gives that behavior for one type. A law names a promise callers depend on.
 
-The false friend is the word class. In Musi it is not an object blueprint. Use records and data for shape. Use classes, instances, and laws when many shapes need to share behavior.
+The common mistake is the word class. In Musi it is not an object blueprint. Use records and data for stored data. Use classes, instances, and laws when many data types need to share behavior.
