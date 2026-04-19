@@ -103,7 +103,7 @@ const DEVELOPER_GUIDE_LANGUAGE_ANCHORS = [
 		pattern: /\b(?:Rust reader|ownership|trait|impl|Result|unsafe)\b/i,
 	},
 ] as const;
-const repoRoot = join(import.meta.dirname, "..", "..");
+const repoRoot = join(import.meta.dirname, "..");
 const snippetEmbedPattern = /\{\{snippet:([\w-]+)\}\}/g;
 const comparisonEmbedPattern = /\{\{compare:([\w-]+)\}\}/g;
 const markdownLinkPattern = /\[[^\]\n]+\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g;
@@ -510,7 +510,7 @@ describe("content generation", () => {
 
 	it("keeps website docs free of staging language", () => {
 		const websiteDocs = [
-			join(repoRoot, "www/README.md"),
+			join(repoRoot, "README.md"),
 			...markdownFilesInDirectory(join(repoRoot, "docs/what/website")),
 		];
 
@@ -537,7 +537,7 @@ describe("content generation", () => {
 			existsSync(join(repoRoot, "docs/what/website/pages-cms-hosting.md")),
 		).toBe(false);
 		expect(packageManifest).toContain(
-			'"docs:studio": "bun run --cwd www docs:studio"',
+			'"docs:studio": "ASTRO_TELEMETRY_DISABLED=1 astro dev',
 		);
 		expect(packageManifest).not.toContain("cms:");
 
@@ -565,11 +565,11 @@ describe("content generation", () => {
 	describe("content registry architecture", () => {
 		it("keeps public registry modules as small facades", () => {
 			const manifestSource = readFileSync(
-				join(repoRoot, "www", "src", "content", "book", "manifest.ts"),
+				join(repoRoot, "src", "content", "book", "manifest.ts"),
 				"utf8",
 			);
 			const snippetRegistrySource = readFileSync(
-				join(repoRoot, "www", "src", "content", "snippet-registry.ts"),
+				join(repoRoot, "src", "content", "snippet-registry.ts"),
 				"utf8",
 			);
 
@@ -597,7 +597,6 @@ describe("content generation", () => {
 					existsSync(
 						join(
 							repoRoot,
-							"www",
 							"src",
 							"content",
 							"book",
@@ -613,7 +612,6 @@ describe("content generation", () => {
 					existsSync(
 						join(
 							repoRoot,
-							"www",
 							"src",
 							"content",
 							"snippets",
@@ -629,20 +627,16 @@ describe("content generation", () => {
 
 	it("keeps generated content TypeScript small", () => {
 		const generatedContentSource = readFileSync(
-			join(repoRoot, "www", "src", "generated-content.ts"),
+			join(repoRoot, "src", "generated-content.ts"),
 			"utf8",
 		);
 
 		expect(generatedContentSource.length).toBeLessThan(10_000);
 		expect(
-			existsSync(
-				join(repoRoot, "www", "src", "generated", "rendered-docs.json"),
-			),
+			existsSync(join(repoRoot, "src", "generated", "rendered-docs.json")),
 		).toBe(true);
 		expect(
-			existsSync(
-				join(repoRoot, "www", "src", "generated", "rendered-snippets.json"),
-			),
+			existsSync(join(repoRoot, "src", "generated", "rendered-snippets.json")),
 		).toBe(true);
 	});
 
@@ -794,12 +788,12 @@ describe("content generation", () => {
 	});
 
 	it("uses Machines CodeTabs instead of a website-owned duplicate", () => {
-		expect(
-			existsSync(join(repoRoot, "www", "src", "ui", "code-tabs.tsx")),
-		).toBe(false);
+		expect(existsSync(join(repoRoot, "src", "ui", "code-tabs.tsx"))).toBe(
+			false,
+		);
 		expect(
 			readFileSync(
-				join(repoRoot, "www", "src", "site-pages", "install", "page.tsx"),
+				join(repoRoot, "src", "site-pages", "install", "page.tsx"),
 				"utf8",
 			),
 		).toContain('from "@musi-lang/machines/preact"');
@@ -810,16 +804,13 @@ describe("content generation", () => {
 			),
 		).toContain("export function CodeTabs");
 		expect(
-			readFileSync(
-				join(repoRoot, "www", "scripts", "generate-content.ts"),
-				"utf8",
-			),
+			readFileSync(join(repoRoot, "scripts", "generate-content.ts"), "utf8"),
 		).not.toContain("function codeTabFrame");
 	});
 
 	it("keeps authored multiline code examples as template literals", () => {
 		for (const path of typescriptFilesInDirectory(
-			join(repoRoot, "www", "src", "content"),
+			join(repoRoot, "src", "content"),
 		)) {
 			expect(readFileSync(path, "utf8"), path).not.toMatch(
 				codeExampleEscapedNewlinePattern,
@@ -834,7 +825,6 @@ describe("content generation", () => {
 				existsSync(
 					join(
 						repoRoot,
-						"www",
 						"src",
 						"content",
 						"comparisons",
@@ -848,7 +838,6 @@ describe("content generation", () => {
 				existsSync(
 					join(
 						repoRoot,
-						"www",
 						"src",
 						"content",
 						"comparisons",
@@ -867,7 +856,6 @@ describe("content generation", () => {
 			const source = readFileSync(
 				join(
 					repoRoot,
-					"www",
 					"src",
 					"content",
 					"comparisons",

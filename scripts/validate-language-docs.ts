@@ -11,7 +11,7 @@ import { developerComparisons } from "../src/content/comparisons/developers";
 import { exampleGroups } from "../src/content/examples/groups";
 import { contentSnippets } from "../src/content/snippet-registry";
 
-const repoRoot = join(import.meta.dir, "..", "..");
+const repoRoot = join(import.meta.dir, "..");
 const rawPlaceholderPattern = /\{\{([^{}\n]+)\}\}/g;
 const supportedPlaceholderPattern =
 	/^\s*(snippet|example|try|compare):([\w-]+)\s*$/;

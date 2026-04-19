@@ -61,7 +61,7 @@ counter;`,
   base + 80
 );`,
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 57,
 		},
 	},
@@ -113,7 +113,7 @@ let Result := Std.result;`,
 		sourceText: `let port : Int := 8080;
 let identityFn[T] (input : T) : T := input;`,
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 111,
 		},
 	},
@@ -122,7 +122,7 @@ let identityFn[T] (input : T) : T := input;`,
 		language: "musi",
 		sourceText: "identityFn[Int](port);",
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 121,
 		},
 	},
@@ -175,7 +175,7 @@ let values := [1, 2, 3];`,
 		sourceText: `let point3 := { ...point, z := 5 };
 let extended := [0, ...values];`,
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 173,
 		},
 	},
@@ -189,7 +189,7 @@ let same := next = port + 1;
 let capped := port <= 9000;
 let masked := 1 shl 3;`,
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 183,
 		},
 	},
@@ -251,7 +251,7 @@ Local.answer;`,
 let next := port + 1;
 next;`,
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 248,
 		},
 	},
@@ -271,7 +271,7 @@ next;`,
 		language: "musi",
 		sourceText: "request Clock.tick();",
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 270,
 		},
 	},
@@ -365,7 +365,7 @@ next;`,
 		sourceText: `let addOne (x : Int) : Int := x + 1;
 let addTwo (x : Int) : Int := x + 2;`,
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 363,
 		},
 	},
@@ -376,7 +376,7 @@ let addTwo (x : Int) : Int := x + 2;`,
 let addOneSyntax := quote (#(x) + 1);
 let addTwoSyntax := quote (#(x) + 2);`,
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 373,
 		},
 	},
@@ -547,7 +547,7 @@ nextPort;`,
   base + offset
 );`,
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 523,
 		},
 	},
@@ -570,7 +570,7 @@ let label := "ready";
 let enabled := .True;
 label;`,
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 547,
 		},
 	},
@@ -582,7 +582,7 @@ let next := port + 1;
 let same := next = 8081;
 let capped := next <= 9000;`,
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 559,
 		},
 	},
@@ -748,7 +748,7 @@ Local.answer;`,
 let twice (x : Int) : Int := x + x;
 twice(port);`,
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 707,
 		},
 	},
@@ -759,7 +759,7 @@ twice(port);`,
 let next := port + 1;
 next;`,
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 718,
 		},
 	},
@@ -789,7 +789,7 @@ let boxKeeps := instance Keeps[Box1] {
 
 copiedPort;`,
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 729,
 		},
 	},
@@ -933,7 +933,7 @@ foreign "c" let puts (msg : CString) : Int;
 @when(os := "linux")
 foreign let clock_gettime (id : Int, out : CPtr) : Int;`,
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 869,
 		},
 	},
@@ -1026,7 +1026,7 @@ export let currentTicks () : Int := unsafe {
 let addOneSyntax := quote (#(x) + 1);
 addOneSyntax;`,
 		evidence: {
-			path: "www/src/content/snippets/core.ts",
+			path: "src/content/snippets/core.ts",
 			line: 967,
 		},
 	},

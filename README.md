@@ -1,6 +1,6 @@
 # Musi Website
 
-Public website for Musi. The website is a static-first Bun + Astro + Vite + Preact app that builds into `www/dist`.
+Public website for Musi. The website is a static-first Bun + Astro + Vite + Preact app that builds into `dist`.
 
 This README is the operations guide for local website contributors, docs authors, and the people publishing the main Musi website.
 
@@ -46,15 +46,15 @@ For Lighthouse accessibility audits, use a clean browser profile or incognito wi
 
 Human-facing language docs live under `docs/what/language`.
 Website maintainer docs live under `docs/what/website`.
-Book section landing pages live under `www/src/content/book/language`.
+Book section landing pages live under `src/content/book/language`.
 
 Docs content is repo-backed. Markdown carries authored prose, TypeScript files carry structure, and generated content is committed for the static site:
 
 - Markdown files hold page copy.
-- `www/src/content/book/manifest.ts` controls routing, grouping, aliases, and order.
-- `www/src/content/snippet-registry.ts` and `www/src/content/examples/` provide code examples used by Markdown placeholders.
-- `www/scripts/generate-content.ts` deterministically renders docs into `www/src/generated/rendered-docs.json` and `www/src/generated/rendered-snippets.json`.
-- `www/scripts/validate-language-docs.ts` validates frontmatter, placeholder references, and syntax-fence rules before generation.
+- `src/content/book/manifest.ts` controls routing, grouping, aliases, and order.
+- `src/content/snippet-registry.ts` and `src/content/examples/` provide code examples used by Markdown placeholders.
+- `scripts/generate-content.ts` deterministically renders docs into `src/generated/rendered-docs.json` and `src/generated/rendered-snippets.json`.
+- `scripts/validate-language-docs.ts` validates frontmatter, placeholder references, and syntax-fence rules before generation.
 
 Rules for language docs:
 
@@ -85,7 +85,7 @@ Editable roots:
 
 - `docs/what/language`
 - `docs/what/website`
-- `www/src/content/book/language`
+- `src/content/book/language`
 
 Docs Studio edits the same repository files that authors review in Git.
 Review changes before committing.
@@ -144,16 +144,13 @@ Build this site from the repository root.
 Use these settings:
 
 - Root directory: repository root
-- Build command: `bun install --frozen-lockfile && bun run build:prod`
-- Build output directory: `www/dist`
+- Build command: `bun install --frozen-lockfile && bun run build`
+- Build output directory: `dist`
 
 Recommended Pages environment variables:
 
 - `BUN_VERSION=1.3.12`
-- `SKIP_DEPENDENCY_INSTALL=1`
-
-These values are committed in root `wrangler.toml`. Keep dashboard values unset
-unless overriding them for a deployment environment.
+Do not set `SKIP_DEPENDENCY_INSTALL`; Cloudflare must install dependencies before `astro build`.
 
 Recommended Cloudflare dashboard settings:
 
@@ -167,4 +164,4 @@ curl -s https://musi-lang.org/ | head
 curl -s https://musi-lang.org/robots.txt
 ```
 
-Confirm live HTML matches `www/dist` and `robots.txt` contains only repo-generated directives.
+Confirm live HTML matches `dist` and `robots.txt` contains only repo-generated directives.

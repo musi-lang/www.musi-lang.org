@@ -20,24 +20,21 @@ import {
 	validateLanguageDocs,
 } from "./validate-language-docs";
 
-const repoRoot = join(import.meta.dir, "..", "..");
+const repoRoot = join(import.meta.dir, "..");
 const generatedDocsPath = join(
 	repoRoot,
-	"www",
 	"src",
 	"generated",
 	"rendered-docs.json",
 );
 const generatedSnippetsPath = join(
 	repoRoot,
-	"www",
 	"src",
 	"generated",
 	"rendered-snippets.json",
 );
 const grammarPath = join(
 	repoRoot,
-	"www",
 	"src",
 	"content",
 	"grammars",
@@ -880,8 +877,8 @@ async function main() {
 		]);
 		if (!(docsUpToDate && snippetsUpToDate)) {
 			const staleFiles = [
-				docsUpToDate ? null : "www/src/generated/rendered-docs.json",
-				snippetsUpToDate ? null : "www/src/generated/rendered-snippets.json",
+				docsUpToDate ? null : "src/generated/rendered-docs.json",
+				snippetsUpToDate ? null : "src/generated/rendered-snippets.json",
 			].filter((path): path is string => path !== null);
 			throw new Error(
 				`generated content is stale: ${staleFiles.join(", ")}. Run \`bun run generate:content\`.`,
@@ -902,8 +899,8 @@ async function main() {
 	}
 
 	const changedFiles = [
-		docsChanged ? "www/src/generated/rendered-docs.json" : null,
-		snippetsChanged ? "www/src/generated/rendered-snippets.json" : null,
+		docsChanged ? "src/generated/rendered-docs.json" : null,
+		snippetsChanged ? "src/generated/rendered-snippets.json" : null,
 	].filter((path): path is string => path !== null);
 
 	console.log(`generated content updated: ${changedFiles.join(", ")}`);

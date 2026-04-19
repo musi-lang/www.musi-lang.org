@@ -6,8 +6,8 @@
 .dev.vars.*
 .DS_Store
 node_modules/
-www/dist/
-www/.astro/
+dist/
+.astro/
 *.tsbuildinfo
 logs
 *.log

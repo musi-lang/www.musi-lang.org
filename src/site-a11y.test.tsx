@@ -237,7 +237,7 @@ describe("site accessibility scaffolding", () => {
 			"utf8",
 		);
 		const machinesCss = readFileSync(
-			new URL("../../packages/machines/src/components.scss", import.meta.url),
+			new URL("../packages/machines/src/components.scss", import.meta.url),
 			"utf8",
 		);
 
@@ -293,7 +293,7 @@ describe("site accessibility scaffolding", () => {
 
 	it("keeps standalone sidebar panels outlined by the Machines theme", () => {
 		const machinesCss = readFileSync(
-			new URL("../../packages/machines/src/components.scss", import.meta.url),
+			new URL("../packages/machines/src/components.scss", import.meta.url),
 			"utf8",
 		);
 		const chromeCss = readFileSync(
@@ -335,15 +335,15 @@ describe("site accessibility scaffolding", () => {
 
 	it("keeps Machines and site chrome light-only", () => {
 		const tokensCss = readFileSync(
-			new URL("../../packages/machines/src/tokens.scss", import.meta.url),
+			new URL("../packages/machines/src/tokens.scss", import.meta.url),
 			"utf8",
 		);
 		const componentsCss = readFileSync(
-			new URL("../../packages/machines/src/components.scss", import.meta.url),
+			new URL("../packages/machines/src/components.scss", import.meta.url),
 			"utf8",
 		);
 		const indexTs = readFileSync(
-			new URL("../../packages/machines/src/index.ts", import.meta.url),
+			new URL("../packages/machines/src/index.ts", import.meta.url),
 			"utf8",
 		);
 		const siteDocument = readFileSync(

@@ -16,7 +16,7 @@ foreign "c" let puts (msg : CString) : Int;
 @when(os := "linux")
 foreign let clock_gettime (id : Int, out : CPtr) : Int;`,
 		evidence: {
-			path: "www/src/content/examples/groups-advanced.ts",
+			path: "src/content/examples/groups-advanced.ts",
 			line: 5,
 		},
 	},

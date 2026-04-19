@@ -85,7 +85,7 @@ export let test () := Testing.it("adds values", Testing.toBe(1 + 2, 3));`,
 
 	let user : User := { name := "Ada" };`,
 		evidence: {
-			path: "www/src/content/examples/groups-core.ts",
+			path: "src/content/examples/groups-core.ts",
 			line: 76,
 		},
 	},

@@ -2,6 +2,8 @@ import type * as Preact from "preact";
 import { useEffect, useId, useMemo, useRef, useState } from "preact/hooks";
 import { classNames, type MachinesTheme } from "./index";
 
+const restoreNoop = (): void => undefined;
+
 function clampNumber(value: number, min: number, max: number): number {
 	return Math.min(Math.max(value, min), max);
 }
@@ -29,7 +31,7 @@ function setSiblingBranchesInert(
 	inert: boolean,
 ): () => void {
 	if (!node) {
-		return () => {};
+		return restoreNoop;
 	}
 	const changed: Array<{
 		element: HTMLElement;
@@ -206,7 +208,7 @@ export function MeterBar(props: {
 					? "danger"
 					: "accent";
 	return (
-		<div
+		<meter
 			class={classNames(
 				"mx-bar",
 				"mx-bar--meter",
@@ -215,11 +217,13 @@ export function MeterBar(props: {
 				props.className,
 			)}
 			style={meterStyle}
-			role="meter"
 			aria-label={label}
-			aria-valuemin={min}
-			aria-valuemax={safeMax}
-			aria-valuenow={clampedValue}
+			min={min}
+			max={safeMax}
+			low={props.low}
+			high={props.high}
+			optimum={props.optimum}
+			value={clampedValue}
 		>
 			<div class="mx-bar__head">
 				<span class="mx-bar__label">{label}</span>
@@ -228,7 +232,7 @@ export function MeterBar(props: {
 			<div class="mx-bar__track" aria-hidden="true">
 				<div class="mx-bar__fill" />
 			</div>
-		</div>
+		</meter>
 	);
 }
 
