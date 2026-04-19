@@ -7,7 +7,7 @@ order: 10
 slug: "calls"
 summary: "Call functions directly and follow argument flow left to right."
 ---
-A call is where a named action receives its inputs. The shape is simple: the function name says what will happen, and the arguments say what it happens to.
+A call is where a named action receives its inputs. The form is simple: the function name says what will happen, and the arguments say what it happens to.
 
 {{snippet:chapter-calls}}
 
@@ -21,6 +21,6 @@ The caller is often where an API succeeds or fails. A function that is technical
 
 Nested calls are fine when each layer is short. They become hard when the reader has to count parentheses to understand the job. If a line starts to look like a stack of boxes, put one box on the table and name it.
 
-Core forms are the small hand tools of the language. Literals are raw materials, calls ask for work, operators join values, ranges mark spans, and lambdas carry a small action around. Each form should feel boring before you rely on it inside larger data or effect code.
+Core forms are the basic parts of the language. Literals are values, calls ask for work, operators join values, ranges mark spans, and lambdas carry a small action. Learn each form before using it in larger data or effect code.
 
-When a core form feels hard, place it in a plain story. A ticket price plus a fee, a room number in a range, a message sent through a callable, or a small action saved as a lambda is enough. The syntax matters because it keeps that story exact.
+When a core form feels hard, use a simple example. Try a ticket price plus a fee, a room number in a range, a message sent through a callable, or a small action saved as a lambda. The syntax keeps that example exact.

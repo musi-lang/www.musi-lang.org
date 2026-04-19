@@ -102,8 +102,8 @@ describe("site accessibility scaffolding", () => {
 		expect(html).toContain('class="mx-groupbox community-link-group"');
 		expect(html).toContain('class="community-link-box"');
 		expect(html).toContain("Open GitHub");
-		expect(html).toContain("Repository-first project");
-		expect(html).toContain("Use public tracking");
+		expect(html).toContain("Code is on GitHub");
+		expect(html).toContain("Use GitHub issues");
 		expect(html).not.toContain('legend="Notes"');
 		expect(html).not.toContain("Community notes");
 		expect(html).not.toContain('class="mx-action-card__title">Repository');
@@ -156,15 +156,15 @@ describe("site accessibility scaffolding", () => {
 	it("keeps playground status cards concise", () => {
 		const html = render("/playground");
 		expect(html).toContain("Local install");
-		expect(html).toContain("Use local runner");
-		expect(html).toContain("Use source install for checks and tests.");
-		expect(html).toContain("Read examples");
-		expect(html).toContain("Open runnable examples and commands.");
-		expect(html).toContain("Track work");
+		expect(html).toContain("Run Musi locally");
 		expect(html).toContain(
-			"Follow playground and runtime work in public issues.",
+			"Install Musi on your computer to check and test code.",
 		);
-		expect(html).not.toContain("Browser runner not public");
+		expect(html).toContain("Read examples");
+		expect(html).toContain("Open examples and commands you can try.");
+		expect(html).toContain("Read GitHub issues");
+		expect(html).toContain("Read GitHub issues for playground work.");
+		expect(html).not.toContain("Browser runner not ready");
 		expect(html).not.toContain(
 			"Use the source install path for real checks and tests today.",
 		);
@@ -172,20 +172,20 @@ describe("site accessibility scaffolding", () => {
 			"The book keeps examples close to supported syntax and commands.",
 		);
 		expect(html).not.toContain(
-			"Issues and repository links show current playground and runtime work.",
+			"Issues and repository links show current playground work.",
 		);
 	});
 
 	it("renders portal directory status and task paths", () => {
 		const html = render("/");
-		expect(html).toContain("Book-first");
+		expect(html).toContain("Start with the book");
 		expect(html).toContain("Read Musi Book");
 		expect(html).toContain("Unusual cases");
 	});
 
 	it("renders install command table headers", () => {
 		const html = render("/install");
-		expect(html).toContain('<th scope="col">Lane</th>');
+		expect(html).toContain('<th scope="col">Use for</th>');
 		expect(html).toContain('<th scope="col">Command</th>');
 		expect(html).toContain('<th scope="col">Description</th>');
 	});
@@ -193,10 +193,10 @@ describe("site accessibility scaffolding", () => {
 	it("renders install process steps", () => {
 		const html = render("/install");
 		expect(html).toContain('class="install-step-list"');
-		expect(html).toContain("Check prerequisites");
-		expect(html).toContain("Choose command lane");
+		expect(html).toContain("Check needed tools");
+		expect(html).toContain("Choose command");
 		expect(html).toContain("Verify PATH");
-		expect(html).toContain("Use current commands");
+		expect(html).toContain("Use commands");
 	});
 
 	it("renders only one visible install script tab panel by default", () => {

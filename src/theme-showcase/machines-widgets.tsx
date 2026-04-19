@@ -20,8 +20,8 @@ export function MachinesWidgets() {
 						label: "First",
 						content: (
 							<p>
-								Tab content keeps the old rail shape but uses modern state and
-								keyboard semantics.
+								Tab content keeps the old rail style but uses modern state and
+								keyboard rules.
 							</p>
 						),
 					},
@@ -30,8 +30,8 @@ export function MachinesWidgets() {
 						label: "Second",
 						content: (
 							<p>
-								Widgets are optional sugar. The visual language works without
-								client JavaScript.
+								Widgets are optional. The visual language works without client
+								JavaScript.
 							</p>
 						),
 					},
@@ -67,12 +67,11 @@ export function MachinesWidgets() {
 			</div>
 			<div class="mx-grid">
 				<Disclosure title="Disclosure panel" open={true}>
-					<p>Old-school visible container, modern disclosure behavior.</p>
+					<p>Visible old-style box, modern disclosure behavior.</p>
 				</Disclosure>
 				<Drawer label="Drawer preview" buttonLabel="Open drawer preview">
 					<p>
-						Use for mobile navigation, inspector panels, or short contextual
-						tools.
+						Use for mobile navigation, inspector panels, or short page tools.
 					</p>
 				</Drawer>
 			</div>

@@ -1,28 +1,28 @@
 ---
 title: "Enums, Data, and Pattern Matching"
-description: "Read Enums, Data, and Pattern Matching as a Rust habit shift, with links to the Musi Book definition."
+description: "Read Enums, Data, and Pattern Matching as a guide for Rust readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "Rust Developers"
 order: 5
 slug: "enums-data"
-summary: "Translate the Rust habit, then use the Musi Book for the full rule."
+summary: "Start from Rust habits, then use the Musi Book for the full rule."
 ---
 
-A Rust reader brings habits from ownership, enums, traits, Result, modules, pattern matching, and explicit unsafe blocks. That helps with the type that carries the invariant, but the Musi page asks a narrower question: what contract should this named cases and pattern matching example make visible?
+For a Rust reader, this guide starts from familiar habits. It shows how Musi handles named cases and pattern matching.
 
 {{compare:rust-enums-data}}
 
 ## Reading Enums, Data, and Pattern Matching from Rust
 
-On the Musi side, Musi data variants name the cases directly, and `match` reads the case split at the point where the answer is chosen. Read the shared example through Rust eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, data variants name the cases directly, and `match` reads the case split at the point where the answer is chosen. For a Rust reader, the key topic is enums, data, and pattern matching.
 
-## False friend
+## Common mistake
 
-Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real shape. For a Rust reader, the trap is expecting Musi syntax to mirror Rust even when the ideas are separated differently; Musi `class` is closest to a Rust trait plus law text; instances play the role of implementations for behavior.
+Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. For Rust, common mistake: expecting Musi syntax to mirror Rust even when the ideas are separated differently. Musi `class` is closest to a Rust trait plus law text. Instances give behavior.
 
 ## When this pays off
 
-Use data variants when an order, animal, traffic light, payment state, or parser result has a closed set of cases. The Rust instinct still helps here: Keep the Rust habit of asking which type carries the invariant.
+Use data variants when an order, animal, traffic light, payment state, or parser result has a closed set of cases. The Rust habit still helps here: Keep the Rust habit of asking which type carries the invariant.
 
 ## Keep close
 

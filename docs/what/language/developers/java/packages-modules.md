@@ -1,28 +1,28 @@
 ---
 title: "Packages and Modules"
-description: "Read Packages and Modules as a Java habit shift, with links to the Musi Book definition."
+description: "Read Packages and Modules as a guide for Java readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "Java Developers"
 order: 12
 slug: "packages-modules"
-summary: "Translate the Java habit, then use the Musi Book for the full rule."
+summary: "Start from Java habits, then use the Musi Book for the full rule."
 ---
 
-A Java reader brings habits from packages, classes, records, interfaces, exceptions, annotations, streams, and long-lived APIs. That helps with contracts, visibility, and maintainable names, but the Musi page asks a narrower question: what contract should this module and package boundaries example make visible?
+For a Java reader, this guide starts from familiar habits. It shows how Musi handles module and package edges.
 
 {{compare:java-packages-modules}}
 
 ## Reading Packages and Modules from Java
 
-On the Musi side, Musi imports bring named module values into scope, so package boundaries stay visible where code uses them. Read the shared example through Java eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, imports bring named module values into scope, so package edges stay visible where code uses them. For a Java reader, the key topic is packages and modules.
 
-## False friend
+## Common mistake
 
-Do not rebuild a source-language global namespace, header include pile, or barrel file when one import names the owner. For a Java reader, the trap is reading Musi `class` as a nominal object type with constructors and fields; Musi `class` is a behavior contract supplied by instances; records and data model object shape.
+Do not rebuild an old global namespace, header include pile, or barrel file when one import names the owner. For Java, common mistake: reading Musi `class` as an object type by name with constructors and fields. Musi `class` is behavior supplied by instances. Records and data model data.
 
 ## When this pays off
 
-Use modules when billing, routing, text, option, runtime, or encoding code has an owner worth naming. The Java instinct still helps here: Keep the Java habit of naming APIs for future readers.
+Use modules when billing, routing, text, option, runtime, or encoding code has an owner worth naming. The Java habit still helps here: Keep the Java habit of naming APIs for future readers.
 
 ## Keep close
 

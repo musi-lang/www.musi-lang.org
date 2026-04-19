@@ -1,28 +1,28 @@
 ---
 title: "Interfaces, Classes, Instances, and Laws"
-description: "Read Interfaces, Classes, Instances, and Laws as a Go habit shift, with links to the Musi Book definition."
+description: "Read Interfaces, Classes, Instances, and Laws as a guide for Go readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "Go Developers"
 order: 10
 slug: "interfaces-classes-laws"
-summary: "Translate the Go habit, then use the Musi Book for the full rule."
+summary: "Start from Go habits, then use the Musi Book for the full rule."
 ---
 
-Go interfaces are satisfied implicitly by method sets. Musi classes are explicit behavior requirements, and instances are the visible evidence that a type supplies the operation.
+Go interfaces are satisfied implicitly by method sets. Musi classes are clear behavior requirements, and instances are the visible evidence that a type supplies the operation.
 
 {{compare:go-interfaces-classes-laws}}
 
 ## Reading Interfaces, Classes, Instances, and Laws from Go
 
-On the Musi side, Musi classes name behavior a type can provide, instances provide it, and laws document promises callers rely on. Read the shared example through Go eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, classes name behavior a type can provide, instances provide it, and laws document promises callers rely on. For a Go reader, the key topic is interfaces, classes, instances, and laws.
 
-## False friend
+## Common mistake
 
-Do not confuse a Musi class with stored object state, inheritance, or a metatable. Shape and behavior are separate. For a Go reader, the trap is using absence or failure as a side channel because Go makes that cheap; Musi `class` is closer to an explicit interface constraint with instances; it is not a struct and not a method set attached by package convention.
+Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. For Go, common mistake: using absence or failure as a hidden path because Go makes that cheap. Musi `class` is closer to an interface rule with instances. It is not a struct. It is not a method set from package convention.
 
 ## When this pays off
 
-Use classes when many types share an operation such as compare, show, step, encode, or measure. The Go instinct still helps here: Keep the Go habit of writing the small thing first and naming package boundaries clearly.
+Use classes when many types share an operation such as compare, show, step, encode, or measure. The Go habit still helps here: Keep the Go habit of writing the small thing first and naming package edges clearly.
 
 ## Keep close
 

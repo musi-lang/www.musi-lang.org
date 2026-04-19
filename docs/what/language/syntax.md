@@ -1,6 +1,6 @@
 # Musi syntax
 
-Canonical syntax sources live in grammar, not in scattered prose, but this page should still tell you what shapes to expect before you dive into parser rules.
+Canonical syntax sources live in grammar, not in scattered prose, but this page should still tell you what forms to expect before you dive into parser rules.
 
 ## Source of truth
 
@@ -18,8 +18,8 @@ Canonical syntax sources live in grammar, not in scattered prose, but this page 
 - Effect invocation uses `request Effect.op(...)`.
 - Record updates use spread literals such as `{ ...point, y := 9 }`.
 - Data variants use constructor-style payload declarations such as `| Some(T)` or `| Configured(port : Int, secure : Bool)`.
-- Ordinary calls can use positional or named arguments, such as `render(8080, secure := .True)` or `render(port := 8080, secure := .True)`.
-- Receiver callable dot form uses UDNS notation: `value.inc(by := 2)` lowers as an attached or receiver-first call. Receiver-pattern declarations use `let (value : Type).inc(by : Int) := ...`; the explicit namespace form is `Type.inc(value, by := 2)`.
+- Normal calls can use positional or named arguments, such as `render(8080, secure := .True)` or `render(port := 8080, secure := .True)`.
+- Receiver callable dot form uses UDNS notation: `value.inc(by := 2)` lowers as an attached or receiver-first call. Receiver-pattern declarations use `let (value : Type).inc(by : Int) := ...`; the clear namespace form is `Type.inc(value, by := 2)`.
 - Pure function types use `T -> U`.
 - Effectful function types use `T ~> U`.
 - Generic calls can be bare or dotted: `f[T](x)` and `value.f[T](x)`.
@@ -48,7 +48,7 @@ Constructor-style payloads line variant definitions up with construction and mat
 Named variant payloads are order-independent at construction and pattern sites.
 Positional variants stay positional, and named variants stay named.
 
-Ordinary calls follow the same readability rule:
+Normal calls follow the same readability rule:
 
 - positional arguments may come first
 - named arguments may come after
@@ -69,14 +69,14 @@ Language chapters intentionally use referenced snippets instead of raw Musi fenc
 That keeps examples syntax-checked, highlightable, and tied to real repo sources instead of drifting prose-only fragments.
 Website Learn pages keep source links out of the reading flow. The snippet registry and tests keep examples traceable inside the repo.
 
-## No-return, no-loop baseline
+## No `return`, no base loop
 
 Musi is expression-first:
 
-- ordinary functions do not need `return`
+- normal functions do not need `return`
 - blocks produce values from their final expression
 - there are no `for`, `while`, `break`, or `continue` statements
-- repetition usually comes from recursion, ranges, pipelines, and library helpers
+- repetition often comes from recursion, ranges, pipelines, and library helpers
 
 ## Scope note
 

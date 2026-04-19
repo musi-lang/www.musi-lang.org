@@ -1,11 +1,11 @@
 ---
 title: "None, Option, and Result"
-description: "Read None, Option, and Result as a Python habit shift, with links to the Musi Book definition."
+description: "Read None, Option, and Result as a guide for Python readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "Python Developers"
 order: 7
 slug: "none-option-result"
-summary: "Translate the Python habit, then use the Musi Book for the full rule."
+summary: "Start from Python habits, then use the Musi Book for the full rule."
 ---
 
 Python None is useful but quiet. Musi Option makes absence a branch the caller sees before touching the value.
@@ -14,15 +14,15 @@ Python None is useful but quiet. Musi Option makes absence a branch the caller s
 
 ## Reading None, Option, and Result from Python
 
-On the Musi side, Musi uses `option.someOf` and `option.noneOf` when absence is expected, so callers handle the empty branch deliberately. Read the shared example through Python eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+Musi uses `option.someOf` and `option.noneOf` when absence is expected, so callers handle the empty branch deliberately. For a Python reader, the key topic is none, option, and result.
 
-## False friend
+## Common mistake
 
-Do not translate null, nil, None, or undefined as a quiet ordinary value. For a Python reader, the trap is trusting runtime convention where Musi expects a visible type or effect; Musi `class` is closer to an explicit protocol/typeclass than a Python class with attributes and methods.
+Do not translate null, nil, None, or undefined as a quiet normal value. For Python, common mistake: trusting runtime convention where Musi expects a visible type or effect. Musi `class` is closer to a clear protocol than a Python class with attributes and methods.
 
 ## When this pays off
 
-Use Option when a badge, ticket, receipt, search result, or lookup may honestly be missing. The Python instinct still helps here: Keep the Python habit of naming the real-world thing first.
+Use Option when a badge, ticket, receipt, search result, or lookup may honestly be missing. The Python habit still helps here: Keep the Python habit of naming the real-world thing first.
 
 ## Keep close
 

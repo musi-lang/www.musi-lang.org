@@ -8,13 +8,13 @@ export function CommunityPage(_props: { route: AppRoute }) {
 	const communityNotes = [
 		{
 			label: "Source",
-			value: "Repository-first project",
-			copy: "Code, issues, and contribution notes stay visible rather than hidden behind a signup flow.",
+			value: "Code is on GitHub",
+			copy: "Code, issues, and notes for helpers are on GitHub. You do not need a new account on this site.",
 		},
 		{
 			label: "Support",
-			value: "Use public tracking",
-			copy: "Open issues are the safest place to follow bugs, language work, and missing docs.",
+			value: "Use GitHub issues",
+			copy: "Use GitHub issues to follow bugs, language work, and missing docs.",
 		},
 	];
 	return (

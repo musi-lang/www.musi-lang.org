@@ -101,7 +101,7 @@ export const tryBlocks = [
 		steps: [
 			"Define one class.",
 			"Add one instance for `Int`.",
-			"Call the behavior through the class surface.",
+			"Call the behavior through the class API.",
 		],
 	},
 	{
@@ -119,7 +119,7 @@ export const tryBlocks = [
 		steps: [
 			"Write one `quote` expression.",
 			"Splice one value into it.",
-			"Compare the quoted shape with duplicated handwritten code.",
+			"Compare the quoted code with duplicated handwritten code.",
 		],
 	},
 	{
@@ -128,7 +128,7 @@ export const tryBlocks = [
 		steps: [
 			"Declare one `foreign` binding.",
 			"Add one attribute to it.",
-			"Keep the declaration minimal and explicit.",
+			"Keep the named part small and clear.",
 		],
 	},
 	{

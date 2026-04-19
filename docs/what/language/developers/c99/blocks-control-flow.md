@@ -1,28 +1,28 @@
 ---
 title: "Blocks and Control Flow"
-description: "Read Blocks and Control Flow as a C99 habit shift, with links to the Musi Book definition."
+description: "Read Blocks and Control Flow as a guide for C readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "C Developers"
 order: 3
 slug: "blocks-control-flow"
-summary: "Translate the C99 habit, then use the Musi Book for the full rule."
+summary: "Start from C habits, then use the Musi Book for the full rule."
 ---
 
-A C reader brings habits from headers, translation units, pointers, arrays, `errno`, sentinel returns, and small functions that trust callers. That helps with cost, layout, and the exact boundary where bytes cross into code, but the Musi page asks a narrower question: what contract should this branching and block results example make visible?
+For a C reader, this guide starts from familiar habits. It shows how Musi handles branching and block results.
 
 {{compare:c99-blocks-control-flow}}
 
 ## Reading Blocks and Control Flow from C99
 
-On the Musi side, Musi blocks and matches are expressions when they produce a value; the branch answer matters more than the statement container. Read the shared example through C99 eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, blocks and matches are expressions when they produce a value; the branch answer matters more than the statement container. For a C reader, the key topic is blocks and control flow.
 
-## False friend
+## Common mistake
 
-Do not carry over temporary variables whose only job was to smuggle a branch result out of a statement block. For a C reader, the trap is treating convention as a contract; Musi `class` is not a C struct with function pointers; records/data carry shape, classes name behavior a type can provide.
+Do not keep extra variables only to move a branch result out of a statement block. For C, common mistake: treating convention as a contract. Musi `class` is not a C struct with function pointers; records and data hold data, classes name behavior a type can provide.
 
 ## When this pays off
 
-Use this shape when a route fee, access decision, or small rule table chooses one value from several cases. The C99 instinct still helps here: Keep the C habit of asking where memory, symbols, and failures come from.
+Use this pattern when a route fee, access decision, or small rule table chooses one value from several cases. The C99 habit still helps here: Keep the C habit of asking where memory, symbols, and failures come from.
 
 ## Keep close
 

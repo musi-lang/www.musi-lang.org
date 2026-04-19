@@ -1,28 +1,28 @@
 ---
 title: "Variables and Mutation"
-description: "Read Variables and Mutation as a C99 habit shift, with links to the Musi Book definition."
+description: "Read Variables and Mutation as a guide for C readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "C Developers"
 order: 4
 slug: "variables-mutation"
-summary: "Translate the C99 habit, then use the Musi Book for the full rule."
+summary: "Start from C habits, then use the Musi Book for the full rule."
 ---
 
-A C reader brings habits from headers, translation units, pointers, arrays, `errno`, sentinel returns, and small functions that trust callers. That helps with cost, layout, and the exact boundary where bytes cross into code, but the Musi page asks a narrower question: what contract should this fresh values and mutation example make visible?
+For a C reader, this guide starts from familiar habits. It shows how Musi handles fresh values and mutation.
 
 {{compare:c99-variables-mutation}}
 
 ## Reading Variables and Mutation from C99
 
-On the Musi side, Musi makes mutation explicit with `mut` and assignment; ordinary `let` names read as stable facts. Read the shared example through C99 eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+Musi makes mutation clear with `mut` and assignment; normal `let` names read as stable facts. For a C reader, the key topic is variables and mutation.
 
-## False friend
+## Common mistake
 
-Do not translate every rebinding habit into mutation. A new receipt, label, or counter snapshot can be a fresh name. For a C reader, the trap is treating convention as a contract; Musi `class` is not a C struct with function pointers; records/data carry shape, classes name behavior a type can provide.
+Do not translate every rebinding habit into mutation. A new receipt, label, or counter snapshot can be a fresh name. For C, common mistake: treating convention as a contract. Musi `class` is not a C struct with function pointers; records and data hold data, classes name behavior a type can provide.
 
 ## When this pays off
 
-Use mutation when the domain really changes over time, such as queue depth or a buffer cursor. The C99 instinct still helps here: Keep the C habit of asking where memory, symbols, and failures come from.
+Use mutation when the app state really changes over time, such as queue depth or a buffer cursor. The C99 habit still helps here: Keep the C habit of asking where memory, symbols, and failures come from.
 
 ## Keep close
 

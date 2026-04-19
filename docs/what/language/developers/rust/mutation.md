@@ -1,28 +1,28 @@
 ---
 title: "Mutation"
-description: "Read Mutation as a Rust habit shift, with links to the Musi Book definition."
+description: "Read Mutation as a guide for Rust readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "Rust Developers"
 order: 3
 slug: "mutation"
-summary: "Translate the Rust habit, then use the Musi Book for the full rule."
+summary: "Start from Rust habits, then use the Musi Book for the full rule."
 ---
 
-A Rust reader brings habits from ownership, enums, traits, Result, modules, pattern matching, and explicit unsafe blocks. That helps with the type that carries the invariant, but the Musi page asks a narrower question: what contract should this fresh values and mutation example make visible?
+For a Rust reader, this guide starts from familiar habits. It shows how Musi handles fresh values and mutation.
 
 {{compare:rust-mutation}}
 
 ## Reading Mutation from Rust
 
-On the Musi side, Musi makes mutation explicit with `mut` and assignment; ordinary `let` names read as stable facts. Read the shared example through Rust eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+Musi makes mutation clear with `mut` and assignment; normal `let` names read as stable facts. For a Rust reader, the key topic is mutation.
 
-## False friend
+## Common mistake
 
-Do not translate every rebinding habit into mutation. A new receipt, label, or counter snapshot can be a fresh name. For a Rust reader, the trap is expecting Musi syntax to mirror Rust even when the ideas are separated differently; Musi `class` is closest to a Rust trait plus law text; instances play the role of implementations for behavior.
+Do not translate every rebinding habit into mutation. A new receipt, label, or counter snapshot can be a fresh name. For Rust, common mistake: expecting Musi syntax to mirror Rust even when the ideas are separated differently. Musi `class` is closest to a Rust trait plus law text. Instances give behavior.
 
 ## When this pays off
 
-Use mutation when the domain really changes over time, such as queue depth or a buffer cursor. The Rust instinct still helps here: Keep the Rust habit of asking which type carries the invariant.
+Use mutation when the app state really changes over time, such as queue depth or a buffer cursor. The Rust habit still helps here: Keep the Rust habit of asking which type carries the invariant.
 
 ## Keep close
 

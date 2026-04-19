@@ -30,55 +30,55 @@ const installPrerequisitesData: InstallPrerequisite[] = [
 	{
 		title: "Rust",
 		value: "Rust 1.87 or newer",
-		copy: "Builds both package and direct-mode tooling.",
+		copy: "Builds the musi and music command tools.",
 	},
 	{
 		title: "libffi",
-		value: "System development package",
-		copy: "Required for current foreign-function flow.",
+		value: "System dev package",
+		copy: "Needed for code that calls C.",
 	},
 	{
 		title: "Git",
 		value: "Any recent Git install",
-		copy: "Retrieves and updates project source.",
+		copy: "Downloads and updates project code.",
 	},
 ];
 
 const commandRowsData: CommandRow[] = [
 	{
 		command: "musi check",
-		audience: "Package",
-		description: "Check the current package.",
+		audience: "Project",
+		description: "Check the current project.",
 	},
 	{
 		command: "musi build",
-		audience: "Package",
-		description: "Build the resolved package entry.",
+		audience: "Project",
+		description: "Build the current project entry.",
 	},
 	{
 		command: "musi run",
-		audience: "Package",
-		description: "Run the package entry.",
+		audience: "Project",
+		description: "Run the current project entry.",
 	},
 	{
 		command: "musi test",
-		audience: "Package",
+		audience: "Project",
 		description: "Discover and run *.test.ms files.",
 	},
 	{
 		command: "music check index.ms",
-		audience: "Direct",
-		description: "Check one direct source graph.",
+		audience: "One file",
+		description: "Check one file and what it imports.",
 	},
 	{
 		command: "music build index.ms",
-		audience: "Direct",
-		description: "Emit one direct .seam artifact.",
+		audience: "One file",
+		description: "Build one .seam file from one source file.",
 	},
 	{
 		command: "music run index.seam",
-		audience: "Direct",
-		description: "Run compiled bytecode directly.",
+		audience: "One file",
+		description: "Run one built .seam file.",
 	},
 ];
 
@@ -86,7 +86,7 @@ const installCommandGroupsData: InstallCommandGroup[] = [
 	{
 		id: "script",
 		title: "Install script",
-		copy: "Pick one bootstrap command. The scripts download the repository archive, then install both binaries with cargo install.",
+		copy: "Pick one install command. The scripts download the repository, then install both command tools with cargo install.",
 		tabs: [
 			{
 				id: "curl",
@@ -103,7 +103,7 @@ const installCommandGroupsData: InstallCommandGroup[] = [
 	{
 		id: "cargo",
 		title: "Cargo install",
-		copy: "Prefer this when you already cloned the repository and want an explicit local install.",
+		copy: "Use this when you already cloned the repository and want a local install.",
 		html: renderedSnippets.installCargoHtml,
 	},
 ];

@@ -5,9 +5,9 @@ group: "Effects and Runtime"
 section: "Effects and Runtime"
 order: 30
 slug: "stdlib"
-summary: "Reach for @std modules first in ordinary application code."
+summary: "Reach for @std modules first in normal application code."
 ---
-The standard library gives common names to common shapes. It is where code should find option values, result values, text helpers, collections, and everyday building blocks instead of redefining them in every package.
+The standard library gives common names to common forms. It is where code should find option values, result values, text helpers, collections, and everyday building blocks instead of redefining them in every package.
 
 {{snippet:chapter-stdlib}}
 
@@ -19,8 +19,8 @@ Using the standard library keeps examples and projects speaking the same dialect
 
 ## Do not copy the library into examples
 
-Examples should teach the feature under discussion, not rebuild the world around it. If an example needs optional data, import or use the standard optional shape. If it needs failure, use the standard result shape.
+Examples should teach the feature under discussion, not rebuild the world around it. If an example needs optional data, import or use the standard optional form. If it needs failure, use the standard result form.
 
 Effect chapters draw a line between local calculation and outside answers. Adding prices is local. Reading time, asking a process, or writing a log needs an answer from outside the expression.
 
-A useful test is to ask whether the result could be known from the input alone. If yes, keep the function plain. If no, name the request and make the effect boundary visible.
+A useful test is to ask whether the result could be known from the input alone. If yes, keep the function plain. If no, name the request and make the effect edge visible.

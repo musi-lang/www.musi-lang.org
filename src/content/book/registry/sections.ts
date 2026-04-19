@@ -21,7 +21,7 @@ export const bookSections = [
 		order: 1,
 		slug: "c99",
 		summary:
-			"C99-specific contrasts for functions, structs, arrays, pointers, errors, packages, tests, and native boundaries.",
+			"C99-specific contrasts for functions, structs, arrays, pointers, errors, packages, tests, and native edges.",
 	},
 	{
 		id: "developers-cpp17",
@@ -59,7 +59,7 @@ export const bookSections = [
 		order: 2,
 		slug: "cpp17",
 		summary:
-			"C++17-specific contrasts for functions, records, variants, templates, packages, tests, and native boundaries.",
+			"C++17-specific contrasts for functions, records, variants, templates, packages, tests, and native edges.",
 	},
 	{
 		id: "developers-rust",
@@ -78,7 +78,7 @@ export const bookSections = [
 		order: 9,
 		slug: "rust",
 		summary:
-			"Rust-specific contrasts for mutation, data, traits, effects, and native boundaries.",
+			"Rust-specific contrasts for mutation, data, traits, effects, and native edges.",
 	},
 	{
 		id: "developers-csharp",
@@ -103,7 +103,7 @@ export const bookSections = [
 		order: 3,
 		slug: "csharp",
 		summary:
-			"C#-specific contrasts for methods, records, collections, nullability, exceptions, interfaces, packages, tests, and native boundaries.",
+			"C#-specific contrasts for methods, records, collections, nullability, exceptions, interfaces, packages, tests, and native edges.",
 	},
 	{
 		id: "developers-go",
@@ -123,7 +123,7 @@ export const bookSections = [
 		order: 4,
 		slug: "go",
 		summary:
-			"Go-specific contrasts for functions, structs, slices, nil, errors, concurrency, interfaces, packages, tests, and native boundaries.",
+			"Go-specific contrasts for functions, structs, slices, nil, errors, concurrency, interfaces, packages, tests, and native edges.",
 	},
 	{
 		id: "developers-javascript-typescript",
@@ -167,7 +167,7 @@ export const bookSections = [
 		order: 7,
 		slug: "lua",
 		summary:
-			"Lua-specific contrasts for locals, functions, tables, nil, errors, coroutines, metatables, modules, tests, and native boundaries.",
+			"Lua-specific contrasts for locals, functions, tables, nil, errors, coroutines, metatables, modules, tests, and native edges.",
 	},
 	{
 		id: "developers-java",
@@ -187,7 +187,7 @@ export const bookSections = [
 		order: 5,
 		slug: "java",
 		summary:
-			"Java-specific contrasts for methods, records, collections, nullability, exceptions, sealed types, interfaces, packages, tests, and native boundaries.",
+			"Java-specific contrasts for methods, records, collections, nullability, exceptions, sealed types, interfaces, packages, tests, and native edges.",
 	},
 	{
 		id: "developers-python",
@@ -206,6 +206,6 @@ export const bookSections = [
 		order: 8,
 		slug: "python",
 		summary:
-			"Python-specific contrasts for functions, blocks, objects, collections, errors, protocols, modules, tests, and native boundaries.",
+			"Python-specific contrasts for functions, blocks, objects, collections, errors, protocols, modules, tests, and native edges.",
 	},
 ] satisfies readonly BookSectionDefinition[];

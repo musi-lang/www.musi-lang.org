@@ -1,28 +1,28 @@
 ---
 title: "Slices, Arrays, Maps, and Pipelines"
-description: "Read Slices, Arrays, Maps, and Pipelines as a Go habit shift, with links to the Musi Book definition."
+description: "Read Slices, Arrays, Maps, and Pipelines as a guide for Go readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "Go Developers"
 order: 6
 slug: "slices-arrays-maps-pipelines"
-summary: "Translate the Go habit, then use the Musi Book for the full rule."
+summary: "Start from Go habits, then use the Musi Book for the full rule."
 ---
 
-A Go reader brings habits from packages, structs, slices, nil, multiple returns, interfaces, goroutines, channels, and explicit errors. That helps with small named operations and direct data flow, but the Musi page asks a narrower question: what contract should this lists, slices, maps, and pipelines example make visible?
+For a Go reader, this guide starts from familiar habits. It shows how Musi handles lists, slices, maps, and pipelines.
 
 {{compare:go-slices-arrays-maps-pipelines}}
 
 ## Reading Slices, Arrays, Maps, and Pipelines from Go
 
-On the Musi side, Musi collection examples keep indexing, field access, and pipelines explicit so a reader can see where each value comes from. Read the shared example through Go eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, collection examples keep indexing, field access, and pipelines clear so a reader can see where each value comes from. For a Go reader, the key topic is slices, arrays, maps, and pipelines.
 
-## False friend
+## Common mistake
 
-Do not import lazy iterators, stream chains, table conventions, or pointer arithmetic unless the Musi example needs that behavior. For a Go reader, the trap is using absence or failure as a side channel because Go makes that cheap; Musi `class` is closer to an explicit interface constraint with instances; it is not a struct and not a method set attached by package convention.
+Do not import lazy iterators, stream chains, table conventions, or pointer arithmetic unless the Musi example needs that behavior. For Go, common mistake: using absence or failure as a hidden path because Go makes that cheap. Musi `class` is closer to an interface rule with instances. It is not a struct. It is not a method set from package convention.
 
 ## When this pays off
 
-Use this shape for prices, stops, animals, files, and other small batches where each step has a name. The Go instinct still helps here: Keep the Go habit of writing the small thing first and naming package boundaries clearly.
+Use this pattern for prices, stops, animals, files, and other small batches where each step has a name. The Go habit still helps here: Keep the Go habit of writing the small thing first and naming package edges clearly.
 
 ## Keep close
 

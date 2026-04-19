@@ -1,6 +1,6 @@
 ---
 title: "Mutation"
-description: "Learn Musi's explicit mutation surface without mixing it into every lesson."
+description: "Learn Musi's clear mutation rules without mixing it into every lesson."
 group: "Start"
 section: "Start"
 order: 6
@@ -11,7 +11,7 @@ Most Musi examples are easier to understand when values do not change after they
 
 {{snippet:chapter-mutation}}
 
-Use mutation when the changing state is the point of the code. If the code is only calculating a new answer from old inputs, a fresh name is usually clearer than changing an old one.
+Use mutation when changing state is the point of the code. If the code only calculates a new answer from old inputs, a fresh name is clearer than changing an old one.
 
 ## A good place for changing state
 

@@ -10,8 +10,8 @@ summary: "Translate familiar habits into Musi without carrying over syntax that 
 
 Musi for Developers is not the main Musi Book. It is a translation shelf for readers who already know another language and want to map existing habits into Musi terms.
 
-Use these guides when you are thinking, "I know how I would do this in Rust, C, JavaScript, Python, Java, Go, Lua, C#, C, or C++; what is the Musi shape?" Each guide compares familiar source-language ideas with Musi's expression, data, type, effect, package, testing, and native-boundary model.
+Use these guides when you are thinking, "I know how I would do this in Rust, C, JavaScript, Python, Java, Go, Lua, C#, C, or C++; how does Musi do it?" Each guide compares familiar ideas with Musi expressions, data, types, effects, packages, tests, and native code.
 
-The main book teaches Musi in its own order. These guides are different. They are useful when another language is already in your head and you need help avoiding false friends. A Rust trait is not exactly a Musi class. A C pointer is not a Musi slice. A Java exception habit maps better to explicit result or effect boundaries. A JavaScript object may become a record, variant, class instance, or plain module depending on what it means.
+The main book teaches Musi in order. These guides help when another language is already in your head and you may read a Musi word the wrong way. A Rust trait is not the same as a Musi class. A C pointer is not a Musi slice. A Java exception may fit a result or an effect. A JavaScript object may become a record, variant, class instance, or module.
 
 Start with the guide for the language you use most, then jump to the topic that matches the work in front of you. If the guide starts to feel like it is teaching the language from scratch, switch back to Musi Book. The book owns the learning path; these pages own comparison.

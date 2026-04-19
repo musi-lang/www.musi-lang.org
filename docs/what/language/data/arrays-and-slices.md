@@ -1,6 +1,6 @@
 ---
 title: "Arrays and Slices"
-description: "Read sequence-shaped data without mixing it into pattern syntax yet."
+description: "Read sequence data without mixing it into pattern syntax yet."
 group: "Data"
 section: "Data"
 order: 13
@@ -21,6 +21,6 @@ Most collection code asks one of a few questions: transform every item, keep the
 
 An index is useful when position is the rule, such as the third seat or the next checkpoint. If the position only happens to work today, prefer a search by field or a named lookup.
 
-Data chapters teach the shape of a room before anyone moves through it. A record is a labeled card, an array is an ordered row, a variant is a set of named doors, and a pattern is a safe way to open one door at a time.
+Data chapters teach the what a room can be before anyone moves through it. A record is a labeled card, an array is an ordered row, a variant is a set of named doors, and a pattern is a safe way to open one door at a time.
 
-Most data bugs start when one shape is asked to mean too many things. If a value can be absent, use an absent-value shape. If a value has named parts, use a record. If a value can be one of several cases, use data variants.
+Most data bugs start when one form is asked to mean too many things. If a value can be absent, use an absent-value form. If a value has named parts, use a record. If a value can be one of several cases, use data variants.

@@ -33,6 +33,24 @@ const BANNED_WEBSITE_DOC_STAGING_PATTERNS = [
 	/raw Markdown editing is acceptable/i,
 	/richer fields.*later/i,
 ];
+const BANNED_A2_B1_PUBLIC_COPY_PATTERNS = [
+	/\bshape\b/i,
+	/\bexplicit\b/i,
+	/\bimplicit\b/i,
+	/\bdomain\b/i,
+	/\bsurface\b/i,
+	/\bboundar(?:y|ies)\b/i,
+	/\bcanonical\b/i,
+	/\bmetadata\b/i,
+	/\bdiagnostics\b/i,
+	/\bsemantic\b/i,
+	/\btemporary\b/i,
+	/\bmight\b/i,
+	/\bperhaps\b/i,
+	/\busually\b/i,
+	/\bsimply\b/i,
+	/\b(?:robust|seamless|comprehensive|framework|ecosystem|paradigm)\b/i,
+];
 const BANNED_DEVELOPER_GUIDE_STDLIB_REDEFINITION_PATTERN =
 	/\blet\s+(?:Maybe|Option|Result|[A-Za-z]+Result)(?:\[[^\]]+\])?\s*:=\s*data\b/;
 const BANNED_DEVELOPER_GUIDE_FAKE_STDIN_PATTERN =
@@ -222,6 +240,27 @@ function renderedDocRoutePaths() {
 	return paths;
 }
 
+function textContentFromHtml(html: string) {
+	return html
+		.replace(/<pre[\s\S]*?<\/pre>/g, " ")
+		.replace(/<code[\s\S]*?<\/code>/g, " ")
+		.replace(/<[^>]+>/g, " ")
+		.replace(/&[a-z]+;/gi, " ");
+}
+
+function collectStringValues(value: unknown): string[] {
+	if (typeof value === "string") {
+		return [value];
+	}
+	if (Array.isArray(value)) {
+		return value.flatMap((item) => collectStringValues(item));
+	}
+	if (value && typeof value === "object") {
+		return Object.values(value).flatMap((item) => collectStringValues(item));
+	}
+	return [];
+}
+
 function authoredSectionSourcePath(
 	section: (typeof bookSections)[number],
 ): string | null {
@@ -266,6 +305,20 @@ describe("content generation", () => {
 
 		for (const phrase of BANNED_SITE_COPY) {
 			expect(descriptorText).not.toContain(phrase);
+		}
+	});
+
+	it("keeps public copy in A2-B1 website style", () => {
+		const publicText = [
+			...renderedDocs.map((doc) => textContentFromHtml(doc.html)),
+			...collectStringValues(siteCopy),
+			...markdownFilesInDirectory(join(repoRoot, "docs/what/website")).map(
+				(path) => markdownBody(readFileSync(path, "utf8")),
+			),
+		].join("\n");
+
+		for (const pattern of BANNED_A2_B1_PUBLIC_COPY_PATTERNS) {
+			expect(publicText, `public copy matches ${pattern}`).not.toMatch(pattern);
 		}
 	});
 
@@ -668,7 +721,7 @@ describe("content generation", () => {
 			{
 				id: "errors-and-recovery",
 				path: "/docs/book/effects-runtime/errors-and-recovery",
-				text: "Pick the smallest honest shape",
+				text: "Pick the smallest honest form",
 			},
 		] as const;
 
@@ -757,7 +810,7 @@ describe("content generation", () => {
 		expect(guideDocs.length).toBeGreaterThan(0);
 		for (const doc of guideDocs) {
 			expect(doc.html, doc.id).toContain("Reading");
-			expect(doc.html, doc.id).toContain("False friend");
+			expect(doc.html, doc.id).toContain("Common mistake");
 			expect(doc.html, doc.id).toContain("When this pays off");
 			expect(doc.html, doc.id).toContain("Keep close");
 			expect(doc.html, doc.id).toContain("mx-code-tabs");
@@ -778,8 +831,8 @@ describe("content generation", () => {
 
 		expect(overviewDocs.length).toBeGreaterThan(0);
 		for (const doc of overviewDocs) {
-			expect(doc.html, doc.id).toContain("translation journal");
-			expect(doc.html, doc.id).toContain("First false friend");
+			expect(doc.html, doc.id).toContain("translation guide");
+			expect(doc.html, doc.id).toContain("First common mistake");
 			expect(doc.html, doc.id).toContain("Habits that still help");
 			expect(doc.html, doc.id).toContain("When to switch to the Musi Book");
 			expect(doc.html, doc.id).not.toContain("{{snippet:");

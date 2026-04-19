@@ -1,28 +1,28 @@
 ---
 title: "Collections, Streams, and Pipelines"
-description: "Read Collections, Streams, and Pipelines as a Java habit shift, with links to the Musi Book definition."
+description: "Read Collections, Streams, and Pipelines as a guide for Java readers, with links to the Musi Book rule."
 group: "Musi for Developers"
 section: "Java Developers"
 order: 6
 slug: "collections-streams-pipelines"
-summary: "Translate the Java habit, then use the Musi Book for the full rule."
+summary: "Start from Java habits, then use the Musi Book for the full rule."
 ---
 
-A Java reader brings habits from packages, classes, records, interfaces, exceptions, annotations, streams, and long-lived APIs. That helps with contracts, visibility, and maintainable names, but the Musi page asks a narrower question: what contract should this lists, slices, maps, and pipelines example make visible?
+For a Java reader, this guide starts from familiar habits. It shows how Musi handles lists, slices, maps, and pipelines.
 
 {{compare:java-collections-streams-pipelines}}
 
 ## Reading Collections, Streams, and Pipelines from Java
 
-On the Musi side, Musi collection examples keep indexing, field access, and pipelines explicit so a reader can see where each value comes from. Read the shared example through Java eyes: keep the useful instinct, then let Musi name shape, behavior, absence, and outside work in separate places.
+In Musi, collection examples keep indexing, field access, and pipelines clear so a reader can see where each value comes from. For a Java reader, the key topic is collections, streams, and pipelines.
 
-## False friend
+## Common mistake
 
-Do not import lazy iterators, stream chains, table conventions, or pointer arithmetic unless the Musi example needs that behavior. For a Java reader, the trap is reading Musi `class` as a nominal object type with constructors and fields; Musi `class` is a behavior contract supplied by instances; records and data model object shape.
+Do not import lazy iterators, stream chains, table conventions, or pointer arithmetic unless the Musi example needs that behavior. For Java, common mistake: reading Musi `class` as an object type by name with constructors and fields. Musi `class` is behavior supplied by instances. Records and data model data.
 
 ## When this pays off
 
-Use this shape for prices, stops, animals, files, and other small batches where each step has a name. The Java instinct still helps here: Keep the Java habit of naming APIs for future readers.
+Use this pattern for prices, stops, animals, files, and other small batches where each step has a name. The Java habit still helps here: Keep the Java habit of naming APIs for future readers.
 
 ## Keep close
 

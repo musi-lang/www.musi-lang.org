@@ -5,9 +5,9 @@ group: "Data"
 section: "Data"
 order: 14
 slug: "patterns"
-summary: "Use match and destructuring to branch on data shape."
+summary: "Use match and destructuring to branch on data form."
 ---
-Patterns let code inspect the shape of a value. They are most useful with data definitions, records, tuples, and cases where the next step depends on what kind of value arrived.
+Patterns let code inspect the form of a value. They are most useful with data definitions, records, tuples, and cases where the next step depends on what kind of value arrived.
 
 {{snippet:chapter-patterns}}
 
@@ -19,8 +19,8 @@ A support ticket may be open, waiting, or closed. A delivery may be at the wareh
 
 ## Patterns are not guesses
 
-Prefer patterns when the value already has a known shape. Do not use pattern matching to compensate for unclear data. If every branch is full of unrelated checks, the data model may need better variants.
+Prefer patterns when the value already has a known form. Do not use pattern matching to compensate for unclear data. If every branch is full of unrelated checks, the data model may need better variants.
 
-Data chapters teach the shape of a room before anyone moves through it. A record is a labeled card, an array is an ordered row, a variant is a set of named doors, and a pattern is a safe way to open one door at a time.
+Data chapters teach the what a room can be before anyone moves through it. A record is a labeled card, an array is an ordered row, a variant is a set of named doors, and a pattern is a safe way to open one door at a time.
 
-Most data bugs start when one shape is asked to mean too many things. If a value can be absent, use an absent-value shape. If a value has named parts, use a record. If a value can be one of several cases, use data variants.
+Most data bugs start when one form is asked to mean too many things. If a value can be absent, use an absent-value form. If a value has named parts, use a record. If a value can be one of several cases, use data variants.

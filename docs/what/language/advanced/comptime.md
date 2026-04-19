@@ -1,8 +1,8 @@
 ---
 title: "Comptime"
 description: "Run selected Musi expressions during compilation and use the result as a first-class value."
-group: "Advanced and Tooling"
-section: "Advanced and Tooling"
+group: "Advanced and Tools"
+section: "Advanced and Tools"
 order: 33
 slug: "comptime"
 summary: "Use value-position comptime for constants, specialization, and generated syntax."
@@ -17,10 +17,10 @@ Use compile-time work when it removes real repetition or catches real mistakes. 
 
 If runtime is serving customers, compile time is preparing trays before the doors open. It can label pastries and arrange shelves, but it should not depend on which customer walks in next.
 
-## Keep generated shapes readable
+## Keep generated codes readable
 
-Generated declarations should still look like normal declarations when inspected. If a reader cannot understand what compile-time code produced, diagnostics and reviews become harder.
+Generated named parts should still look like normal named parts when inspected. If a reader cannot understand what compile-time code produced, error messages and reviews become harder.
 
-Advanced chapters are tools for edges: metadata, native calls, compile-time work, syntax values, and command-line use. They matter most when ordinary declarations are no longer enough to describe a boundary.
+Advanced chapters are for special cases: extra data, native calls, compile-time work, syntax values, and command-line use. Use them when normal named parts are not enough.
 
-Use advanced forms like locked cabinets, not like kitchen drawers. Reach for them when a tool, runtime, foreign library, or build step truly needs the extra signal. Keep normal program logic in normal declarations.
+Use advanced forms only when a tool, runtime, foreign library, or build step needs them. Keep normal program logic in normal named parts.
