@@ -2,5 +2,5 @@
 import "C"
 
 func nativeClockMs() int {
-    return int(C.clock_ms())
+	return int(C.clock_ms())
 }

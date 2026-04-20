@@ -1,4 +1,4 @@
-function receiptTotal(latteCents: number, croissantCents: number): number {
+const receiptTotal = function (latteCents: number, croissantCents: number): number {
   return latteCents + croissantCents;
 }
 

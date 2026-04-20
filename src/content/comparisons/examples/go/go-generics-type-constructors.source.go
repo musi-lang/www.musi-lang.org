@@ -1,5 +1,5 @@
 type Box[T any] struct {
-    Value T
+	Value T
 }
 
 boxedName := Box[string]{Value: "Nora"}
