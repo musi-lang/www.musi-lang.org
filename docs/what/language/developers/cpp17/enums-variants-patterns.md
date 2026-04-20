@@ -18,7 +18,7 @@ In Musi, data variants name the cases directly, and `match` reads the case split
 
 ## Common mistake
 
-Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. For C++, common mistake: turning every Musi value into a class-heavy design. Musi `class` is closer to a concept or trait than a C++ class. Records and data store data. Instances give behavior.
+Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. In C++, this appears often in enums, variants, and patterns.
 
 ## When this pays off
 

@@ -18,7 +18,7 @@ In Musi, imports bring named module values into scope, so package edges stay vis
 
 ## Common mistake
 
-Do not rebuild an old global namespace, header include pile, or barrel file when one import names the owner. For Java, common mistake: reading Musi `class` as an object type by name with constructors and fields. Musi `class` is behavior supplied by instances. Records and data model data.
+Do not rebuild an old global namespace, header include pile, or barrel file when one import names the owner. In Java, this appears often in packages and modules.
 
 ## When this pays off
 

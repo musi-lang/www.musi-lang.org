@@ -18,7 +18,7 @@ In Musi, collection examples keep indexing, field access, and pipelines clear so
 
 ## Common mistake
 
-Do not import lazy iterators, stream chains, table conventions, or pointer arithmetic unless the Musi example needs that behavior. For TypeScript, common mistake: assuming runtime object data and compile-time behavior are the same thing. Musi `class` is not a JavaScript constructor or TypeScript class. It is behavior kept separate from records and data.
+Do not import lazy iterators, stream chains, table conventions, or pointer arithmetic unless the Musi example needs that behavior. In JavaScript and TypeScript, this appears often in arrays and data pipelines.
 
 ## When this pays off
 

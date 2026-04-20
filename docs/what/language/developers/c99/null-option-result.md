@@ -18,7 +18,7 @@ Musi uses `option.someOf` and `option.noneOf` when absence is expected, so calle
 
 ## Common mistake
 
-Do not translate null, nil, None, or undefined as a quiet normal value. For C, common mistake: treating convention as a contract. Musi `class` is not a C struct with function pointers; records and data hold data, classes name behavior a type can provide.
+Do not translate null, nil, None, or undefined as a quiet normal value. In C, this appears often in null, option, and result.
 
 ## When this pays off
 

@@ -18,7 +18,7 @@ In Musi, blocks and matches are expressions when they produce a value; the branc
 
 ## Common mistake
 
-Do not keep extra variables only to move a branch result out of a statement block. For Go, common mistake: using absence or failure as a hidden path because Go makes that cheap. Musi `class` is closer to an interface rule with instances. It is not a struct. It is not a method set from package convention.
+Do not keep extra variables only to move a branch result out of a statement block. In Go, this appears often in blocks, branching, and loops.
 
 ## When this pays off
 

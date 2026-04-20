@@ -18,7 +18,7 @@ In Musi, tests should state the what the program should do first, then check the
 
 ## Common mistake
 
-Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For Java, common mistake: reading Musi `class` as an object type by name with constructors and fields. Musi `class` is behavior supplied by instances. Records and data model data.
+Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. In Java, this appears often in testing and tools.
 
 ## When this pays off
 

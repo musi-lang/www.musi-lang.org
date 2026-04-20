@@ -8,7 +8,7 @@ slug: "generics-interfaces-laws"
 summary: "Start from C# habits, then use the Musi Book for the full rule."
 ---
 
-C# interfaces, extension methods, and generics can all describe shared operations. Musi uses one idea for this: a class names the operation and instances provide it for concrete types.
+C# interfaces, extension methods, and generics can all describe shared operations. Musi uses one idea for this: a class names the operation and instances provide it for concrete types. This matches CLR terms too.
 
 {{compare:csharp-generics-interfaces-laws}}
 
@@ -18,7 +18,7 @@ In Musi, classes name behavior a type can provide, instances provide it, and law
 
 ## Common mistake
 
-Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. For C#, common mistake: mapping Musi classes to object classes or service containers. Musi `class` is a behavior, not a CLR class with fields, constructors, and inheritance.
+Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. In C#, this appears often in generics, interfaces, and laws.
 
 ## When this pays off
 

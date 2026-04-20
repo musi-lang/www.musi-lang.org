@@ -13,24 +13,33 @@
 	align-items: start;
 }
 
+.site-heading__body>div {
+	display: grid;
+	gap: var(--mx-step-2);
+	align-content: start;
+}
+
 .site-title {
 	max-width: 18ch;
-	line-height: 1.05;
-	letter-spacing: -0.03em;
+	line-height: 1.26;
+	letter-spacing: -0.005em;
+	overflow-wrap: anywhere;
+	text-wrap: balance;
 }
 
-.site-title--page {
-	font-size: clamp(2.1rem, 5vw, 4rem);
+[data-mx-root] .site-heading h1.site-title--page {
+	font-size: 1.65rem;
 }
 
-.site-title--section {
-	font-size: clamp(1.8rem, 4vw, 2.75rem);
+[data-mx-root] .site-heading h2.site-title--section {
+	font-size: 1.45rem;
 }
 
 .site-copy,
 .site-copy p {
 	max-width: var(--site-reading-width);
 	font-size: 1.06rem;
+	line-height: var(--site-text-line-height);
 	color: var(--mx-muted);
 }
 
@@ -63,6 +72,7 @@
 	grid-template-areas:
 		"article"
 		"rail";
+	gap: var(--mx-step-5);
 }
 
 .site-hero-copy {
@@ -164,6 +174,39 @@
 	justify-self: start;
 }
 
+.learn-book-lane .site-doc-groups {
+	grid-template-columns: minmax(0, 43rem);
+	justify-content: center;
+	gap: var(--mx-step-3);
+}
+
+.learn-book-lane .docs-groupbox {
+	margin-top: 0.75rem;
+}
+
+.learn-book-lane .docs-groupbox__open {
+	margin-bottom: 0.1rem;
+}
+
+.learn-book-lane .docs-child-list {
+	gap: var(--mx-step-1);
+	margin-top: var(--mx-step-2);
+}
+
+.learn-book-lane .docs-child-card.mx-action-card {
+	gap: var(--mx-step-1);
+	padding: 0.58rem 0.68rem 0.62rem;
+}
+
+.learn-book-lane .docs-child-card .mx-action-card__head {
+	padding-bottom: 0.32rem;
+}
+
+.learn-book-lane .docs-child-card .mx-action-card__title {
+	font-size: 1.05rem;
+	line-height: 1.14;
+}
+
 .docs-child-list {
 	display: grid;
 	gap: var(--mx-step-2);
@@ -179,17 +222,20 @@
 }
 
 .mx-doc-mindset {
-	display: grid;
-	gap: var(--mx-step-2);
 	margin-block: var(--mx-step-4);
-	padding: var(--mx-step-3);
-	border: var(--mx-line) solid var(--mx-border);
-	background: var(--mx-surface-2);
 }
 
 .mx-doc-mindset p,
 .mx-doc-mindset ul {
 	margin: 0;
+}
+
+.mx-doc-mindset ul {
+	padding-left: 1.15rem;
+}
+
+.mx-doc-mindset li+li {
+	margin-top: 0.35rem;
 }
 
 .community-link-box:hover {
@@ -229,6 +275,8 @@
 .docs-page-rail.mx-sidebar {
 	grid-area: rail;
 	height: fit-content;
+	width: 100%;
+	justify-self: stretch;
 }
 
 .docs-page-rail .mx-sidebar__body {
@@ -281,7 +329,7 @@
 }
 
 .docs-content>*+* {
-	margin-top: 1rem;
+	margin-top: 1.15rem;
 }
 
 .docs-content h2,
@@ -308,6 +356,19 @@
 .docs-content p,
 .docs-content li {
 	max-width: var(--site-reading-width);
+	line-height: var(--site-text-line-height);
+}
+
+.docs-content li+li {
+	margin-top: 0.48rem;
+}
+
+.mx-action-card__body,
+.mx-groupbox p,
+.mx-groupbox li,
+.mx-message p,
+.mx-message li {
+	line-height: var(--site-text-line-height);
 }
 
 .docs-content a {

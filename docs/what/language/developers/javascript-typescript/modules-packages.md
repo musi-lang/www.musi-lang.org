@@ -18,7 +18,7 @@ In Musi, imports bring named module values into scope, so package edges stay vis
 
 ## Common mistake
 
-Do not rebuild an old global namespace, header include pile, or barrel file when one import names the owner. For TypeScript, common mistake: assuming runtime object data and compile-time behavior are the same thing. Musi `class` is not a JavaScript constructor or TypeScript class. It is behavior kept separate from records and data.
+Do not rebuild an old global namespace, header include pile, or barrel file when one import names the owner. In JavaScript and TypeScript, this appears often in modules, packages, and imports.
 
 ## When this pays off
 

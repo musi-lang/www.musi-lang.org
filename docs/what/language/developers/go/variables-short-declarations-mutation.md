@@ -18,7 +18,7 @@ Musi makes mutation clear with `mut` and assignment; normal `let` names read as 
 
 ## Common mistake
 
-Do not translate every rebinding habit into mutation. A new receipt, label, or counter snapshot can be a fresh name. For Go, common mistake: using absence or failure as a hidden path because Go makes that cheap. Musi `class` is closer to an interface rule with instances. It is not a struct. It is not a method set from package convention.
+Do not force mutation habits from Go into variables, short declarations, and mutation. In Musi, a fresh name is often the clearer step. In Go, this appears often in variables, short declarations, and mutation.
 
 ## When this pays off
 

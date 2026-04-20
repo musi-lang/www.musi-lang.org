@@ -18,7 +18,7 @@ In Musi, foreign named parts use `foreign "c" let ...` or a parenthesized foreig
 
 ## Common mistake
 
-Do not invent a C-like foreign block or spread unsafe assumptions through normal Musi code. For Lua, common mistake: letting table fields, missing fields, and behavior conventions blur together. Musi `class` is not a metatable pattern; records and data hold table-like data, classes/instances name promised behavior.
+Do not invent a C-like foreign block or spread unsafe assumptions through normal Musi code. In Lua, this appears often in embedding, c api, and ffi.
 
 ## When this pays off
 

@@ -18,7 +18,7 @@ In Musi, collection examples keep indexing, field access, and pipelines clear so
 
 ## Common mistake
 
-Do not import lazy iterators, stream chains, table conventions, or pointer arithmetic unless the Musi example needs that behavior. For Java, common mistake: reading Musi `class` as an object type by name with constructors and fields. Musi `class` is behavior supplied by instances. Records and data model data.
+Do not import lazy iterators, stream chains, table conventions, or pointer arithmetic unless the Musi example needs that behavior. In Java, this appears often in collections, streams, and pipelines.
 
 ## When this pays off
 

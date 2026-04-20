@@ -18,7 +18,7 @@ In Musi, imports bring named module values into scope, so package edges stay vis
 
 ## Common mistake
 
-Do not rebuild an old global namespace, header include pile, or barrel file when one import names the owner. For Python, common mistake: trusting runtime convention where Musi expects a visible type or effect. Musi `class` is closer to a clear protocol than a Python class with attributes and methods.
+Do not rebuild an old global namespace, header include pile, or barrel file when one import names the owner. In Python, this appears often in modules and packages.
 
 ## When this pays off
 

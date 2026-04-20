@@ -18,7 +18,7 @@ Musi names outside work with effects and `request`, instead of hiding time, file
 
 ## Common mistake
 
-Do not make an effect look pure. A clock, process, network service, or console changes the trust edge. For Go, common mistake: using absence or failure as a hidden path because Go makes that cheap. Musi `class` is closer to an interface rule with instances. It is not a struct. It is not a method set from package convention.
+Do not make an effect look pure. A clock, process, network service, or console changes the trust edge. In Go, this appears often in goroutines, channels, context, and effects.
 
 ## When this pays off
 

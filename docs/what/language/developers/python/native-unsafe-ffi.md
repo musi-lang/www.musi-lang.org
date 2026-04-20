@@ -18,7 +18,7 @@ In Musi, foreign named parts use `foreign "c" let ...` or a parenthesized foreig
 
 ## Common mistake
 
-Do not invent a C-like foreign block or spread unsafe assumptions through normal Musi code. For Python, common mistake: trusting runtime convention where Musi expects a visible type or effect. Musi `class` is closer to a clear protocol than a Python class with attributes and methods.
+Do not invent a C-like foreign block or spread unsafe assumptions through normal Musi code. In Python, this appears often in native edges, unsafe, and ffi.
 
 ## When this pays off
 

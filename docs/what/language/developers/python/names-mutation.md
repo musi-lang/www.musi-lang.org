@@ -18,7 +18,7 @@ Musi lets a calculation be a `let`, a function, or a final expression without wr
 
 ## Common mistake
 
-Do not preserve call ceremony just because the source language needs it for methods, receivers, overloads, or closures. For Python, common mistake: trusting runtime convention where Musi expects a visible type or effect. Musi `class` is closer to a clear protocol than a Python class with attributes and methods.
+Do not keep extra call steps from Python when the task is names, mutation, and fresh values. Keep one clear call per data step in Musi. In Python, this appears often in names, mutation, and fresh values.
 
 ## When this pays off
 

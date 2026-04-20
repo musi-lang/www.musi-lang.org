@@ -18,7 +18,7 @@ In Musi, collection examples keep indexing, field access, and pipelines clear so
 
 ## Common mistake
 
-Do not import lazy iterators, stream chains, table conventions, or pointer arithmetic unless the Musi example needs that behavior. For C++, common mistake: turning every Musi value into a class-heavy design. Musi `class` is closer to a concept or trait than a C++ class. Records and data store data. Instances give behavior.
+Do not import lazy iterators, stream chains, table conventions, or pointer arithmetic unless the Musi example needs that behavior. In C++, this appears often in arrays, pointers, and slices.
 
 ## When this pays off
 

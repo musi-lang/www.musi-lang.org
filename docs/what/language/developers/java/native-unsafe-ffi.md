@@ -18,7 +18,7 @@ In Musi, foreign named parts use `foreign "c" let ...` or a parenthesized foreig
 
 ## Common mistake
 
-Do not invent a C-like foreign block or spread unsafe assumptions through normal Musi code. For Java, common mistake: reading Musi `class` as an object type by name with constructors and fields. Musi `class` is behavior supplied by instances. Records and data model data.
+Do not invent a C-like foreign block or spread unsafe assumptions through normal Musi code. In Java, this appears often in native, unsafe, and ffi.
 
 ## When this pays off
 

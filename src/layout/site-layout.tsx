@@ -4,6 +4,7 @@ import { GithubIcon, MenuIcon } from "../icons";
 import { siteCopy } from "../lib/site-copy";
 import type { AppRoute } from "../routes";
 import { isDocsRoute, primaryRoutes } from "../routes";
+import { InlineHtml } from "../ui/inline-html";
 
 function HeaderLinks(props: { route: AppRoute }) {
 	return (
@@ -41,7 +42,7 @@ function DocsSidebar(props: { route: AppRoute }) {
 					className={`docs-sidebar-link ${levelClass}${activeTreePath.has(node.id) ? " is-active" : ""}`}
 					data-depth={depth}
 				>
-					{node.title}
+					<InlineHtml html={node.titleHtml} />
 				</a>
 				{children.length > 0 ? (
 					<div className="docs-sidebar-children">
@@ -60,7 +61,7 @@ function DocsSidebar(props: { route: AppRoute }) {
 						href={part.path}
 						className={`docs-sidebar-heading${activeTreePath.has(part.id) ? " is-active" : ""}`}
 					>
-						{part.title}
+						<InlineHtml html={part.titleHtml} />
 					</a>
 					<div className="docs-sidebar-list">
 						{docChildren(part.id).map((node) => renderSidebarNode(node, 0))}

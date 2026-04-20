@@ -18,7 +18,7 @@ In Musi, classes name behavior a type can provide, instances provide it, and law
 
 ## Common mistake
 
-Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. For TypeScript, common mistake: assuming runtime object data and compile-time behavior are the same thing. Musi `class` is not a JavaScript constructor or TypeScript class. It is behavior kept separate from records and data.
+Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. In JavaScript and TypeScript, this appears often in generics and type parameters.
 
 ## When this pays off
 

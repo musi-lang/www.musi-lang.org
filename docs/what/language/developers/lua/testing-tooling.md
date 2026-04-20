@@ -18,7 +18,7 @@ In Musi, tests should state the what the program should do first, then check the
 
 ## Common mistake
 
-Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For Lua, common mistake: letting table fields, missing fields, and behavior conventions blur together. Musi `class` is not a metatable pattern; records and data hold table-like data, classes/instances name promised behavior.
+Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. In Lua, this appears often in testing and tools.
 
 ## When this pays off
 

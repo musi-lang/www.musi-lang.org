@@ -18,7 +18,7 @@ In Musi, data variants name the cases directly, and `match` reads the case split
 
 ## Common mistake
 
-Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. For Python, common mistake: trusting runtime convention where Musi expects a visible type or effect. Musi `class` is closer to a clear protocol than a Python class with attributes and methods.
+Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. In Python, this appears often in data variants and pattern matching.
 
 ## When this pays off
 

@@ -8,7 +8,7 @@ slug: "records-classes-objects"
 summary: "Start from C# habits, then use the Musi Book for the full rule."
 ---
 
-For a C# reader, this guide starts from familiar habits. It shows how Musi handles field-based data.
+For a C# reader, this guide starts from familiar C# and CLR habits. It shows how Musi handles field-based data.
 
 {{compare:csharp-records-classes-objects}}
 
@@ -18,7 +18,7 @@ In Musi, records and data variants describe stored data. Behavior belongs in fun
 
 ## Common mistake
 
-Do not read `class` as object data. If the page is about a pet, invoice, room, or vehicle, start with fields or variants. For C#, common mistake: mapping Musi classes to object classes or service containers. Musi `class` is a behavior, not a CLR class with fields, constructors, and inheritance.
+Do not treat class as stored object data from C# while reading records, classes, and objects. Start with records or variants for data. In C#, this appears often in records, classes, and objects.
 
 ## When this pays off
 

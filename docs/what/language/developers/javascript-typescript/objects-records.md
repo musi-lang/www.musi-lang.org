@@ -18,7 +18,7 @@ In Musi, records and data variants describe stored data. Behavior belongs in fun
 
 ## Common mistake
 
-Do not read `class` as object data. If the page is about a pet, invoice, room, or vehicle, start with fields or variants. For TypeScript, common mistake: assuming runtime object data and compile-time behavior are the same thing. Musi `class` is not a JavaScript constructor or TypeScript class. It is behavior kept separate from records and data.
+Do not treat class as stored object data from JavaScript and TypeScript while reading objects, records, and field updates. Start with records or variants for data. In JavaScript and TypeScript, this appears often in objects, records, and field updates.
 
 ## When this pays off
 

@@ -18,7 +18,7 @@ Musi lets a calculation be a `let`, a function, or a final expression without wr
 
 ## Common mistake
 
-Do not preserve call ceremony just because the source language needs it for methods, receivers, overloads, or closures. For Lua, common mistake: letting table fields, missing fields, and behavior conventions blur together. Musi `class` is not a metatable pattern; records and data hold table-like data, classes/instances name promised behavior.
+Do not keep extra call steps from Lua when the task is values, locals, and expressions. Keep one clear call per data step in Musi. In Lua, this appears often in values, locals, and expressions.
 
 ## When this pays off
 

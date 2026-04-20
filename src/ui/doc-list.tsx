@@ -1,4 +1,6 @@
+import type { ReactNode } from "preact/compat";
 import { siteCopy } from "../lib/site-copy";
+import { InlineHtml } from "./inline-html";
 import { MachinesActionCard, MachinesGroupbox } from "./machines";
 
 interface DocListPage {
@@ -9,6 +11,7 @@ interface DocListPage {
 	slug: string;
 	summaryHtml: string;
 	title: string;
+	titleHtml: string;
 	summary: string;
 }
 
@@ -23,7 +26,7 @@ function pageKindLabel(page: DocListPage) {
 }
 
 export function DocListGroup(props: {
-	group: string;
+	group: ReactNode;
 	path?: string;
 	summaryHtml?: string;
 	pages: readonly DocListPage[];
@@ -52,7 +55,7 @@ export function DocListGroup(props: {
 						href={page.path}
 						className="docs-child-card"
 						kicker={pageKindLabel(page)}
-						title={page.title}
+						title={<InlineHtml html={page.titleHtml} />}
 						action="»"
 					>
 						<span
@@ -68,6 +71,7 @@ export function DocListGroup(props: {
 
 export function DocPartTile(props: {
 	title: string;
+	titleHtml: string;
 	path: string;
 	summaryHtml: string;
 	chapterCount: number;
@@ -79,7 +83,7 @@ export function DocPartTile(props: {
 			kicker={`${props.chapterCount} ${
 				props.chapterCount === 1 ? "chapter" : "chapters"
 			}`}
-			title={props.title}
+			title={<InlineHtml html={props.titleHtml} />}
 			action={siteCopy.ui.openSection}
 		>
 			<span

@@ -18,7 +18,7 @@ In Musi, collection examples keep indexing, field access, and pipelines clear so
 
 ## Common mistake
 
-Do not import lazy iterators, stream chains, table conventions, or pointer arithmetic unless the Musi example needs that behavior. For Python, common mistake: trusting runtime convention where Musi expects a visible type or effect. Musi `class` is closer to a clear protocol than a Python class with attributes and methods.
+Do not import lazy iterators, stream chains, table conventions, or pointer arithmetic unless the Musi example needs that behavior. In Python, this appears often in collections and pipelines.
 
 ## When this pays off
 

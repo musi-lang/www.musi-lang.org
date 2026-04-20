@@ -18,7 +18,7 @@ In Musi, records and data variants describe stored data. Behavior belongs in fun
 
 ## Common mistake
 
-Do not read `class` as object data. If the page is about a pet, invoice, room, or vehicle, start with fields or variants. For Go, common mistake: using absence or failure as a hidden path because Go makes that cheap. Musi `class` is closer to an interface rule with instances. It is not a struct. It is not a method set from package convention.
+Do not treat class as stored object data from Go while reading generics and type constructors. Start with records or variants for data. In Go, this appears often in generics and type constructors.
 
 ## When this pays off
 

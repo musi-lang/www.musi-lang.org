@@ -18,7 +18,7 @@ Musi names outside work with effects and `request`, instead of hiding time, file
 
 ## Common mistake
 
-Do not make an effect look pure. A clock, process, network service, or console changes the trust edge. For Lua, common mistake: letting table fields, missing fields, and behavior conventions blur together. Musi `class` is not a metatable pattern; records and data hold table-like data, classes/instances name promised behavior.
+Do not make an effect look pure. A clock, process, network service, or console changes the trust edge. In Lua, this appears often in coroutines and effect edges.
 
 ## When this pays off
 

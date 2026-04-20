@@ -18,7 +18,7 @@ In Musi, data variants name the cases directly, and `match` reads the case split
 
 ## Common mistake
 
-Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. For TypeScript, common mistake: assuming runtime object data and compile-time behavior are the same thing. Musi `class` is not a JavaScript constructor or TypeScript class. It is behavior kept separate from records and data.
+Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. In JavaScript and TypeScript, this appears often in unions, variants, and pattern matching.
 
 ## When this pays off
 

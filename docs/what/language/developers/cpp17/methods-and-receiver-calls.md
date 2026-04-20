@@ -18,7 +18,7 @@ Musi lets a calculation be a `let`, a function, or a final expression without wr
 
 ## Common mistake
 
-Do not preserve call ceremony just because the source language needs it for methods, receivers, overloads, or closures. For C++, common mistake: turning every Musi value into a class-heavy design. Musi `class` is closer to a concept or trait than a C++ class. Records and data store data. Instances give behavior.
+Do not keep extra call steps from C++ when the task is methods and receiver calls. Keep one clear call per data step in Musi. In C++, this appears often in methods and receiver calls.
 
 ## When this pays off
 

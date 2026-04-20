@@ -17,13 +17,16 @@ export interface GeneratedDoc {
 	childIds: string[];
 	partId: string;
 	partTitle: string;
+	partTitleHtml: string;
 	sectionId: string | null;
 	sectionTitle: string | null;
+	sectionTitleHtml: string | null;
 	path: string;
 	canonicalPath: string;
 	aliases: string[];
 	questions: { label: string; href: string }[];
 	title: string;
+	titleHtml: string;
 	description: string;
 	descriptionHtml: string;
 	group: string;

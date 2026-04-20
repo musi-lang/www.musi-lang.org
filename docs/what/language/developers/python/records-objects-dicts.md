@@ -18,7 +18,7 @@ In Musi, records and data variants describe stored data. Behavior belongs in fun
 
 ## Common mistake
 
-Do not read `class` as object data. If the page is about a pet, invoice, room, or vehicle, start with fields or variants. For Python, common mistake: trusting runtime convention where Musi expects a visible type or effect. Musi `class` is closer to a clear protocol than a Python class with attributes and methods.
+Do not treat class as stored object data from Python while reading records, objects, and dictionaries. Start with records or variants for data. In Python, this appears often in records, objects, and dictionaries.
 
 ## When this pays off
 

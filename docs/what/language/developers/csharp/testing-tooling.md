@@ -8,7 +8,7 @@ slug: "testing-tooling"
 summary: "Start from C# habits, then use the Musi Book for the full rule."
 ---
 
-For a C# reader, this guide starts from familiar habits. It shows how Musi handles tests as what the program should dos.
+For a C# reader, this guide starts from familiar C# and CLR habits. It shows how Musi handles tests as what the program should dos.
 
 {{compare:csharp-testing-tooling}}
 
@@ -18,7 +18,7 @@ In Musi, tests should state the what the program should do first, then check the
 
 ## Common mistake
 
-Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For C#, common mistake: mapping Musi classes to object classes or service containers. Musi `class` is a behavior, not a CLR class with fields, constructors, and inheritance.
+Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. In C#, this appears often in testing and tools.
 
 ## When this pays off
 

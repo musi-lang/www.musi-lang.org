@@ -18,7 +18,7 @@ Musi lets a calculation be a `let`, a function, or a final expression without wr
 
 ## Common mistake
 
-Do not preserve call ceremony just because the source language needs it for methods, receivers, overloads, or closures. For Go, common mistake: using absence or failure as a hidden path because Go makes that cheap. Musi `class` is closer to an interface rule with instances. It is not a struct. It is not a method set from package convention.
+Do not keep extra call steps from Go when the task is methods and receiver calls. Keep one clear call per data step in Musi. In Go, this appears often in methods and receiver calls.
 
 ## When this pays off
 

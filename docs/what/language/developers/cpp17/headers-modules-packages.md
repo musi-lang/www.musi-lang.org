@@ -18,7 +18,7 @@ In Musi, imports bring named module values into scope, so package edges stay vis
 
 ## Common mistake
 
-Do not rebuild an old global namespace, header include pile, or barrel file when one import names the owner. For C++, common mistake: turning every Musi value into a class-heavy design. Musi `class` is closer to a concept or trait than a C++ class. Records and data store data. Instances give behavior.
+Do not rebuild an old global namespace, header include pile, or barrel file when one import names the owner. In C++, this appears often in headers, modules, and packages.
 
 ## When this pays off
 

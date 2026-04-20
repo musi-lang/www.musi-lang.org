@@ -18,7 +18,7 @@ In Musi, tests should state the what the program should do first, then check the
 
 ## Common mistake
 
-Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For C, common mistake: treating convention as a contract. Musi `class` is not a C struct with function pointers; records and data hold data, classes name behavior a type can provide.
+Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. In C, this appears often in testing and tools.
 
 ## When this pays off
 

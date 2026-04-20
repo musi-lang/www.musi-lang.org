@@ -18,7 +18,7 @@ Musi uses `option.someOf` and `option.noneOf` when absence is expected, so calle
 
 ## Common mistake
 
-Do not translate null, nil, None, or undefined as a quiet normal value. For Lua, common mistake: letting table fields, missing fields, and behavior conventions blur together. Musi `class` is not a metatable pattern; records and data hold table-like data, classes/instances name promised behavior.
+Do not translate null, nil, None, or undefined as a quiet normal value. In Lua, this appears often in nil, option, and result.
 
 ## When this pays off
 

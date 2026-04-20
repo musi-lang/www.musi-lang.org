@@ -18,7 +18,7 @@ Musi uses `option.someOf` and `option.noneOf` when absence is expected, so calle
 
 ## Common mistake
 
-Do not translate null, nil, None, or undefined as a quiet normal value. For Go, common mistake: using absence or failure as a hidden path because Go makes that cheap. Musi `class` is closer to an interface rule with instances. It is not a struct. It is not a method set from package convention.
+Do not translate null, nil, None, or undefined as a quiet normal value. In Go, this appears often in errors, results, and effects.
 
 ## When this pays off
 

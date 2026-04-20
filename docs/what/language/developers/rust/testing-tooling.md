@@ -18,7 +18,7 @@ In Musi, tests should state the what the program should do first, then check the
 
 ## Common mistake
 
-Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For Rust, common mistake: expecting Musi syntax to mirror Rust even when the ideas are separated differently. Musi `class` is closest to a Rust trait plus law text. Instances give behavior.
+Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. In Rust, this appears often in testing and tools.
 
 ## When this pays off
 

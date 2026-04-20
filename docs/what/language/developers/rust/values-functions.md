@@ -18,7 +18,7 @@ Musi lets a calculation be a `let`, a function, or a final expression without wr
 
 ## Common mistake
 
-Do not preserve call ceremony just because the source language needs it for methods, receivers, overloads, or closures. For Rust, common mistake: expecting Musi syntax to mirror Rust even when the ideas are separated differently. Musi `class` is closest to a Rust trait plus law text. Instances give behavior.
+Do not keep extra call steps from Rust when the task is values, functions, and final expressions. Keep one clear call per data step in Musi. In Rust, this appears often in values, functions, and final expressions.
 
 ## When this pays off
 

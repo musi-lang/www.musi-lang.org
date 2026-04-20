@@ -18,7 +18,7 @@ In Musi, blocks and matches are expressions when they produce a value; the branc
 
 ## Common mistake
 
-Do not keep extra variables only to move a branch result out of a statement block. For C, common mistake: treating convention as a contract. Musi `class` is not a C struct with function pointers; records and data hold data, classes name behavior a type can provide.
+Do not keep extra variables only to move a branch result out of a statement block. In C, this appears often in blocks and control flow.
 
 ## When this pays off
 

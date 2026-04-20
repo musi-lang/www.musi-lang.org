@@ -18,7 +18,7 @@ In Musi, blocks and matches are expressions when they produce a value; the branc
 
 ## Common mistake
 
-Do not keep extra variables only to move a branch result out of a statement block. For Python, common mistake: trusting runtime convention where Musi expects a visible type or effect. Musi `class` is closer to a clear protocol than a Python class with attributes and methods.
+Do not keep extra variables only to move a branch result out of a statement block. In Python, this appears often in blocks, control flow, and repetition.
 
 ## When this pays off
 

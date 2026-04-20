@@ -18,7 +18,7 @@ In Musi, foreign named parts use `foreign "c" let ...` or a parenthesized foreig
 
 ## Common mistake
 
-Do not invent a C-like foreign block or spread unsafe assumptions through normal Musi code. For Rust, common mistake: expecting Musi syntax to mirror Rust even when the ideas are separated differently. Musi `class` is closest to a Rust trait plus law text. Instances give behavior.
+Do not invent a C-like foreign block or spread unsafe assumptions through normal Musi code. In Rust, this appears often in unsafe and ffi.
 
 ## When this pays off
 

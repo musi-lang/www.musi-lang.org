@@ -61,13 +61,16 @@ interface GeneratedDoc {
 	childIds: string[];
 	partId: string;
 	partTitle: string;
+	partTitleHtml: string;
 	sectionId: string | null;
 	sectionTitle: string | null;
+	sectionTitleHtml: string | null;
 	path: string;
 	canonicalPath: string;
 	aliases: string[];
 	questions: { label: string; href: string }[];
 	title: string;
+	titleHtml: string;
 	description: string;
 	descriptionHtml: string;
 	group: string;
@@ -407,9 +410,13 @@ async function createRenderer() {
 				`${sourcePath}: unknown comparison placeholder id \`${id}\``,
 			);
 		}
+		const mindsetNotes = [
+			...comparison.mindset,
+			comparison.commonWarning,
+		].filter((note) => note.length > 0);
 		const mindset =
-			comparison.mindset.length > 0
-				? `<aside class="mx-doc-mindset"><p><strong>Mindset shift</strong></p><ul>${comparison.mindset.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul></aside>`
+			mindsetNotes.length > 0
+				? `<aside class="mx-message mx-message--info mx-doc-mindset"><span class="mx-message__mark" aria-hidden="true">※</span><div><p><strong>Mindset shift</strong></p><ul>${mindsetNotes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul></div></aside>`
 				: "";
 		return `${mindset}${renderToString(
 			h(CodeTabs, {
@@ -715,9 +722,59 @@ function buildGeneratedDocs(
 	const partTitleById = new Map(
 		partSeeds.map((part) => [part.id, part.metadata.title]),
 	);
+	const partTitleHtmlById = new Map(
+		partSeeds.map((part) => [
+			part.id,
+			renderInlineMarkdown(part.metadata.title),
+		]),
+	);
 	const sectionTitleById = new Map(
 		sectionSeeds.map((section) => [section.id, section.metadata.title]),
 	);
+	const sectionTitleHtmlById = new Map(
+		sectionSeeds.map((section) => [
+			section.id,
+			renderInlineMarkdown(section.metadata.title),
+		]),
+	);
+
+	function resolvePartDisplay(seed: DocSeed) {
+		if (seed.kind === "part") {
+			return {
+				partTitle: seed.partId,
+				partTitleHtml: renderInlineMarkdown(seed.metadata.title),
+			};
+		}
+		const partTitle = partTitleById.get(seed.partId) ?? seed.partId;
+		return {
+			partTitle,
+			partTitleHtml:
+				partTitleHtmlById.get(seed.partId) ?? renderInlineMarkdown(partTitle),
+		};
+	}
+
+	function resolveSectionDisplay(seed: DocSeed) {
+		if (seed.kind === "part" || !seed.sectionId) {
+			return {
+				sectionTitle: null,
+				sectionTitleHtml: null,
+			};
+		}
+		return {
+			sectionTitle: sectionTitleById.get(seed.sectionId) ?? null,
+			sectionTitleHtml: sectionTitleHtmlById.get(seed.sectionId) ?? null,
+		};
+	}
+
+	function buildQuestionLinks(seed: DocSeed, canonicalPath: string) {
+		return seed.questions.map((question) => {
+			const label = question.labels.en;
+			return {
+				label,
+				href: `${canonicalPath}#${slugifyText(label)}`,
+			};
+		});
+	}
 
 	return allSeeds.map((seed) => {
 		const canonicalPath = canonicalPathById.get(seed.id);
@@ -729,16 +786,8 @@ function buildGeneratedDocs(
 		if (depth === undefined || !treePath) {
 			throw new Error(`missing tree metadata for \`${seed.id}\``);
 		}
-		const partTitle =
-			seed.kind === "part"
-				? seed.partId
-				: (partTitleById.get(seed.partId) ?? seed.partId);
-		const sectionTitle =
-			seed.kind === "part"
-				? null
-				: seed.sectionId
-					? (sectionTitleById.get(seed.sectionId) ?? null)
-					: null;
+		const { partTitle, partTitleHtml } = resolvePartDisplay(seed);
+		const { sectionTitle, sectionTitleHtml } = resolveSectionDisplay(seed);
 
 		return {
 			locale: "en",
@@ -750,19 +799,16 @@ function buildGeneratedDocs(
 			childIds: [...(childrenByParentId.get(seed.id) ?? [])],
 			partId: seed.partId,
 			partTitle,
+			partTitleHtml,
 			sectionId: seed.sectionId,
 			sectionTitle,
+			sectionTitleHtml,
 			path: canonicalPath,
 			canonicalPath,
 			aliases: buildAliases(canonicalPath, seed.path, seed.aliases),
-			questions: seed.questions.map((question) => {
-				const label = question.labels.en;
-				return {
-					label,
-					href: `${canonicalPath}#${slugifyText(label)}`,
-				};
-			}),
+			questions: buildQuestionLinks(seed, canonicalPath),
 			title: seed.metadata.title,
+			titleHtml: renderInlineMarkdown(seed.metadata.title),
 			description: seed.metadata.description,
 			descriptionHtml: renderInlineMarkdown(seed.metadata.description),
 			group: seed.metadata.group,

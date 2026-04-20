@@ -18,7 +18,7 @@ In Musi, records and data variants describe stored data. Behavior belongs in fun
 
 ## Common mistake
 
-Do not read `class` as object data. If the page is about a pet, invoice, room, or vehicle, start with fields or variants. For Rust, common mistake: expecting Musi syntax to mirror Rust even when the ideas are separated differently. Musi `class` is closest to a Rust trait plus law text. Instances give behavior.
+Do not treat class as stored object data from Rust while reading records, structs, and field updates. Start with records or variants for data. In Rust, this appears often in records, structs, and field updates.
 
 ## When this pays off
 

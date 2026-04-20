@@ -11,6 +11,7 @@ export interface DeveloperComparison {
 	musiLanguage: string;
 	musiSourceText: string;
 	mindset: readonly string[];
+	commonWarning: string;
 	evidence: { path: string; line: number };
 }
 
@@ -18,6 +19,7 @@ interface DeveloperProfile {
 	label: string;
 	language: string;
 	mindset: readonly string[];
+	commonWarning: string;
 }
 
 interface DeveloperComparisonSpec {
@@ -41,6 +43,8 @@ export const developerProfiles = {
 			"Treat Musi modules as source edges, not header/source pairs.",
 			"Use data for forms and variants; use classes only when a type must supply behavior.",
 		],
+		commonWarning:
+			"Treating convention as a contract hides intent. Musi class is not a C struct with function pointers. Records and data hold data; classes name behavior a type can provide.",
 	},
 	cpp17: {
 		label: "C++17",
@@ -49,6 +53,8 @@ export const developerProfiles = {
 			"Read Musi classes closer to concepts or traits than C++ classes.",
 			"Use records and data for stored data; use instances for behavior a type supplies.",
 		],
+		commonWarning:
+			"Turning every Musi value into a class-heavy design causes confusion. Musi class is closer to a concept or trait than a C++ class. Records and data store data. Instances give behavior.",
 	},
 	csharp: {
 		label: "C#",
@@ -57,6 +63,8 @@ export const developerProfiles = {
 			"Do not map C# classes directly to Musi classes; Musi classes are behavior contracts.",
 			"Use records and data for composite values, then add instances when operations need shared behavior.",
 		],
+		commonWarning:
+			"Mapping Musi classes to object classes or service containers is wrong. Musi class is behavior, not a CLR class with fields, constructors, and inheritance.",
 	},
 	go: {
 		label: "Go",
@@ -65,6 +73,8 @@ export const developerProfiles = {
 			"Read Musi classes as clear behavior rules, closer to interfaces than structs.",
 			"Use data and records for values; use instances where Go would lean on method sets.",
 		],
+		commonWarning:
+			"Using absence or failure as a hidden path makes code harder to trust. Musi class is closer to an interface rule with instances. It is not a struct or a method set from package convention.",
 	},
 	java: {
 		label: "Java",
@@ -73,6 +83,8 @@ export const developerProfiles = {
 			"Do not read Musi class as Java class; it is a typeclass-style behavior contract.",
 			"Use records and data for composite values, and instances where Java would use interfaces plus implementations.",
 		],
+		commonWarning:
+			"Reading Musi class as an object type with constructors and fields causes wrong design choices. Musi class is behavior supplied by instances. Records and data model data.",
 	},
 	"javascript-typescript": {
 		label: "TypeScript",
@@ -81,6 +93,8 @@ export const developerProfiles = {
 			"Do not read Musi class as a prototype or object constructor; it is a behavior contract.",
 			"Use records and data for object-style values, and instances for shared typed behavior.",
 		],
+		commonWarning:
+			"Assuming runtime object data and compile-time behavior are the same thing causes bugs. Musi class is not a JavaScript constructor or TypeScript class. It is behavior kept separate from records and data.",
 	},
 	lua: {
 		label: "Lua",
@@ -89,6 +103,8 @@ export const developerProfiles = {
 			"Do not map tables/metatables directly to Musi classes; Musi classes name required behavior.",
 			"Use records and data for table-like data, then instances for operations a type promises.",
 		],
+		commonWarning:
+			"Letting table fields, missing fields, and behavior conventions blur together hides intent. Musi class is not a metatable pattern. Records and data hold table-like data; classes and instances name promised behavior.",
 	},
 	python: {
 		label: "Python",
@@ -97,6 +113,8 @@ export const developerProfiles = {
 			"Do not read Musi class as Python class; it is closer to a clear protocol with instances.",
 			"Use records and data for object fields, and classes/laws for behavior callers rely on.",
 		],
+		commonWarning:
+			"Trusting runtime convention where Musi expects a visible type or effect can hide problems. Musi class is closer to a clear protocol than a Python class with attributes and methods.",
 	},
 	rust: {
 		label: "Rust",
@@ -105,6 +123,8 @@ export const developerProfiles = {
 			"Read Musi classes closest to Rust traits, with laws documenting behavior contracts.",
 			"Use data for variants and records for fields; use instances where trait impl instincts apply.",
 		],
+		commonWarning:
+			"Expecting Musi syntax to mirror Rust in every form misses key design splits. Musi class is closest to a Rust trait plus law text. Instances give behavior.",
 	},
 } as const satisfies Record<string, DeveloperProfile>;
 
@@ -1253,6 +1273,7 @@ export const developerComparisons = developerComparisonSpecs.map(
 			musiLanguage: "musi",
 			musiSourceText: readExample(spec.musiPath),
 			mindset: profile.mindset,
+			commonWarning: profile.commonWarning,
 			evidence: spec.evidence,
 		};
 	},

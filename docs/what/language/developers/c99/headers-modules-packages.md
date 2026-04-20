@@ -18,7 +18,7 @@ In Musi, imports bring named module values into scope, so package edges stay vis
 
 ## Common mistake
 
-Do not rebuild an old global namespace, header include pile, or barrel file when one import names the owner. For C, common mistake: treating convention as a contract. Musi `class` is not a C struct with function pointers; records and data hold data, classes name behavior a type can provide.
+Do not rebuild an old global namespace, header include pile, or barrel file when one import names the owner. In C, this appears often in headers, modules, and packages.
 
 ## When this pays off
 

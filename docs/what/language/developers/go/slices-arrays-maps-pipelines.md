@@ -18,7 +18,7 @@ In Musi, collection examples keep indexing, field access, and pipelines clear so
 
 ## Common mistake
 
-Do not import lazy iterators, stream chains, table conventions, or pointer arithmetic unless the Musi example needs that behavior. For Go, common mistake: using absence or failure as a hidden path because Go makes that cheap. Musi `class` is closer to an interface rule with instances. It is not a struct. It is not a method set from package convention.
+Do not import lazy iterators, stream chains, table conventions, or pointer arithmetic unless the Musi example needs that behavior. In Go, this appears often in slices, arrays, maps, and pipelines.
 
 ## When this pays off
 

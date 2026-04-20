@@ -119,7 +119,7 @@ export function MachinesMessage(
 }
 
 export function MachinesActionCard(
-	props: AnchorHTMLAttributes<HTMLAnchorElement> &
+	props: Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "title"> &
 		ClassProp & {
 			action?: ComponentChildren;
 			children?: ComponentChildren;

@@ -18,7 +18,7 @@ In Musi, records and data variants describe stored data. Behavior belongs in fun
 
 ## Common mistake
 
-Do not read `class` as object data. If the page is about a pet, invoice, room, or vehicle, start with fields or variants. For C++, common mistake: turning every Musi value into a class-heavy design. Musi `class` is closer to a concept or trait than a C++ class. Records and data store data. Instances give behavior.
+Do not treat class as stored object data from C++ while reading structs, classes, and records. Start with records or variants for data. In C++, this appears often in structs, classes, and records.
 
 ## When this pays off
 

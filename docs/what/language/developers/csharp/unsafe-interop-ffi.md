@@ -8,7 +8,7 @@ slug: "unsafe-interop-ffi"
 summary: "Start from C# habits, then use the Musi Book for the full rule."
 ---
 
-For a C# reader, this guide starts from familiar habits. It shows how Musi handles native and unsafe edges.
+For a C# reader, this guide starts from familiar C# and CLR habits. It shows how Musi handles native and unsafe edges.
 
 {{compare:csharp-unsafe-interop-ffi}}
 
@@ -18,7 +18,7 @@ In Musi, foreign named parts use `foreign "c" let ...` or a parenthesized foreig
 
 ## Common mistake
 
-Do not invent a C-like foreign block or spread unsafe assumptions through normal Musi code. For C#, common mistake: mapping Musi classes to object classes or service containers. Musi `class` is a behavior, not a CLR class with fields, constructors, and inheritance.
+Do not invent a C-like foreign block or spread unsafe assumptions through normal Musi code. In C#, this appears often in unsafe, interop, and ffi.
 
 ## When this pays off
 

@@ -18,7 +18,7 @@ Musi makes mutation clear with `mut` and assignment; normal `let` names read as 
 
 ## Common mistake
 
-Do not translate every rebinding habit into mutation. A new receipt, label, or counter snapshot can be a fresh name. For Rust, common mistake: expecting Musi syntax to mirror Rust even when the ideas are separated differently. Musi `class` is closest to a Rust trait plus law text. Instances give behavior.
+Do not force mutation habits from Rust into mutation. In Musi, a fresh name is often the clearer step. In Rust, this appears often in mutation.
 
 ## When this pays off
 

@@ -18,7 +18,7 @@ Musi makes mutation clear with `mut` and assignment; normal `let` names read as 
 
 ## Common mistake
 
-Do not translate every rebinding habit into mutation. A new receipt, label, or counter snapshot can be a fresh name. For TypeScript, common mistake: assuming runtime object data and compile-time behavior are the same thing. Musi `class` is not a JavaScript constructor or TypeScript class. It is behavior kept separate from records and data.
+Do not force mutation habits from JavaScript and TypeScript into `let`, `const`, and mutable state. In Musi, a fresh name is often the clearer step. In JavaScript and TypeScript, this appears often in `let`, `const`, and mutable state.
 
 ## When this pays off
 

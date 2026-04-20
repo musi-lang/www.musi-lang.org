@@ -8,7 +8,7 @@ slug: "unions-pattern-matching"
 summary: "Start from C# habits, then use the Musi Book for the full rule."
 ---
 
-For a C# reader, this guide starts from familiar habits. It shows how Musi handles named cases and pattern matching.
+For a C# reader, this guide starts from familiar C# and CLR habits. It shows how Musi handles named cases and pattern matching.
 
 {{compare:csharp-unions-pattern-matching}}
 
@@ -18,7 +18,7 @@ In Musi, data variants name the cases directly, and `match` reads the case split
 
 ## Common mistake
 
-Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. For C#, common mistake: mapping Musi classes to object classes or service containers. Musi `class` is a behavior, not a CLR class with fields, constructors, and inheritance.
+Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. In C#, this appears often in unions and pattern matching.
 
 ## When this pays off
 

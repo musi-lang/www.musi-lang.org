@@ -18,7 +18,7 @@ In Musi, data variants name the cases directly, and `match` reads the case split
 
 ## Common mistake
 
-Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. For Java, common mistake: reading Musi `class` as an object type by name with constructors and fields. Musi `class` is behavior supplied by instances. Records and data model data.
+Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. In Java, this appears often in sealed types and patterns.
 
 ## When this pays off
 

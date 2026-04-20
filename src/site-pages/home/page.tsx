@@ -157,6 +157,7 @@ export function HomePage(_props: { route: AppRoute }) {
 						<DocPartTile
 							key={part.id}
 							title={part.title}
+							titleHtml={part.titleHtml}
 							path={part.path}
 							summaryHtml={part.summaryHtml}
 							chapterCount={part.chapters.length}

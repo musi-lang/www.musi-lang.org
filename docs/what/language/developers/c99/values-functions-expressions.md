@@ -18,7 +18,7 @@ Musi lets a calculation be a `let`, a function, or a final expression without wr
 
 ## Common mistake
 
-Do not preserve call ceremony just because the source language needs it for methods, receivers, overloads, or closures. For C, common mistake: treating convention as a contract. Musi `class` is not a C struct with function pointers; records and data hold data, classes name behavior a type can provide.
+Do not keep extra call steps from C when the task is values, functions, and expressions. Keep one clear call per data step in Musi. In C, this appears often in values, functions, and expressions.
 
 ## When this pays off
 

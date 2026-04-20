@@ -8,7 +8,7 @@ slug: "namespaces-modules-packages"
 summary: "Start from C# habits, then use the Musi Book for the full rule."
 ---
 
-For a C# reader, this guide starts from familiar habits. It shows how Musi handles fresh values and mutation.
+For a C# reader, this guide starts from familiar C# and CLR habits. It shows how Musi handles fresh values and mutation.
 
 {{compare:csharp-namespaces-modules-packages}}
 
@@ -18,7 +18,7 @@ Musi makes mutation clear with `mut` and assignment; normal `let` names read as 
 
 ## Common mistake
 
-Do not translate every rebinding habit into mutation. A new receipt, label, or counter snapshot can be a fresh name. For C#, common mistake: mapping Musi classes to object classes or service containers. Musi `class` is a behavior, not a CLR class with fields, constructors, and inheritance.
+Do not force mutation habits from C# into namespaces, modules, and packages. In Musi, a fresh name is often the clearer step. In C#, this appears often in namespaces, modules, and packages.
 
 ## When this pays off
 

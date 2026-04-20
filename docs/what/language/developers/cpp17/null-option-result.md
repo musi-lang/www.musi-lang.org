@@ -18,7 +18,7 @@ Musi uses `option.someOf` and `option.noneOf` when absence is expected, so calle
 
 ## Common mistake
 
-Do not translate null, nil, None, or undefined as a quiet normal value. For C++, common mistake: turning every Musi value into a class-heavy design. Musi `class` is closer to a concept or trait than a C++ class. Records and data store data. Instances give behavior.
+Do not translate null, nil, None, or undefined as a quiet normal value. In C++, this appears often in null, option, and result.
 
 ## When this pays off
 

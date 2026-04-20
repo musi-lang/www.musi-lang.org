@@ -32,8 +32,11 @@ export interface DocPage {
 	aliases: string[];
 	partId: string;
 	partTitle: string;
+	partTitleHtml: string;
 	sectionId: string | null;
 	sectionTitle: string | null;
+	sectionTitleHtml: string | null;
+	titleHtml: string;
 	questions: { label: string; href: string }[];
 	locale: Locale;
 }
@@ -41,6 +44,7 @@ export interface DocPage {
 export interface DocPart {
 	id: string;
 	title: string;
+	titleHtml: string;
 	summaryHtml: string;
 	path: string;
 	sections: DocPage[];
@@ -50,6 +54,7 @@ export interface DocPart {
 
 interface DocGroup {
 	group: string;
+	groupHtml: string;
 	path: string;
 	summaryHtml: string;
 	pages: DocPage[];
@@ -123,6 +128,7 @@ export const docParts = partDocs.map((part) => {
 	return {
 		id: part.id,
 		title: part.title,
+		titleHtml: part.titleHtml,
 		summaryHtml: part.summaryHtml,
 		path: part.path,
 		sections: children.filter((child) => child.kind === "section"),
@@ -136,6 +142,7 @@ export const docGroups = docParts
 		const pages = childrenByParentId.get(part.id) ?? [];
 		return {
 			group: part.title,
+			groupHtml: part.titleHtml,
 			path: part.path,
 			summaryHtml: part.summaryHtml,
 			pages,
@@ -150,6 +157,7 @@ export const guideGroups = docParts
 		const pages = childrenByParentId.get(part.id) ?? [];
 		return {
 			group: part.title,
+			groupHtml: part.titleHtml,
 			path: part.path,
 			summaryHtml: part.summaryHtml,
 			pages,
@@ -180,10 +188,13 @@ for (const page of chapterDocs) {
 export interface DocSearchEntry {
 	id: string;
 	title: string;
+	titleHtml: string;
 	path: string;
 	summary: string;
 	partTitle: string;
+	partTitleHtml: string;
 	sectionTitle: string | null;
+	sectionTitleHtml: string | null;
 	kind: DocPage["kind"];
 	questions: string[];
 	searchText: string;
@@ -205,10 +216,13 @@ export const docSearchEntries: DocSearchEntry[] = localizedDocs.map((page) => {
 	return {
 		id: page.id,
 		title: page.title,
+		titleHtml: page.titleHtml,
 		path: page.path,
 		summary: page.summary,
 		partTitle: page.partTitle,
+		partTitleHtml: page.partTitleHtml,
 		sectionTitle: page.sectionTitle,
+		sectionTitleHtml: page.sectionTitleHtml,
 		kind: page.kind,
 		questions,
 		searchText,

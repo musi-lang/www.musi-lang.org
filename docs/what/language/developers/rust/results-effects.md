@@ -18,7 +18,7 @@ Musi uses `option.someOf` and `option.noneOf` when absence is expected, so calle
 
 ## Common mistake
 
-Do not translate null, nil, None, or undefined as a quiet normal value. For Rust, common mistake: expecting Musi syntax to mirror Rust even when the ideas are separated differently. Musi `class` is closest to a Rust trait plus law text. Instances give behavior.
+Do not translate null, nil, None, or undefined as a quiet normal value. In Rust, this appears often in results, i/o, and effects.
 
 ## When this pays off
 

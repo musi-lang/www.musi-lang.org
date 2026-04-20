@@ -18,7 +18,7 @@ In Musi, data variants name the cases directly, and `match` reads the case split
 
 ## Common mistake
 
-Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. For C, common mistake: treating convention as a contract. Musi `class` is not a C struct with function pointers; records and data hold data, classes name behavior a type can provide.
+Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. In C, this appears often in enums, variants, and patterns.
 
 ## When this pays off
 

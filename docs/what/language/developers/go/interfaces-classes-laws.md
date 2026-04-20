@@ -18,7 +18,7 @@ In Musi, classes name behavior a type can provide, instances provide it, and law
 
 ## Common mistake
 
-Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. For Go, common mistake: using absence or failure as a hidden path because Go makes that cheap. Musi `class` is closer to an interface rule with instances. It is not a struct. It is not a method set from package convention.
+Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. In Go, this appears often in interfaces, classes, instances, and laws.
 
 ## When this pays off
 

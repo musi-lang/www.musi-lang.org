@@ -18,7 +18,7 @@ Musi makes mutation clear with `mut` and assignment; normal `let` names read as 
 
 ## Common mistake
 
-Do not translate every rebinding habit into mutation. A new receipt, label, or counter snapshot can be a fresh name. For C++, common mistake: turning every Musi value into a class-heavy design. Musi `class` is closer to a concept or trait than a C++ class. Records and data store data. Instances give behavior.
+Do not force mutation habits from C++ into variables and mutation. In Musi, a fresh name is often the clearer step. In C++, this appears often in variables and mutation.
 
 ## When this pays off
 

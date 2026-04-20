@@ -18,3 +18,4 @@ coverage
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
+metals.lock.db

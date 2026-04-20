@@ -8,7 +8,7 @@ slug: "extension-methods-and-calls"
 summary: "Start from C# habits, then use the Musi Book for the full rule."
 ---
 
-For a C# reader, this guide starts from familiar habits. It shows how Musi handles local values and calls.
+For a C# reader, this guide starts from familiar C# and CLR habits. It shows how Musi handles local values and calls.
 
 {{compare:csharp-extension-methods-and-calls}}
 
@@ -18,7 +18,7 @@ Musi lets a calculation be a `let`, a function, or a final expression without wr
 
 ## Common mistake
 
-Do not preserve call ceremony just because the source language needs it for methods, receivers, overloads, or closures. For C#, common mistake: mapping Musi classes to object classes or service containers. Musi `class` is a behavior, not a CLR class with fields, constructors, and inheritance.
+Do not keep extra call steps from C# when the task is extension methods and calls. Keep one clear call per data step in Musi. In C#, this appears often in extension methods and calls.
 
 ## When this pays off
 

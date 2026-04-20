@@ -18,7 +18,7 @@ In Musi, blocks and matches are expressions when they produce a value; the branc
 
 ## Common mistake
 
-Do not keep extra variables only to move a branch result out of a statement block. For Java, common mistake: reading Musi `class` as an object type by name with constructors and fields. Musi `class` is behavior supplied by instances. Records and data model data.
+Do not keep extra variables only to move a branch result out of a statement block. In Java, this appears often in blocks and control flow.
 
 ## When this pays off
 

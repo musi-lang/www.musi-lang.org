@@ -18,7 +18,7 @@ In Musi, classes name behavior a type can provide, instances provide it, and law
 
 ## Common mistake
 
-Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. For C++, common mistake: turning every Musi value into a class-heavy design. Musi `class` is closer to a concept or trait than a C++ class. Records and data store data. Instances give behavior.
+Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. In C++, this appears often in templates, concepts, classes, and laws.
 
 ## When this pays off
 

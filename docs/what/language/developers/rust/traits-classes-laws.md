@@ -18,7 +18,7 @@ In Musi, classes name behavior a type can provide, instances provide it, and law
 
 ## Common mistake
 
-Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. For Rust, common mistake: expecting Musi syntax to mirror Rust even when the ideas are separated differently. Musi `class` is closest to a Rust trait plus law text. Instances give behavior.
+Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. In Rust, this appears often in traits, classes, instances, and laws.
 
 ## When this pays off
 

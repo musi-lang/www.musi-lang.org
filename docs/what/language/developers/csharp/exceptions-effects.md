@@ -8,7 +8,7 @@ slug: "exceptions-effects"
 summary: "Start from C# habits, then use the Musi Book for the full rule."
 ---
 
-For a C# reader, this guide starts from familiar habits. It shows how Musi handles absence and failure branches.
+For a C# reader, this guide starts from familiar C# and CLR habits. It shows how Musi handles absence and failure branches.
 
 {{compare:csharp-exceptions-effects}}
 
@@ -18,7 +18,7 @@ Musi uses `option.someOf` and `option.noneOf` when absence is expected, so calle
 
 ## Common mistake
 
-Do not translate null, nil, None, or undefined as a quiet normal value. For C#, common mistake: mapping Musi classes to object classes or service containers. Musi `class` is a behavior, not a CLR class with fields, constructors, and inheritance.
+Do not translate null, nil, None, or undefined as a quiet normal value. In C#, this appears often in exceptions, results, and effects.
 
 ## When this pays off
 

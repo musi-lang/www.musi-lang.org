@@ -18,7 +18,7 @@ Musi lets a calculation be a `let`, a function, or a final expression without wr
 
 ## Common mistake
 
-Do not preserve call ceremony just because the source language needs it for methods, receivers, overloads, or closures. For TypeScript, common mistake: assuming runtime object data and compile-time behavior are the same thing. Musi `class` is not a JavaScript constructor or TypeScript class. It is behavior kept separate from records and data.
+Do not keep extra call steps from JavaScript and TypeScript when the task is values, functions, and final expressions. Keep one clear call per data step in Musi. In JavaScript and TypeScript, this appears often in values, functions, and final expressions.
 
 ## When this pays off
 

@@ -18,7 +18,7 @@ Musi names outside work with effects and `request`, instead of hiding time, file
 
 ## Common mistake
 
-Do not make an effect look pure. A clock, process, network service, or console changes the trust edge. For TypeScript, common mistake: assuming runtime object data and compile-time behavior are the same thing. Musi `class` is not a JavaScript constructor or TypeScript class. It is behavior kept separate from records and data.
+Do not make an effect look pure. A clock, process, network service, or console changes the trust edge. In JavaScript and TypeScript, this appears often in promises, async, and i/o edges.
 
 ## When this pays off
 

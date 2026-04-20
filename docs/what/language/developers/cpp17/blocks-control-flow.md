@@ -18,7 +18,7 @@ In Musi, blocks and matches are expressions when they produce a value; the branc
 
 ## Common mistake
 
-Do not keep extra variables only to move a branch result out of a statement block. For C++, common mistake: turning every Musi value into a class-heavy design. Musi `class` is closer to a concept or trait than a C++ class. Records and data store data. Instances give behavior.
+Do not keep extra variables only to move a branch result out of a statement block. In C++, this appears often in blocks and control flow.
 
 ## When this pays off
 

@@ -18,7 +18,7 @@ In Musi, tests should state the what the program should do first, then check the
 
 ## Common mistake
 
-Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. For TypeScript, common mistake: assuming runtime object data and compile-time behavior are the same thing. Musi `class` is not a JavaScript constructor or TypeScript class. It is behavior kept separate from records and data.
+Do not write a test that only proves syntax can be called. Make the receipt, route, badge, or parser claim visible. In JavaScript and TypeScript, this appears often in testing and tools.
 
 ## When this pays off
 

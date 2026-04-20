@@ -18,7 +18,7 @@ In Musi, classes name behavior a type can provide, instances provide it, and law
 
 ## Common mistake
 
-Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. For Java, common mistake: reading Musi `class` as an object type by name with constructors and fields. Musi `class` is behavior supplied by instances. Records and data model data.
+Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. In Java, this appears often in generics, interfaces, and laws.
 
 ## When this pays off
 

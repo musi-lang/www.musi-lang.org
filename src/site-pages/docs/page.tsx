@@ -13,6 +13,7 @@ import { ActionStrip, InlineAction, SecondaryAction } from "../../ui/actions";
 import { DocListGroup } from "../../ui/doc-list";
 import { DocsSearch } from "../../ui/docs-search";
 import { HtmlSnippet } from "../../ui/html-snippet";
+import { InlineHtml } from "../../ui/inline-html";
 import {
 	MachinesActionCard,
 	MachinesGroupbox,
@@ -69,7 +70,11 @@ export function DocsIndexPage(_props: { route: AppRoute }) {
 					showHeader={false}
 				/>
 			</MachinesSection>
-			<MachinesSection kicker={siteCopy.ui.learnSection} title="Musi Book">
+			<MachinesSection
+				className="learn-book-lane"
+				kicker={siteCopy.ui.learnSection}
+				title="Musi Book"
+			>
 				<p className="site-copy site-copy--small">
 					This is the main book. It moves from your first file to syntax, data,
 					types, effects, and commands. Language guides are separate because
@@ -79,7 +84,7 @@ export function DocsIndexPage(_props: { route: AppRoute }) {
 					{docGroups.map((group) => (
 						<DocListGroup
 							key={group.group}
-							group={group.group}
+							group={<InlineHtml html={group.groupHtml} />}
 							path={group.path}
 							summaryHtml={group.summaryHtml}
 							pages={group.pages}
@@ -97,7 +102,7 @@ export function DocsIndexPage(_props: { route: AppRoute }) {
 					{guideGroups.map((group) => (
 						<DocListGroup
 							key={group.group}
-							group={group.group}
+							group={<InlineHtml html={group.groupHtml} />}
 							path={group.path}
 							summaryHtml={group.summaryHtml}
 							pages={group.pages}
@@ -118,9 +123,11 @@ function DocPathRail(props: { breadcrumb: ReturnType<typeof docBreadcrumb> }) {
 				<span key={node.id} className="docs-rail-path__node">
 					<span aria-hidden="true">/</span>
 					{index === props.breadcrumb.length - 1 ? (
-						<span>{node.title}</span>
+						<InlineHtml html={node.titleHtml} />
 					) : (
-						<a href={node.path}>{node.title}</a>
+						<a href={node.path}>
+							<InlineHtml html={node.titleHtml} />
+						</a>
 					)}
 				</span>
 			))}
@@ -129,8 +136,8 @@ function DocPathRail(props: { breadcrumb: ReturnType<typeof docBreadcrumb> }) {
 }
 
 function DocChapterActions(props: {
-	previous: { path: string; title: string } | undefined;
-	next: { path: string; title: string } | undefined;
+	previous: { path: string; title: string; titleHtml: string } | undefined;
+	next: { path: string; title: string; titleHtml: string } | undefined;
 }) {
 	if (!(props.previous || props.next)) {
 		return null;
@@ -143,7 +150,7 @@ function DocChapterActions(props: {
 					href={props.previous.path}
 					className="docs-rail-action"
 					kicker={labels.previousChapter}
-					title={props.previous.title}
+					title={<InlineHtml html={props.previous.titleHtml} />}
 					action="‹"
 				/>
 			) : null}
@@ -152,7 +159,7 @@ function DocChapterActions(props: {
 					href={props.next.path}
 					className="docs-rail-action"
 					kicker={labels.nextChapter}
-					title={props.next.title}
+					title={<InlineHtml html={props.next.titleHtml} />}
 					action="›"
 				/>
 			) : null}
@@ -163,8 +170,8 @@ function DocChapterActions(props: {
 function DocPageRail(props: {
 	breadcrumb: ReturnType<typeof docBreadcrumb>;
 	headings: Array<{ depth: number; id: string; text: string }>;
-	previous: { path: string; title: string } | undefined;
-	next: { path: string; title: string } | undefined;
+	previous: { path: string; title: string; titleHtml: string } | undefined;
+	next: { path: string; title: string; titleHtml: string } | undefined;
 }) {
 	return (
 		<MachinesSidebarPanel className="docs-page-rail" title="Chapter tools">
@@ -220,15 +227,17 @@ export function DocPage(props: { pathname: string; route: AppRoute }) {
 							<span key={node.id} className="site-crumbs__node">
 								<span aria-hidden="true">/</span>
 								{index === breadcrumb.length - 1 ? (
-									<span>{node.title}</span>
+									<InlineHtml html={node.titleHtml} />
 								) : (
-									<a href={node.path}>{node.title}</a>
+									<a href={node.path}>
+										<InlineHtml html={node.titleHtml} />
+									</a>
 								)}
 							</span>
 						))}
 					</span>
 				}
-				title={page.title}
+				title={<InlineHtml html={page.titleHtml} />}
 				descriptionHtml={page.descriptionHtml}
 			/>
 			<div className="docs-body-grid">
@@ -237,7 +246,10 @@ export function DocPage(props: { pathname: string; route: AppRoute }) {
 					{childPages.length > 0 ? (
 						<div className="site-stack site-stack--tight">
 							<div className="mx-kicker">{siteCopy.ui.chapters}</div>
-							<DocListGroup group={page.title} pages={childPages} />
+							<DocListGroup
+								group={<InlineHtml html={page.titleHtml} />}
+								pages={childPages}
+							/>
 						</div>
 					) : null}
 				</MachinesPost>

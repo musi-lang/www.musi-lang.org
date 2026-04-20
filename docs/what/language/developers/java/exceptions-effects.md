@@ -18,7 +18,7 @@ Musi names outside work with effects and `request`, instead of hiding time, file
 
 ## Common mistake
 
-Do not make an effect look pure. A clock, process, network service, or console changes the trust edge. For Java, common mistake: reading Musi `class` as an object type by name with constructors and fields. Musi `class` is behavior supplied by instances. Records and data model data.
+Do not make an effect look pure. A clock, process, network service, or console changes the trust edge. In Java, this appears often in exceptions and effects.
 
 ## When this pays off
 

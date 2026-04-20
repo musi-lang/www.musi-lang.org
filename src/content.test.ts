@@ -132,6 +132,7 @@ const codeExampleEscapedNewlinePattern =
 	/(?:sourceText|musiSourceText|code)\s*:\s*(["'])(?:(?:\\.)|(?!\1)[\s\S])*?\\n/;
 const classMindsetPattern = /class.*(?:behavior|contract)|behavior.*class/i;
 const markdownParagraphBreakPattern = /\n{2,}/;
+const repeatedGuideMistakePattern = /For [^<\n]+, common mistake:/i;
 
 function snippetIdsInMarkdown(source: string) {
 	return [...source.matchAll(snippetEmbedPattern)].map((match) => match[1]);
@@ -813,6 +814,10 @@ describe("content generation", () => {
 			expect(doc.html, doc.id).toContain("Common mistake");
 			expect(doc.html, doc.id).toContain("When this pays off");
 			expect(doc.html, doc.id).toContain("Keep close");
+			expect(doc.html, doc.id).toContain("mx-message");
+			expect(doc.html, doc.id).toContain("mx-message__mark");
+			expect(doc.html, doc.id).toContain("※");
+			expect(doc.html, doc.id).not.toMatch(repeatedGuideMistakePattern);
 			expect(doc.html, doc.id).toContain("mx-code-tabs");
 			expect(doc.html, doc.id).toContain('data-code-tab-panel="source"');
 			expect(doc.html, doc.id).toContain('data-code-tab-panel="musi"');

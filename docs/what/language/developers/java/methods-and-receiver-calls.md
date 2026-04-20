@@ -18,7 +18,7 @@ Musi lets a calculation be a `let`, a function, or a final expression without wr
 
 ## Common mistake
 
-Do not preserve call ceremony just because the source language needs it for methods, receivers, overloads, or closures. For Java, common mistake: reading Musi `class` as an object type by name with constructors and fields. Musi `class` is behavior supplied by instances. Records and data model data.
+Do not keep extra call steps from Java when the task is methods and receiver calls. Keep one clear call per data step in Musi. In Java, this appears often in methods and receiver calls.
 
 ## When this pays off
 

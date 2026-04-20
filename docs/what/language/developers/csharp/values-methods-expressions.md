@@ -8,17 +8,17 @@ slug: "values-methods-expressions"
 summary: "Start from C# habits, then use the Musi Book for the full rule."
 ---
 
-For a C# reader, this guide starts from familiar habits. It shows how Musi handles local values and calls.
+For a C# reader, this guide starts from familiar C# and CLR habits. It shows how Musi handles local values and calls.
 
 {{compare:csharp-values-methods-expressions}}
 
 ## Reading Values, Methods, and Expressions from C#
 
-Musi lets a calculation be a `let`, a function, or a final expression without wrapping it in an object first. For a C# reader, the key topic is values, methods, and expressions.
+Musi lets a calculation be a `let`, a function, or a final expression without wrapping it in an object first. For a C# reader, the key topic is values, methods, and expressions, including async call flow.
 
 ## Common mistake
 
-Do not preserve call ceremony just because the source language needs it for methods, receivers, overloads, or closures. For C#, common mistake: mapping Musi classes to object classes or service containers. Musi `class` is a behavior, not a CLR class with fields, constructors, and inheritance.
+Do not keep extra call steps from C# when the task is values, methods, and expressions. Keep one clear call per data step in Musi. In C#, this appears often in values, methods, and expressions.
 
 ## When this pays off
 

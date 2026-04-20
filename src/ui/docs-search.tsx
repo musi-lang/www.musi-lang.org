@@ -1,4 +1,5 @@
 import type { DocSearchEntry } from "../docs";
+import { InlineHtml } from "./inline-html";
 
 interface DocsSearchProps {
 	entries: readonly DocSearchEntry[];
@@ -13,8 +14,18 @@ interface DocsSearchProps {
 }
 
 function entryKicker(entry: DocSearchEntry) {
-	const section = entry.sectionTitle ? ` / ${entry.sectionTitle}` : "";
-	return `${entry.kind} / ${entry.partTitle}${section}`;
+	return (
+		<>
+			<span>{entry.kind} / </span>
+			<InlineHtml html={entry.partTitleHtml} />
+			{entry.sectionTitleHtml ? (
+				<>
+					<span> / </span>
+					<InlineHtml html={entry.sectionTitleHtml} />
+				</>
+			) : null}
+		</>
+	);
 }
 
 export function DocsSearch(props: DocsSearchProps) {
@@ -62,7 +73,9 @@ export function DocsSearch(props: DocsSearchProps) {
 							</span>
 							<span className="mx-action-card__action">Open</span>
 						</span>
-						<strong className="mx-action-card__title">{entry.title}</strong>
+						<strong className="mx-action-card__title">
+							<InlineHtml html={entry.titleHtml} />
+						</strong>
 						<span className="mx-action-card__body">{entry.summary}</span>
 					</a>
 				))}

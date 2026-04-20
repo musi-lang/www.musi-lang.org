@@ -18,7 +18,7 @@ In Musi, classes name behavior a type can provide, instances provide it, and law
 
 ## Common mistake
 
-Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. For C, common mistake: treating convention as a contract. Musi `class` is not a C struct with function pointers; records and data hold data, classes name behavior a type can provide.
+Do not confuse a Musi class with stored object state, inheritance, or a metatable. Data and behavior are separate. In C, this appears often in macros, generics, classes, and laws.
 
 ## When this pays off
 
