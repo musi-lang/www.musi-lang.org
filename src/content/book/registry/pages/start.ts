@@ -9,7 +9,7 @@ export const startPages = [
 			"/docs/language/start/getting-started",
 			"/learn/language/start/getting-started",
 		],
-		sourcePath: "docs/what/language/start/getting-started.md",
+		sourcePath: "content/musi-book/pages/start/getting-started.md",
 		questions: [],
 	},
 	{
@@ -20,7 +20,7 @@ export const startPages = [
 			"/docs/language/start/first-program",
 			"/learn/language/start/first-program",
 		],
-		sourcePath: "docs/what/language/start/first-program.md",
+		sourcePath: "content/musi-book/pages/start/first-program.md",
 		questions: [],
 	},
 	{
@@ -31,7 +31,7 @@ export const startPages = [
 			"/docs/language/start/reading-musi-code",
 			"/learn/language/start/reading-musi-code",
 		],
-		sourcePath: "docs/what/language/start/reading-musi-code.md",
+		sourcePath: "content/musi-book/pages/start/reading-musi-code.md",
 		questions: [],
 	},
 	{
@@ -42,7 +42,18 @@ export const startPages = [
 			"/docs/language/start/values-and-let",
 			"/learn/language/start/values-and-let",
 		],
-		sourcePath: "docs/what/language/start/values-and-let.md",
+		sourcePath: "content/musi-book/pages/start/values-and-let.md",
+		questions: [],
+	},
+	{
+		id: "comments",
+		partId: "start",
+		path: "/docs/book/start/comments",
+		aliases: [
+			"/docs/language/start/comments",
+			"/learn/language/start/comments",
+		],
+		sourcePath: "content/musi-book/pages/start/comments.md",
 		questions: [],
 	},
 	{
@@ -53,7 +64,7 @@ export const startPages = [
 			"/docs/language/start/blocks-and-expressions",
 			"/learn/language/start/blocks-and-expressions",
 		],
-		sourcePath: "docs/what/language/start/blocks-and-expressions.md",
+		sourcePath: "content/musi-book/pages/start/blocks-and-expressions.md",
 		questions: [],
 	},
 	{
@@ -64,7 +75,7 @@ export const startPages = [
 			"/docs/language/start/mutation",
 			"/learn/language/start/mutation",
 		],
-		sourcePath: "docs/what/language/start/mutation.md",
+		sourcePath: "content/musi-book/pages/start/mutation.md",
 		questions: [],
 	},
 ] satisfies readonly RawBookPageDefinition[];

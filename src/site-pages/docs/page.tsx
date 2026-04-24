@@ -5,7 +5,6 @@ import {
 	docGroups,
 	docNeighbors,
 	docSearchEntries,
-	guideGroups,
 } from "../../docs";
 import { siteCopy } from "../../lib/site-copy";
 import type { AppRoute } from "../../routes";
@@ -51,15 +50,8 @@ export function DocsIndexPage(_props: { route: AppRoute }) {
 					href="/learn/book"
 					kicker={copy.eyebrow}
 					title="Musi Book"
-					description="Read the main Musi book in order, without language-transition guides mixed into the path."
+					description="Read the Musi book from first file through syntax, data, types, effects, and commands."
 					action="Open book"
-				/>
-				<MachinesActionCard
-					href="/learn/guides"
-					kicker="Guides"
-					title="Musi for Developers"
-					description="Use these when you know another language and want a guide."
-					action="Open guides"
 				/>
 			</section>
 			<MachinesSection title={siteCopy.ui.findDocs}>
@@ -77,8 +69,7 @@ export function DocsIndexPage(_props: { route: AppRoute }) {
 			>
 				<p className="site-copy site-copy--small">
 					This is the main book. It moves from your first file to syntax, data,
-					types, effects, and commands. Language guides are separate because
-					they help readers from other languages.
+					types, effects, and commands.
 				</p>
 				<div className="mx-grid site-doc-groups">
 					{docGroups.map((group) => (
@@ -89,24 +80,6 @@ export function DocsIndexPage(_props: { route: AppRoute }) {
 							summaryHtml={group.summaryHtml}
 							pages={group.pages}
 							linkLabel={siteCopy.ui.openSection}
-						/>
-					))}
-				</div>
-			</MachinesSection>
-			<MachinesSection kicker="Guides" title="Musi for Developers">
-				<p className="site-copy site-copy--small">
-					Use these pages only when you want to map C, Rust, Python, JavaScript,
-					or another known language into Musi terms.
-				</p>
-				<div className="mx-grid site-doc-groups">
-					{guideGroups.map((group) => (
-						<DocListGroup
-							key={group.group}
-							group={<InlineHtml html={group.groupHtml} />}
-							path={group.path}
-							summaryHtml={group.summaryHtml}
-							pages={group.pages}
-							linkLabel="Open guides"
 						/>
 					))}
 				</div>

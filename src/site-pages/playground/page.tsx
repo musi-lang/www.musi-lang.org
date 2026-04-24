@@ -1,7 +1,8 @@
 import { siteCopy } from "../../lib/site-copy";
 import type { AppRoute } from "../../routes";
 import { ActionStrip, InlineAction, SecondaryAction } from "../../ui/actions";
-import { MachinesActionCard, MachinesPanel } from "../../ui/machines";
+import { MachinesActionCard } from "../../ui/machines";
+import { SiteHeading } from "../../ui/site-heading";
 
 export function PlaygroundPage(_props: { route: AppRoute }) {
 	const copy = siteCopy.playground;
@@ -30,12 +31,11 @@ export function PlaygroundPage(_props: { route: AppRoute }) {
 	];
 	return (
 		<div className="site-stack">
-			<MachinesPanel title={copy.eyebrow}>
-				<div className="site-heading__body">
-					<div>
-						<h1 className="site-title site-title--page">{copy.statusTitle}</h1>
-						<p className="site-copy">{copy.statusCopy}</p>
-					</div>
+			<SiteHeading
+				eyebrow={copy.eyebrow}
+				title={copy.statusTitle}
+				description={copy.statusCopy}
+				actions={
 					<ActionStrip>
 						<SecondaryAction href="/install">
 							{siteCopy.nav.install}
@@ -44,8 +44,8 @@ export function PlaygroundPage(_props: { route: AppRoute }) {
 							{siteCopy.nav.community}
 						</InlineAction>
 					</ActionStrip>
-				</div>
-			</MachinesPanel>
+				}
+			/>
 			<section
 				className="mx-grid site-grid--three"
 				aria-label="Playground paths"

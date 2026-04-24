@@ -1,9 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
-import { CodeTabs } from "@musi-lang/machines/preact";
 import { Marked, Renderer, type Tokens } from "marked";
-import { h } from "preact";
-import renderToString from "preact-render-to-string";
 import { createHighlighter, type LanguageRegistration } from "shiki";
 import {
 	bookPages,
@@ -11,14 +8,8 @@ import {
 	bookSections,
 } from "../src/content/book/manifest";
 import { tryBlocks } from "../src/content/book/try-registry";
-import { developerComparisons } from "../src/content/comparisons/developers";
 import { exampleGroups } from "../src/content/examples/groups";
 import { contentSnippets } from "../src/content/snippet-registry";
-import {
-	loadMarkdownDoc,
-	type MarkdownFrontmatter,
-	validateLanguageDocs,
-} from "./validate-language-docs";
 
 const repoRoot = join(import.meta.dir, "..");
 const generatedDocsPath = join(
@@ -43,7 +34,30 @@ const grammarPath = join(
 
 const themeName = "github-light-high-contrast";
 const supportedPlaceholderPattern =
-	/\{\{\s*(snippet|example|try|compare):([\w-]+)\s*\}\}/g;
+	/\{\{\s*(snippet|example|try):([\w-]+)\s*\}\}/g;
+const integerPattern = /^-?\d+$/;
+const leadingNewlinePattern = /^\n+/;
+const firstMarkdownHeadingPattern = /^#\s+(.+?)\s*#*\s*$/;
+const frontmatterLinePattern = /^([A-Za-z][A-Za-z0-9_-]*):\s*(.*)$/;
+const frontmatterKeys = [
+	"title",
+	"description",
+	"group",
+	"section",
+	"order",
+	"slug",
+	"summary",
+] as const;
+
+type FrontmatterKey = (typeof frontmatterKeys)[number];
+type FrontmatterValue = string | number;
+type MarkdownFrontmatter = Partial<Record<FrontmatterKey, FrontmatterValue>>;
+
+interface MarkdownDoc {
+	sourcePath: string;
+	frontmatter: MarkdownFrontmatter;
+	body: string;
+}
 
 interface GeneratedHeading {
 	depth: number;
@@ -179,12 +193,90 @@ function slugifyText(text: string) {
 	return base.length > 0 ? base : "section";
 }
 
+function stripMatchingFirstHeading(markdown: string, title: string) {
+	const firstLineEnd = markdown.indexOf("\n");
+	const firstLine =
+		firstLineEnd === -1 ? markdown : markdown.slice(0, firstLineEnd);
+	const match = firstLine.match(firstMarkdownHeadingPattern);
+	if (!match) {
+		return markdown;
+	}
+
+	const [, heading] = match;
+	if (slugifyText(heading) !== slugifyText(title)) {
+		return markdown;
+	}
+
+	return firstLineEnd === -1
+		? ""
+		: markdown.slice(firstLineEnd + 1).replace(leadingNewlinePattern, "");
+}
+
 function escapeHtml(value: string) {
 	return value
 		.replaceAll("&", "&amp;")
 		.replaceAll("<", "&lt;")
 		.replaceAll(">", "&gt;")
 		.replaceAll('"', "&quot;");
+}
+
+function parseFrontmatterValue(rawValue: string) {
+	const trimmed = rawValue.trim();
+	if (
+		(trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+		(trimmed.startsWith("'") && trimmed.endsWith("'"))
+	) {
+		return trimmed.slice(1, -1);
+	}
+	if (integerPattern.test(trimmed)) {
+		return Number.parseInt(trimmed, 10);
+	}
+	return trimmed;
+}
+
+function parseMarkdownDoc(source: string, sourcePath: string): MarkdownDoc {
+	const normalized = source.replaceAll("\r\n", "\n");
+	if (!normalized.startsWith("---\n")) {
+		throw new Error(`${sourcePath}: missing frontmatter opening fence`);
+	}
+	const frontmatterEndIndex = normalized.indexOf("\n---\n", 4);
+	if (frontmatterEndIndex === -1) {
+		throw new Error(`${sourcePath}: missing frontmatter closing fence`);
+	}
+
+	const frontmatterBlock = normalized.slice(4, frontmatterEndIndex);
+	const frontmatter: MarkdownFrontmatter = {};
+	for (const line of frontmatterBlock.split("\n")) {
+		if (line.trim().length === 0) {
+			continue;
+		}
+
+		const match = line.match(frontmatterLinePattern);
+		if (!match) {
+			throw new Error(`${sourcePath}: invalid frontmatter line \`${line}\``);
+		}
+
+		const [, rawKey, rawValue] = match;
+		const key = rawKey as FrontmatterKey;
+		if (frontmatterKeys.includes(key)) {
+			frontmatter[key] = parseFrontmatterValue(rawValue);
+		}
+	}
+
+	return {
+		sourcePath,
+		frontmatter,
+		body: normalized
+			.slice(frontmatterEndIndex + 5)
+			.replace(leadingNewlinePattern, ""),
+	};
+}
+
+async function loadMarkdownDoc(sourcePath: string): Promise<MarkdownDoc> {
+	return parseMarkdownDoc(
+		await readFile(join(repoRoot, sourcePath), "utf8"),
+		sourcePath,
+	);
 }
 
 function metadataFromFrontmatter(
@@ -316,9 +408,6 @@ async function createRenderer() {
 	const snippetById = new Map(
 		contentSnippets.map((snippet) => [snippet.id, snippet]),
 	);
-	const developerComparisonById = new Map(
-		developerComparisons.map((comparison) => [comparison.id, comparison]),
-	);
 	const exampleById = new Map(exampleGroups.map((group) => [group.id, group]));
 	const tryBlockById = new Map(tryBlocks.map((block) => [block.id, block]));
 	const grammarSource = await readFile(grammarPath, "utf8");
@@ -330,7 +419,14 @@ async function createRenderer() {
 		: [];
 	const musiLanguage: LanguageRegistration = {
 		...musiGrammar,
-		aliases: [...new Set([...grammarAliases, "musi", "music"])],
+		name: "musi",
+		aliases: [
+			...new Set(
+				[...grammarAliases, "Musi", "music"].filter(
+					(alias) => alias !== "musi",
+				),
+			),
+		],
 	};
 
 	const highlighter = await createHighlighter({
@@ -352,20 +448,28 @@ async function createRenderer() {
 			"text",
 		],
 	});
+	const loadedLanguages = new Set(highlighter.getLoadedLanguages());
+	if (!loadedLanguages.has("musi")) {
+		throw new Error("Shiki failed to load synced Musi grammar as `musi`");
+	}
 
 	function highlightCode(sourceText: string, language: string) {
 		const normalizedLanguage = normalizeLanguage(language);
-		try {
+		if (loadedLanguages.has(normalizedLanguage)) {
 			return highlighter.codeToHtml(sourceText, {
 				theme: themeName,
 				lang: normalizedLanguage,
 			});
-		} catch {
-			return highlighter.codeToHtml(sourceText, {
-				theme: themeName,
-				lang: "text",
-			});
 		}
+		if (normalizedLanguage === "musi") {
+			throw new Error(
+				"Shiki Musi grammar is not loaded; refusing plaintext fallback",
+			);
+		}
+		return highlighter.codeToHtml(sourceText, {
+			theme: themeName,
+			lang: "text",
+		});
 	}
 
 	function codeFrame(html: string) {
@@ -403,48 +507,6 @@ async function createRenderer() {
 		return `<aside class="mx-doc-try"><p><strong>${escapeHtml(tryBlock.title)}</strong></p><ol>${steps}</ol></aside>`;
 	}
 
-	function renderComparisonPlaceholder(id: string, sourcePath: string) {
-		const comparison = developerComparisonById.get(id);
-		if (!comparison) {
-			throw new Error(
-				`${sourcePath}: unknown comparison placeholder id \`${id}\``,
-			);
-		}
-		const mindsetNotes = [
-			...comparison.mindset,
-			comparison.commonWarning,
-		].filter((note) => note.length > 0);
-		const mindset =
-			mindsetNotes.length > 0
-				? `<aside class="mx-message mx-message--info mx-doc-mindset"><span class="mx-message__mark" aria-hidden="true">※</span><div><p><strong>Mindset shift</strong></p><ul>${mindsetNotes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul></div></aside>`
-				: "";
-		return `${mindset}${renderToString(
-			h(CodeTabs, {
-				label: `${comparison.sourceLabel} and Musi comparison`,
-				tabs: [
-					{
-						id: "source",
-						label: comparison.sourceLabel,
-						language: comparison.sourceLanguage,
-						html: highlightCode(
-							comparison.sourceText,
-							comparison.sourceLanguage,
-						),
-					},
-					{
-						id: "musi",
-						label: comparison.musiLabel,
-						language: comparison.musiLanguage,
-						html: highlightCode(
-							comparison.musiSourceText,
-							comparison.musiLanguage,
-						),
-					},
-				],
-			}),
-		)}`;
-	}
-
 	function replacePlaceholders(markdown: string, sourcePath: string) {
 		return markdown.replace(
 			supportedPlaceholderPattern,
@@ -456,8 +518,6 @@ async function createRenderer() {
 						return renderExamplePlaceholder(id, sourcePath);
 					case "try":
 						return renderTryPlaceholder(id, sourcePath);
-					case "compare":
-						return renderComparisonPlaceholder(id, sourcePath);
 					default:
 						throw new Error(
 							`${sourcePath}: unsupported placeholder \`${rawMatch}\``,
@@ -492,7 +552,8 @@ async function createRenderer() {
 					text: headingText,
 				});
 			}
-			return `<h${depth} id="${headingId}"><a href="#${headingId}">${escapeHtml(headingText)}</a></h${depth}>`;
+			// Preserve inline code in heading links while keeping slug text stable.
+			return `<h${depth} id="${headingId}"><a href="#${headingId}">${renderInlineMarkdown(headingText)}</a></h${depth}>`;
 		};
 
 		const parser = new Marked({ gfm: true, renderer });
@@ -529,7 +590,7 @@ function buildPartSeeds(renderer: Awaited<ReturnType<typeof createRenderer>>) {
 				questions: [],
 				metadata,
 				rendered: renderer.renderMarkdown(
-					markdownDoc.body,
+					stripMatchingFirstHeading(markdownDoc.body, metadata.title),
 					markdownDoc.sourcePath,
 				),
 			};
@@ -567,7 +628,7 @@ function buildSectionSeeds(
 					questions: [],
 					metadata,
 					rendered: renderer.renderMarkdown(
-						markdownDoc.body,
+						stripMatchingFirstHeading(markdownDoc.body, metadata.title),
 						markdownDoc.sourcePath,
 					),
 				};
@@ -623,7 +684,7 @@ function buildChapterSeeds(
 				questions: page.questions,
 				metadata,
 				rendered: renderer.renderMarkdown(
-					markdownDoc.body,
+					stripMatchingFirstHeading(markdownDoc.body, metadata.title),
 					markdownDoc.sourcePath,
 				),
 			};
@@ -893,13 +954,6 @@ async function verifyUpToDate(path: string, expectedValue: string) {
 
 async function main() {
 	const checkOnly = process.argv.includes("--check");
-	const validationResult = await validateLanguageDocs();
-	if (validationResult.errors.length > 0) {
-		throw new Error(
-			`language docs validation failed\n${validationResult.errors.join("\n")}`,
-		);
-	}
-
 	const renderer = await createRenderer();
 	const [partSeeds, sectionSeeds, chapterSeeds] = await Promise.all([
 		buildPartSeeds(renderer),

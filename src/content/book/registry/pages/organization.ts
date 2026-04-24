@@ -9,7 +9,7 @@ export const organizationPages = [
 			"/docs/language/organization/files",
 			"/learn/language/organization/files",
 		],
-		sourcePath: "docs/what/language/organization/files.md",
+		sourcePath: "content/musi-book/pages/organization/files.md",
 		questions: [],
 	},
 	{
@@ -20,7 +20,7 @@ export const organizationPages = [
 			"/docs/language/organization/packages",
 			"/learn/language/organization/packages",
 		],
-		sourcePath: "docs/what/language/organization/packages.md",
+		sourcePath: "content/musi-book/pages/organization/packages.md",
 		questions: [],
 	},
 	{
@@ -31,7 +31,18 @@ export const organizationPages = [
 			"/docs/language/organization/imports-and-exports",
 			"/learn/language/organization/imports-and-exports",
 		],
-		sourcePath: "docs/what/language/organization/imports-and-exports.md",
+		sourcePath: "content/musi-book/pages/organization/imports-and-exports.md",
+		questions: [],
+	},
+	{
+		id: "standard-library",
+		partId: "organization",
+		path: "/docs/book/organization/standard-library",
+		aliases: [
+			"/docs/language/organization/standard-library",
+			"/learn/language/organization/standard-library",
+		],
+		sourcePath: "content/musi-book/pages/organization/standard-library.md",
 		questions: [],
 	},
 ] satisfies readonly RawBookPageDefinition[];

@@ -7,17 +7,14 @@ export const advancedExampleGroups: readonly ExampleGroup[] = [
 		caption:
 			"Attributes mean different things depending on whether a named part is foundation-owned, native-linked, or target-gated.",
 		note: "Read them top to bottom as extra filters. First decide which edge the named part crosses, then pick only the attribute family that explains that edge directly.",
-		sourceText: `@known(name := "Bool")
-export let Bool := Bool;
-
-@link(name := "c")
+		sourceText: `@link(name := "c")
 native "c" let puts (msg : CString) : Int;
 
-@when(os := "linux")
-native let clock_gettime (id : Int, out : CPtr) : Int;`,
+@target(os := "linux")
+native "c" let clock_gettime (id : Int, out : CPtr) : Int;`,
 		evidence: {
-			path: "src/content/examples/groups-advanced.ts",
-			line: 5,
+			path: "crates/musi_fmt/src/tests.rs",
+			line: 924,
 		},
 	},
 	{
@@ -63,7 +60,7 @@ handle Clock.tick() answer clockAnswer;`,
 };
 
 let eqInt := given Eq[Int] {
-  let (=) (a : Int, b : Int) : Bool := .True;
+  let (=) (a : Int, b : Int) : Bool := 0 = 0;
 };`,
 		evidence: {
 			path: "crates/music_sema/src/tests.rs",
@@ -75,8 +72,8 @@ let eqInt := given Eq[Int] {
 		title: "Generic rule with visible capability",
 		caption:
 			"Constrain polymorphic code to capabilities that must exist at call sites.",
-		note: "Like requiring a driving license before renting a car: callers must provide the needed capability. Musi writes that requirement with <code>where T : Eq</code> before the result type annotation.",
-		sourceText: "let requireEq[T] (x : T) where T : Eq : T := x;",
+		note: "Like requiring a driving license before renting a car: callers must provide the needed capability. Musi writes that requirement with a <code>where</code> clause after the result type annotation.",
+		sourceText: "let same[A, B] (value : A) : A where A ~= B := value;",
 		evidence: {
 			path: "crates/music_sema/src/tests.rs",
 			line: 901,

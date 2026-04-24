@@ -4,10 +4,10 @@ export const coreSnippets = [
 	{
 		id: "first-file",
 		language: "musi",
-		sourceText: `let answer := 42;
-answer;`,
+		sourceText: `let total := 42;
+total;`,
 		evidence: {
-			path: "docs/what/language/syntax.md",
+			path: "content/musi-book/examples/smoke.ms",
 			line: 3,
 		},
 	},
@@ -17,7 +17,7 @@ answer;`,
 		sourceText: `let twice (x : Int) : Int := x + x;
 twice(21);`,
 		evidence: {
-			path: "docs/what/language/syntax.md",
+			path: "content/musi-book/examples/smoke.ms",
 			line: 5,
 		},
 	},
@@ -61,8 +61,8 @@ counter;`,
   base + 80
 );`,
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 57,
+			path: "crates/music_syntax/src/parser/tests.rs",
+			line: 148,
 		},
 	},
 	{
@@ -103,7 +103,7 @@ match port (
 let Option := Std.option;
 let Result := Std.result;`,
 		evidence: {
-			path: "packages/std/index.ms",
+			path: "packages/std/std.ms",
 			line: 2,
 		},
 	},
@@ -113,8 +113,8 @@ let Result := Std.result;`,
 		sourceText: `let port : Int := 8080;
 let identityFn[T] (input : T) : T := input;`,
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 111,
+			path: "crates/music_syntax/src/parser/tests.rs",
+			line: 354,
 		},
 	},
 	{
@@ -122,8 +122,8 @@ let identityFn[T] (input : T) : T := input;`,
 		language: "musi",
 		sourceText: "identityFn[Int](port);",
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 121,
+			path: "crates/music_sema/src/tests.rs",
+			line: 1094,
 		},
 	},
 	{
@@ -151,7 +151,7 @@ let identityFn[T] (input : T) : T := input;`,
 		id: "data-port-case",
 		language: "musi",
 		sourceText: `match port (
-| .Configured\\(value) => value
+| .Configured(value) => value
 | .Default => 3000
 );`,
 		evidence: {
@@ -175,8 +175,8 @@ let values := [1, 2, 3];`,
 		sourceText: `let point3 := { ...point, z := 5 };
 let extended := [0, ...values];`,
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 173,
+			path: "crates/music_sema/src/tests.rs",
+			line: 1525,
 		},
 	},
 	{
@@ -189,8 +189,8 @@ let same := next = port + 1;
 let capped := port <= 9000;
 let masked := 1 shl 3;`,
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 183,
+			path: "crates/music_resolve/src/resolver/expr/operators.rs",
+			line: 1,
 		},
 	},
 	{
@@ -229,16 +229,16 @@ one.abs();`,
 		sourceText: `let Slice := import "@std/collections/slice";
 Slice.concat[Int]([1], [2, 3]);`,
 		evidence: {
-			path: "packages/std/slice/index.test.ms",
+			path: "packages/std/collections/slice.ms",
 			line: 8,
 		},
 	},
 	{
 		id: "export-import",
 		language: "musi",
-		sourceText: `export let answer := 42;
+		sourceText: `export let total := 42;
 let Local := import "./index.ms";
-Local.answer;`,
+Local.total;`,
 		evidence: {
 			path: "crates/music_sema/src/checker/surface/exports.rs",
 			line: 607,
@@ -251,8 +251,8 @@ Local.answer;`,
 let next := port + 1;
 next;`,
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 248,
+			path: "crates/music_syntax/src/parser/tests.rs",
+			line: 32,
 		},
 	},
 	{
@@ -271,8 +271,8 @@ next;`,
 		language: "musi",
 		sourceText: "ask Clock.tick();",
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 270,
+			path: "crates/music_sema/src/tests.rs",
+			line: 317,
 		},
 	},
 	{
@@ -303,7 +303,7 @@ handle Clock.tick() answer clockAnswer;`,
 		language: "musi",
 		sourceText: `let Eq[T] := shape {
   let (=) (a : T, b : T) : Bool;
-  law reflexive (x : T) := .True;
+  law reflexive (x : T) := 0 = 0;
 };`,
 		evidence: {
 			path: "crates/music_sema/src/tests.rs",
@@ -314,7 +314,7 @@ handle Clock.tick() answer clockAnswer;`,
 		id: "given-eq-int",
 		language: "musi",
 		sourceText: `let eqInt := given Eq[Int] {
-  let (=) (a : Int, b : Int) : Bool := .True;
+  let (=) (a : Int, b : Int) : Bool := 0 = 0;
 };`,
 		evidence: {
 			path: "crates/music_sema/src/tests.rs",
@@ -365,8 +365,8 @@ handle Clock.tick() answer clockAnswer;`,
 		sourceText: `let addOne (x : Int) : Int := x + 1;
 let addTwo (x : Int) : Int := x + 2;`,
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 363,
+			path: "crates/music_syntax/src/parser/tests.rs",
+			line: 215,
 		},
 	},
 	{
@@ -376,8 +376,8 @@ let addTwo (x : Int) : Int := x + 2;`,
 let addOneSyntax := quote (#(x) + 1);
 let addTwoSyntax := quote (#(x) + 2);`,
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 373,
+			path: "crates/music_syntax/src/parser/tests.rs",
+			line: 215,
 		},
 	},
 	{
@@ -452,15 +452,15 @@ musi check
 musi build
 musi test`,
 		evidence: {
-			path: "docs/what/language/advanced/running-and-tooling.md",
-			line: 10,
+			path: "README.md",
+			line: 131,
 		},
 	},
 	{
 		id: "stdlib-option-import",
 		language: "musi",
-		sourceText: `Option.someOf[Int](8080)
-  |> Option.unwrapOr[Int](3000);`,
+		sourceText: `option.someOf[Int](8080)
+  |> option.unwrapOr[Int](3000);`,
 		evidence: {
 			path: "packages/std/option.ms",
 			line: 6,
@@ -469,8 +469,8 @@ musi test`,
 	{
 		id: "stdlib-result-import",
 		language: "musi",
-		sourceText: `Result.ok[Int, String](8080)
-  |> Result.unwrapOr[Int, String](3000);`,
+		sourceText: `result.ok[Int, String](8080)
+  |> result.unwrapOr[Int, String](3000);`,
 		evidence: {
 			path: "packages/std/result.ms",
 			line: 6,
@@ -484,7 +484,7 @@ musi test`,
 export let test () :=
   Testing.it("adds values", Testing.toBe(1 + 2, 3));`,
 		evidence: {
-			path: "packages/std/option/index.test.ms",
+			path: "packages/std/__tests__/option.test.ms",
 			line: 4,
 		},
 	},
@@ -502,28 +502,29 @@ musi init hello`,
 	{
 		id: "chapter-reading-musi-code",
 		language: "musi",
-		sourceText: `let Option := import "@std/option";
+		sourceText: `let option := import "@std/option";
+let Option := option.Option;
 
 let Receipt := data {
   | Receipt(table : Int, total : Int)
 };
 
-let emptyReceipt := Option.noneOf[Receipt]();
+let emptyReceipt := option.noneOf[Receipt]();
 
-export let receiptForTable (table : Int) : Option.Option[Receipt] :=
-  Option.someOf[Receipt](.Receipt(table := table, total := 0));`,
+export let receiptForTable (table : Int) : Option[Receipt] :=
+  option.someOf[Receipt](.Receipt(table := table, total := 0));`,
 		evidence: {
-			path: "docs/what/language/start/reading-musi-code.md",
-			line: 11,
+			path: "crates/music_syntax/src/parser/tests.rs",
+			line: 32,
 		},
 	},
 	{
 		id: "chapter-first-program",
 		language: "musi",
-		sourceText: `let answer := 42;
-answer;`,
+		sourceText: `let total := 42;
+total;`,
 		evidence: {
-			path: "docs/what/language/syntax.md",
+			path: "content/musi-book/examples/smoke.ms",
 			line: 3,
 		},
 	},
@@ -539,6 +540,24 @@ nextPort;`,
 		},
 	},
 	{
+		id: "chapter-comments",
+		language: "musi",
+		sourceText: `-- Keep this default aligned with local examples.
+--- Default port used by local examples.
+export let defaultPort : Int := 8080;
+
+/-
+  Block comments can contain nested notes.
+  /- Nested note. -/
+-/
+let nextPort := defaultPort + 1;
+nextPort;`,
+		evidence: {
+			path: "crates/music_syntax/src/lexer/tests.rs",
+			line: 97,
+		},
+	},
+	{
 		id: "chapter-blocks-and-expressions",
 		language: "musi",
 		sourceText: `(
@@ -547,8 +566,8 @@ nextPort;`,
   base + offset
 );`,
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 523,
+			path: "crates/music_syntax/src/parser/tests.rs",
+			line: 84,
 		},
 	},
 	{
@@ -567,11 +586,11 @@ counter;`,
 		language: "musi",
 		sourceText: `let port := 8080;
 let label := "ready";
-let enabled := .True;
+let enabled : Bool := .True;
 label;`,
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 547,
+			path: "crates/musi_project/src/tests.rs",
+			line: 706,
 		},
 	},
 	{
@@ -582,8 +601,8 @@ let next := port + 1;
 let same := next = 8081;
 let capped := next <= 9000;`,
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 559,
+			path: "crates/music_resolve/src/resolver/expr/operators.rs",
+			line: 1,
 		},
 	},
 	{
@@ -605,7 +624,7 @@ let positional := render(8080, 0 = 0);
 let labeled := render(secure := 0 = 0, port := 8080);
 labeled;`,
 		evidence: {
-			path: "docs/what/language/syntax.md",
+			path: "content/musi-book/examples/smoke.ms",
 			line: 5,
 		},
 	},
@@ -623,8 +642,8 @@ g(8080, 0 = 0);
 let h : (host : Int, tls : Bool) -> Int := render;
 h(host := 8080, tls := 0 = 0);`,
 		evidence: {
-			path: "docs/what/language/core/functions.md",
-			line: 1,
+			path: "crates/music_syntax/src/parser/tests.rs",
+			line: 316,
 		},
 	},
 	{
@@ -634,7 +653,7 @@ h(host := 8080, tls := 0 = 0);`,
 let message := greet("Musi");
 message;`,
 		evidence: {
-			path: "docs/what/language/syntax.md",
+			path: "content/musi-book/examples/smoke.ms",
 			line: 5,
 		},
 	},
@@ -667,7 +686,7 @@ moved;`,
 let values := [1, 2, 3];
 Slice.concat[Int](values, [4]);`,
 		evidence: {
-			path: "packages/std/slice/index.test.ms",
+			path: "packages/std/collections/slice.ms",
 			line: 8,
 		},
 	},
@@ -675,45 +694,46 @@ Slice.concat[Int](values, [4]);`,
 		id: "chapter-patterns",
 		language: "musi",
 		sourceText: `let Port := data {
-  | Configured(port : Int)
+  | Configured(port : Int, secure : Bool)
   | Default
 };
 
-let port : Port := .Configured(port := 8080);
-match port (
-| .Configured\\(value) => value
+let configured : Port := .Configured(secure := .True, port := 8080);
+match configured (
+| .Configured(port, secure := _) => port
 | .Default => 3000
 );`,
 		evidence: {
 			path: "crates/music_sema/src/tests.rs",
-			line: 1586,
+			line: 1574,
 		},
 	},
 	{
 		id: "chapter-option-and-result",
 		language: "musi",
-		sourceText: `let Option := import "@std/option";
-let Result := import "@std/result";
+		sourceText: `let option := import "@std/option";
+let result := import "@std/result";
+let Option := option.Option;
+let Result := result.Result;
 
-let badge := Option.someOf[Int](42);
-let emptyBadge := Option.noneOf[Int]();
+let findPort () : Option[Int] := option.someOf[Int](8080);
 
-let paid := Result.ok[Int, String](1200);
-let declined := Result.err[Int, String]("card declined");
+let parsePort () : Result[Int, String] :=
+  result.ok[Int, String](8080);
 
-paid;`,
+parsePort();`,
 		evidence: {
-			path: "docs/what/language/data/option-and-result.md",
-			line: 11,
+			path: "packages/std/option.ms",
+			line: 1,
 		},
 	},
 	{
 		id: "chapter-files",
 		language: "musi",
-		sourceText: `let answer := 42;
-answer;`,
+		sourceText: `let total := 42;
+total;`,
 		evidence: {
-			path: "docs/what/language/syntax.md",
+			path: "content/musi-book/examples/smoke.ms",
 			line: 3,
 		},
 	},
@@ -732,10 +752,10 @@ musi test`,
 	{
 		id: "chapter-imports-and-exports",
 		language: "musi",
-		sourceText: `export let answer := 42;
-let Option := import "@std/option";
+		sourceText: `export let total := 42;
+let option := import "@std/option";
 let Local := import "./index.ms";
-Local.answer;`,
+Local.total;`,
 		evidence: {
 			path: "crates/music_sema/src/checker/surface/exports.rs",
 			line: 607,
@@ -748,8 +768,8 @@ Local.answer;`,
 let twice (x : Int) : Int := x + x;
 twice(port);`,
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 707,
+			path: "crates/music_syntax/src/parser/tests.rs",
+			line: 354,
 		},
 	},
 	{
@@ -759,82 +779,46 @@ twice(port);`,
 let next := port + 1;
 next;`,
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 718,
-		},
-	},
-	{
-		id: "chapter-generics",
-		language: "musi",
-		sourceText: `let identityFn[T] (input : T) : T := input;
-let port := identityFn[Int](8080);
-
-let tools := {
-  identity := identityFn
-};
-
-let copiedPort := tools.identity[Int](port);
-
-let Box1[T] := data {
-  | Box1(value : T)
-};
-
-let Keeps[F : Type -> Type] := shape {
-  let keep(value : F[Int]) : F[Int];
-};
-
-let boxKeeps := given Keeps[Box1] {
-  let keep(value : Box1[Int]) : Box1[Int] := value;
-};
-
-copiedPort;`,
-		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 729,
+			path: "crates/music_syntax/src/parser/tests.rs",
+			line: 32,
 		},
 	},
 	{
 		id: "chapter-shapes",
 		language: "musi",
-		sourceText: `let Eq[T] := shape {
-  let (=) (a : T, b : T) : Bool;
-  law reflexive (x : T) := .True;
+		sourceText: `export let Eq [T] := shape {
+  let eq (left : T, right : T) : Bool;
+  law reflexive (value : T) := eq(value, value);
+  law symmetric (left : T, right : T) := eq(left, right) = eq(right, left);
 };`,
 		evidence: {
-			path: "crates/music_sema/src/tests.rs",
-			line: 503,
+			path: "packages/std/cmp.ms",
+			line: 9,
 		},
 	},
 	{
 		id: "chapter-given-values",
 		language: "musi",
-		sourceText: `let eqInt := given Eq[Int] {
-  let (=) (a : Int, b : Int) : Bool := .True;
+		sourceText: `export let intEq :=
+  given Eq[Int] {
+  let eq (left : Int, right : Int) : Bool := left = right;
 };`,
 		evidence: {
-			path: "crates/music_sema/src/tests.rs",
-			line: 506,
+			path: "packages/std/cmp.ms",
+			line: 112,
 		},
 	},
 	{
 		id: "chapter-laws",
 		language: "musi",
-		sourceText: `let Vehicle[T] := shape {
-  let wheels(self : T) : Int;
-  law atLeastFourWheels(vehicle : T) := vehicle.wheels() >= 4;
-};
-
-let Car := data {
-  | Sports
-  | Family
-};
-
-let carLaw := given Vehicle[Car] {
-  let wheels(self : Car) : Int := 4;
+		sourceText: `export let Eq [T] := shape {
+  let eq (left : T, right : T) : Bool;
+  law reflexive (value : T) := eq(value, value);
+  law symmetric (left : T, right : T) := eq(left, right) = eq(right, left);
 };`,
 		evidence: {
-			path: "crates/music_sema/src/tests.rs",
-			line: 503,
+			path: "packages/std/cmp.ms",
+			line: 9,
 		},
 	},
 	{
@@ -863,19 +847,19 @@ ask Clock.tick();`,
 	{
 		id: "chapter-errors-and-recovery",
 		language: "musi",
-		sourceText: `let Option := import "@std/option";
-let Result := import "@std/result";
+		sourceText: `let option := import "@std/option";
+let result := import "@std/result";
 
 let Printer := effect {
   let printReceipt (text : String) : Unit;
 };
 
-let coupon := Option.noneOf[Int]();
-let charge := Result.err[Int, String]("card declined");
+let coupon := option.noneOf[Int]();
+let charge := result.err[Int, String]("card declined");
 ask Printer.printReceipt("receipt");`,
 		evidence: {
-			path: "docs/what/language/effects-runtime/errors-and-recovery.md",
-			line: 11,
+			path: "crates/music_sema/src/tests.rs",
+			line: 787,
 		},
 	},
 	{
@@ -915,9 +899,9 @@ env.get(home);`,
 	{
 		id: "chapter-stdlib",
 		language: "musi",
-		sourceText: `let Option := import "@std/option";
-Option.someOf[Int](8080)
-  |> Option.unwrapOr[Int](3000);`,
+		sourceText: `let option := import "@std/option";
+option.someOf[Int](8080)
+  |> option.unwrapOr[Int](3000);`,
 		evidence: {
 			path: "packages/std/option.ms",
 			line: 6,
@@ -926,17 +910,14 @@ Option.someOf[Int](8080)
 	{
 		id: "chapter-attributes",
 		language: "musi",
-		sourceText: `@known(name := "Bool")
-export let Bool := Bool;
-
-@link(name := "c")
+		sourceText: `@link(name := "c")
 native "c" let puts (msg : CString) : Int;
 
-@when(os := "linux")
-native let clock_gettime (id : Int, out : CPtr) : Int;`,
+@target(os := "linux")
+native "c" let clock_gettime (id : Int, out : CPtr) : Int;`,
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 869,
+			path: "crates/musi_fmt/src/tests.rs",
+			line: 924,
 		},
 	},
 	{
@@ -957,68 +938,8 @@ export let printLine (message : CString) : Int := unsafe {
   puts(message);
 };`,
 		evidence: {
-			path: "docs/what/language/advanced/native.md",
-			line: 1,
-		},
-	},
-	{
-		id: "chapter-unsafe-and-ffi",
-		language: "musi",
-		sourceText: `let Ffi := import "@std/ffi";
-
-native "c" let get_counter () : CPtr;
-
-let counter := unsafe {
-  let raw := get_counter();
-  Ffi.ptr.cast[Int](raw);
-};
-
-let next := unsafe {
-  let offset := Ffi.ptr.offset;
-  offset[Int](counter, 1);
-};`,
-		evidence: {
-			path: "docs/what/language/advanced/unsafe-and-ffi.md",
-			line: 1,
-		},
-	},
-	{
-		id: "ffi-c-abi-signatures",
-		language: "musi",
-		sourceText: `native "c" let puts (message : CString) : Int;
-native "c" let memset (dst : CPtr, byte : Int, count : Int) : CPtr;`,
-		evidence: {
-			path: "docs/what/language/advanced/unsafe-and-ffi.md",
-			line: 1,
-		},
-	},
-	{
-		id: "ffi-typed-pointer-view",
-		language: "musi",
-		sourceText: `let Ffi := import "@std/ffi";
-
-native "c" let get_counter () : CPtr;
-
-let counter := unsafe {
-  let raw := get_counter();
-  Ffi.ptr.cast[Int](raw);
-};`,
-		evidence: {
-			path: "docs/what/language/advanced/unsafe-and-ffi.md",
-			line: 1,
-		},
-	},
-	{
-		id: "unsafe-safe-wrapper",
-		language: "musi",
-		sourceText: `native "c" let clock () : Int;
-
-export let currentTicks () : Int := unsafe {
-  clock();
-};`,
-		evidence: {
-			path: "docs/what/language/advanced/unsafe-and-ffi.md",
-			line: 1,
+			path: "crates/music_syntax/src/parser/tests.rs",
+			line: 419,
 		},
 	},
 	{
@@ -1028,55 +949,8 @@ export let currentTicks () : Int := unsafe {
 let addOneSyntax := quote (#(x) + 1);
 addOneSyntax;`,
 		evidence: {
-			path: "src/content/snippets/core.ts",
-			line: 967,
-		},
-	},
-	{
-		id: "chapter-comptime",
-		language: "musi",
-		sourceText: `let add (a : Int, b : Int) : Int := a + b;
-export let answer () : Int := comptime add(20, 22);`,
-		evidence: {
-			path: "crates/music_session/src/tests.rs",
-			line: 97,
-		},
-	},
-	{
-		id: "comptime-parameter",
-		language: "musi",
-		sourceText: `let scale (comptime n : Int, x : Int) : Int := x * n;
-export let answer () : Int := scale(3, 14);`,
-		evidence: {
-			path: "crates/music_session/src/tests.rs",
-			line: 437,
-		},
-	},
-	{
-		id: "comptime-quote-module",
-		language: "musi",
-		sourceText: `let generated : Syntax := comptime quote {
-  export let answer () : Int := 42;
-};
-
-comptime generated;`,
-		evidence: {
-			path: "crates/music_session/src/tests.rs",
-			line: 489,
-		},
-	},
-	{
-		id: "comptime-safe-effect",
-		language: "musi",
-		sourceText: `let Clock := effect {
-  @comptimeSafe
-  let tick () : Int;
-};
-
-export let answer () : Int := comptime ask Clock.tick();`,
-		evidence: {
-			path: "crates/music_session/src/tests.rs",
-			line: 220,
+			path: "crates/music_syntax/src/parser/forms/atoms.rs",
+			line: 215,
 		},
 	},
 	{
@@ -1087,7 +961,7 @@ export let answer () : Int := comptime ask Clock.tick();`,
 export let test () :=
   Testing.it("adds values", Testing.toBe(1 + 2, 3));`,
 		evidence: {
-			path: "packages/std/option/index.test.ms",
+			path: "packages/std/__tests__/option.test.ms",
 			line: 4,
 		},
 	},
@@ -1098,8 +972,8 @@ export let test () :=
 musi check
 musi test`,
 		evidence: {
-			path: "docs/what/language/advanced/running-and-tooling.md",
-			line: 10,
+			path: "README.md",
+			line: 131,
 		},
 	},
 	{
@@ -1109,8 +983,8 @@ musi test`,
 let empty := ();
 status;`,
 		evidence: {
-			path: "docs/what/language/core/tuples-and-unit.md",
-			line: 11,
+			path: "crates/music_syntax/src/parser/tests.rs",
+			line: 148,
 		},
 	},
 	{
@@ -1119,8 +993,8 @@ status;`,
 		sourceText: `let twice := \\(x : Int) : Int => x + x;
 twice(21);`,
 		evidence: {
-			path: "docs/what/language/core/lambdas.md",
-			line: 11,
+			path: "crates/music_syntax/src/parser/tests.rs",
+			line: 270,
 		},
 	},
 	{
@@ -1132,8 +1006,8 @@ let x := point.x;
 let first := values.[0];
 x + first;`,
 		evidence: {
-			path: "docs/what/language/data/indexing-and-fields.md",
-			line: 11,
+			path: "crates/music_sema/src/tests.rs",
+			line: 643,
 		},
 	},
 	{
@@ -1147,10 +1021,14 @@ x + first;`,
 let Settings := data {
   port : Int := 3000;
   label : String;
+};
+
+let Box[T] := data {
+  value : T;
 };`,
 		evidence: {
-			path: "docs/what/language/data/data-definitions.md",
-			line: 11,
+			path: "crates/music_sema/src/tests.rs",
+			line: 657,
 		},
 	},
 	{
@@ -1160,8 +1038,8 @@ let Settings := data {
 let Effectful := Int ~> Int;
 Pure;`,
 		evidence: {
-			path: "docs/what/language/types/callable-types.md",
-			line: 11,
+			path: "crates/music_sema/src/tests.rs",
+			line: 1708,
 		},
 	},
 	{
@@ -1172,8 +1050,8 @@ let isInt := value :? Int;
 let same := value :?> Int;
 same;`,
 		evidence: {
-			path: "docs/what/language/types/type-tests-and-casts.md",
-			line: 11,
+			path: "crates/music_sema/src/tests.rs",
+			line: 1985,
 		},
 	},
 	{
@@ -1184,8 +1062,8 @@ let identityType := forall (T : Type) -> T -> T;
 
 identityFn[Int](8080);`,
 		evidence: {
-			path: "docs/what/language/types/forall-types.md",
-			line: 11,
+			path: "crates/music_syntax/src/parser/tests.rs",
+			line: 354,
 		},
 	},
 	{
@@ -1198,21 +1076,8 @@ identityFn[Int](8080);`,
 
 partial let parsePort(text : String) : Int := 0;`,
 		evidence: {
-			path: "docs/what/language/types/dependent-types.md",
-			line: 11,
-		},
-	},
-	{
-		id: "chapter-operator-forms",
-		language: "musi",
-		sourceText: `infixl 6 (+);
-
-let add := (+);
-let total := add(1, 2);
-total;`,
-		evidence: {
-			path: "docs/what/language/advanced/operator-forms.md",
-			line: 11,
+			path: "crates/music_sema/src/tests.rs",
+			line: 1725,
 		},
 	},
 	{
@@ -1222,8 +1087,8 @@ total;`,
 let label := \`port $\{port}\`;
 label;`,
 		evidence: {
-			path: "docs/what/language/advanced/templates-and-splices.md",
-			line: 11,
+			path: "crates/music_syntax/src/lexer/tests.rs",
+			line: 195,
 		},
 	},
 ] satisfies readonly ContentSnippet[];

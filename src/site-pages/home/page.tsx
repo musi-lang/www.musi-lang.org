@@ -116,8 +116,7 @@ export function HomePage(_props: { route: AppRoute }) {
 				title={siteCopy.ui.findDocs}
 			>
 				<p className="site-copy site-copy--small">
-					Search chapters, language guides, effects, types, and command
-					questions.
+					Search chapters, effects, types, operators, and command questions.
 				</p>
 				<DocsSearch
 					entries={docSearchEntries}

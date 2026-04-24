@@ -11,11 +11,11 @@ export const coreExampleGroups: readonly ExampleGroup[] = [
 
 let twice (x : Int) : Int := x + x;
 
-let answer := twice(base);
-answer;`,
+let reply := twice(base);
+reply;`,
 		evidence: {
-			path: "docs/what/language/start/first-program.md",
-			line: 11,
+			path: "content/musi-book/examples/smoke.ms",
+			line: 5,
 		},
 	},
 	{
@@ -24,10 +24,12 @@ answer;`,
 		caption:
 			"One value may be present or missing. Musi does this with the real stdlib <code>Option</code> family.",
 		note: "Think of a spare house key: if the usual key exists, use it; otherwise use the backup. Musi writes that choice with constructors and <code>match</code>.",
-		sourceText: `let port := Option.someOf[Int](8080)
-  |> Option.unwrapOr[Int](3000);`,
+		sourceText: `let option := import "@std/option";
+
+let port := option.someOf[Int](8080)
+  |> option.unwrapOr[Int](3000);`,
 		evidence: {
-			path: "packages/std/option/index.ms",
+			path: "packages/std/option.ms",
 			line: 6,
 		},
 	},
@@ -39,9 +41,9 @@ answer;`,
 		note: "Like doubling a recipe: same operation, different kitchens. Musi keeps the function as a normal binding so it reads like other definitions.",
 		sourceText: `let twice (x : Int) : Int := x + x;
 
-let answer := twice(21);`,
+let total := twice(21);`,
 		evidence: {
-			path: "docs/what/language/syntax.md",
+			path: "content/musi-book/examples/smoke.ms",
 			line: 5,
 		},
 	},
@@ -51,11 +53,11 @@ let answer := twice(21);`,
 		caption:
 			"Import the standard library, then reach the family you need. Musi keeps stdlib access visible through <code>@std</code>.",
 		note: "Like checking out a toolbox before work: import once, then use the tools by name. In Musi, imports are values you can pass around.",
-		sourceText: `let Option := import "@std/option";
+		sourceText: `let option := import "@std/option";
 
-let value := 1 |> Option.some;`,
+let value := option.someOf[Int](1);`,
 		evidence: {
-			path: "packages/std/option/index.ms",
+			path: "packages/std/option.ms",
 			line: 2,
 		},
 	},
@@ -68,7 +70,7 @@ let value := 1 |> Option.some;`,
 		sourceText: `let Testing := import "@std/testing";
 export let test () := Testing.it("adds values", Testing.toBe(1 + 2, 3));`,
 		evidence: {
-			path: "packages/std/option/index.test.ms",
+			path: "packages/std/__tests__/option.test.ms",
 			line: 4,
 		},
 	},
@@ -78,15 +80,15 @@ export let test () := Testing.it("adds values", Testing.toBe(1 + 2, 3));`,
 		caption:
 			"Use named fields directly in a <code>data</code> definition, then construct values from that form.",
 		note: "Like filling out a passport form: named boxes with known defaults. This form keeps field meaning visible in the type itself.",
-		sourceText: `let User := data {
-	  name : String;
-	  age : Int := 0;
-	};
+		sourceText: `let user := {
+  name := "Ada",
+  age := 0,
+};
 
-	let user : User := { name := "Ada" };`,
+let nextYear := { ...user, age := user.age + 1 };`,
 		evidence: {
-			path: "src/content/examples/groups-core.ts",
-			line: 76,
+			path: "crates/music_sema/src/tests.rs",
+			line: 643,
 		},
 	},
 	{

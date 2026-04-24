@@ -13,7 +13,6 @@ Generation is repeatable: the same registry and markdown inputs always write the
 The content catalog separates public docs into collections:
 
 - `book`: ordered Musi Book chapters.
-- `guides`: Musi for Developers transition guides.
 - `reference`: advanced and lookup-oriented pages.
 
 Each entry has one main route, zero or more aliases, and one source file.
@@ -25,8 +24,18 @@ Docs should teach current Musi syntax only.
 Do not describe syntax as old, new, current, former, or transitional.
 If a construct changed, write the page as if the current language always worked that way.
 
-Musi examples should come from snippets or example groups so generation can validate and highlight them.
-Raw `musi` fences are not allowed in learning docs.
+Musi examples should come from snippets or example groups when they need shared highlighting.
+
+## Grammar Sync
+
+The Musi TextMate grammar is synced from the VS Code extension.
+The source is `https://raw.githubusercontent.com/musi-lang/vscode-musi/main/syntaxes/musi.tmLanguage.json`.
+The local file at `src/content/grammars/musi.tmLanguage.json` is a synced artifact, not the source of truth.
+
+Do not hand-edit the local grammar.
+Run `bun run sync:musi-grammar` when the upstream grammar changes.
+Run `bun run sync:musi-grammar:check` to verify the local grammar still matches upstream.
+Content generation runs this sync path before rendering docs.
 
 ## Writing Style
 
@@ -49,9 +58,9 @@ Every palette change must preserve readable light and dark modes, visible focus 
 
 ## Editing Area
 
-Human-facing website copy lives in Markdown files under `docs/what/language`.
-Website maintainer docs live in Markdown files under `docs/what/website`.
-Book section landings live under `www/src/content/book/language`.
+Human-facing book copy lives in Markdown files under `content/musi-book`.
+Website maintainer notes live in Markdown files under `docs/what/website`.
+Book routes and groups live under `src/content/book/registry`.
 
 Local Docs Studio edits those Markdown roots from `http://127.0.0.1:4322`.
 It is a local editor for repository files, with Git review as the publishing gate.
@@ -60,5 +69,5 @@ Run it with `bun run docs:studio`.
 
 Before publishing docs changes:
 
-- Run `bun run validate:language-docs` to check frontmatter, embed references, and raw-fence rules.
-- Run `bun run generate:content` to update generated files.
+- Run `bun run generate:content` to render docs and update generated files.
+- Run `bun run generate:content:check` to confirm generated files are current.

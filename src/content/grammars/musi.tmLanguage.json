@@ -357,8 +357,7 @@
 				{ "include": "#declaration-let-value" },
 				{ "include": "#declaration-let-type" },
 				{ "include": "#declaration-type-form" },
-				{ "include": "#declaration-given" },
-				{ "include": "#declaration-law" },
+								{ "include": "#declaration-law" },
 				{ "include": "#declaration-member-function" },
 				{ "include": "#declaration-type-parameters" }
 			]
@@ -419,11 +418,6 @@
 				"1": { "name": "storage.type.musi" },
 				"2": { "name": "entity.name.type.musi" }
 			}
-		},
-		"declaration-given": {
-			"name": "meta.declaration.given.musi",
-			"match": "\\b(given)\\b",
-			"captures": { "1": { "name": "keyword.declaration.musi" } }
 		},
 		"declaration-law": {
 			"name": "meta.declaration.member.law.musi",
@@ -570,7 +564,7 @@
 				{ "include": "#expression-quote" },
 				{ "include": "#expression-unsafe-block" },
 				{ "include": "#expression-splice-all" },
-				{ "include": "#expression-require-clause" },
+				{ "include": "#expression-pin-action" },
 				{ "include": "#import-expression" },
 				{ "include": "#expression-dot-callable-access" },
 				{ "include": "#expression-constructor-literal" },
@@ -654,7 +648,7 @@
 		},
 		"expression-function-call": {
 			"name": "meta.function.call.musi",
-			"begin": "(?<!\\.)\\b(?!and\\b|any\\b|as\\b|shape\\b|comptime\\b|data\\b|effect\\b|export\\b|native\\b|forall\\b|handle\\b|if\\b|import\\b|in\\b|infix\\b|infixl\\b|infixr\\b|given\\b|law\\b|let\\b|match\\b|mut\\b|not\\b|opaque\\b|or\\b|partial\\b|quote\\b|rec\\b|ask\\b|resume\\b|shl\\b|shr\\b|some\\b|unsafe\\b|require\\b|where\\b|xor\\b)([a-z_][A-Za-z0-9_]*)\\b(?=\\s*(?:\\[[^\\]\\n]*\\]\\s*)?\\()",
+			"begin": "(?<!\\.)\\b(?!and\\b|answer\\b|any\\b|as\\b|ask\\b|catch\\b|comptime\\b|data\\b|effect\\b|export\\b|given\\b|handle\\b|if\\b|import\\b|in\\b|infix\\b|infixl\\b|infixr\\b|known\\b|law\\b|let\\b|match\\b|mut\\b|native\\b|not\\b|opaque\\b|or\\b|partial\\b|pin\\b|quote\\b|rec\\b|require\\b|resume\\b|shape\\b|shl\\b|shr\\b|some\\b|unsafe\\b|where\\b|xor\\b)([a-z_][A-Za-z0-9_]*)\\b(?=\\s*(?:\\[[^\\]\\n]*\\]\\s*)?\\()",
 			"end": "(?=\\s*\\()",
 			"beginCaptures": { "1": { "name": "entity.name.function.call.musi" } },
 			"patterns": [
@@ -687,36 +681,10 @@
 				}
 			]
 		},
-		"expression-require-clause": {
-			"patterns": [
-				{
-					"name": "meta.effects.require-set.musi",
-					"begin": "\\b(require)\\b\\s*(\\{)",
-					"end": "\\}",
-					"beginCaptures": {
-						"1": { "name": "keyword.control.effects.require.musi" },
-						"2": { "name": "punctuation.section.block.begin.musi" }
-					},
-					"endCaptures": { "0": { "name": "punctuation.section.block.end.musi" } },
-					"patterns": [ { "include": "$self" } ]
-				},
-				{
-					"name": "meta.effects.answer-handler.musi",
-					"match": "\\b(require)\\b\\s+([A-Z][A-Za-z0-9_]*)(?=\\s*\\{)",
-					"captures": {
-						"1": { "name": "keyword.control.effects.require.musi" },
-						"2": { "name": "entity.name.type.musi" }
-					}
-				},
-				{
-					"name": "meta.effects.answer-handler.musi",
-					"match": "\\b(require)\\b\\s+([a-z_][A-Za-z0-9_]*)(?=\\s*\\{)",
-					"captures": {
-						"1": { "name": "keyword.control.effects.require.musi" },
-						"2": { "name": "variable.other.identifier.musi" }
-					}
-				}
-			]
+		"expression-pin-action": {
+			"name": "meta.expression.pin.musi",
+			"match": "\\b(pin)\\b",
+			"captures": { "1": { "name": "keyword.control.pin.musi" } }
 		},
 		"keyword-all": {
 			"patterns": [
@@ -727,7 +695,7 @@
 				{ "include": "#keyword-type-modifier" },
 				{ "include": "#keyword-modifier" },
 				{ "include": "#keyword-control-unsafe" },
-				{ "include": "#keyword-control-effects-require" },
+				{ "include": "#keyword-control-pin" },
 				{ "include": "#keyword-control-effects" },
 				{ "include": "#keyword-control-conditional" },
 				{ "include": "#keyword-control-module" },
@@ -771,13 +739,13 @@
 			"name": "keyword.control.unsafe.musi",
 			"match": "\\bunsafe\\b"
 		},
-		"keyword-control-effects-require": {
-			"name": "keyword.control.effects.require.musi",
-			"match": "\\brequire\\b"
+		"keyword-control-pin": {
+			"name": "keyword.control.pin.musi",
+			"match": "\\bpin\\b"
 		},
 		"keyword-control-effects": {
 			"name": "keyword.control.effects.musi",
-			"match": "\\b(ask|answer|handle|resume)\\b"
+			"match": "\\b(answer|ask|handle|resume)\\b"
 		},
 		"keyword-control-conditional": {
 			"name": "keyword.control.conditional.musi",
@@ -793,7 +761,7 @@
 		},
 		"keyword-control-constraint": {
 			"name": "keyword.control.constraint.musi",
-			"match": "\\b(as|forall|where)\\b"
+			"match": "\\b(as|require|where)\\b"
 		},
 		"keyword-operator-wordlike": {
 			"name": "keyword.operator.wordlike.musi",
@@ -808,10 +776,10 @@
 				{ "include": "#operator-function-effect" },
 				{ "include": "#operator-function-pure" },
 				{ "include": "#operator-pipe" },
-				{ "include": "#operator-comparison" },
-				{ "include": "#operator-constraint" },
 				{ "include": "#operator-spread" },
 				{ "include": "#operator-range" },
+				{ "include": "#operator-constraint" },
+				{ "include": "#operator-comparison" },
 				{ "include": "#operator-accessor" },
 				{ "include": "#operator-arithmetic" }
 			]
@@ -858,7 +826,7 @@
 		},
 		"operator-range": {
 			"name": "keyword.operator.range.musi",
-			"match": "\\.\\.<|\\.\\.(?!\\.)"
+			"match": "<\\.\\.<|<\\.\\.|\\.\\.<|\\.\\.(?!\\.)"
 		},
 		"operator-accessor": {
 			"name": "punctuation.accessor.musi",

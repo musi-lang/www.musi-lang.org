@@ -52,7 +52,7 @@ export function DocsSearch(props: DocsSearchProps) {
 				<span className="mx-field__label">{inputLabel}</span>
 				<input
 					type="search"
-					placeholder="Search chapters, guides, questions..."
+					placeholder="Search chapters and questions..."
 					data-docs-search-input={true}
 					aria-label={inputLabel}
 				/>
@@ -85,7 +85,7 @@ export function DocsSearch(props: DocsSearchProps) {
 				data-docs-search-empty={true}
 				hidden={true}
 			>
-				No matching docs yet. Try a command, type, effect, or language name.
+				No matching docs yet. Try a command, type, effect, or operator.
 			</p>
 		</>
 	);

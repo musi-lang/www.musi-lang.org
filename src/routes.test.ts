@@ -24,36 +24,36 @@ describe("routes", () => {
 		expect(routeForPath("/learn/language/types/type-annotations").kind).toBe(
 			"doc",
 		);
-		expect(routeForPath("/learn/guides/rust").kind).toBe("doc");
-		expect(routeForPath("/learn/guides/rust/mutation").kind).toBe("doc");
+		expect(routeForPath("/learn/guides/rust").kind).toBe("page");
+		expect(routeForPath("/learn/guides/rust/mutation").kind).toBe("page");
 		expect(routeForPath("/learn/guides/javascript-typescript").kind).toBe(
-			"doc",
+			"page",
 		);
 		expect(
 			routeForPath("/learn/guides/javascript-typescript/overview").kind,
-		).toBe("doc");
-		expect(routeForPath("/learn/guides/c99").kind).toBe("doc");
-		expect(routeForPath("/learn/guides/c99/overview").kind).toBe("doc");
-		expect(routeForPath("/learn/guides/cpp17").kind).toBe("doc");
-		expect(routeForPath("/learn/guides/cpp17/overview").kind).toBe("doc");
-		expect(routeForPath("/learn/guides/csharp").kind).toBe("doc");
-		expect(routeForPath("/learn/guides/csharp/overview").kind).toBe("doc");
-		expect(routeForPath("/learn/guides/go").kind).toBe("doc");
-		expect(routeForPath("/learn/guides/go/overview").kind).toBe("doc");
-		expect(routeForPath("/learn/guides/java").kind).toBe("doc");
-		expect(routeForPath("/learn/guides/java/overview").kind).toBe("doc");
-		expect(routeForPath("/learn/guides/lua").kind).toBe("doc");
-		expect(routeForPath("/learn/guides/lua/overview").kind).toBe("doc");
-		expect(routeForPath("/learn/guides/python").kind).toBe("doc");
-		expect(routeForPath("/learn/guides/python/overview").kind).toBe("doc");
+		).toBe("page");
+		expect(routeForPath("/learn/guides/c99").kind).toBe("page");
+		expect(routeForPath("/learn/guides/c99/overview").kind).toBe("page");
+		expect(routeForPath("/learn/guides/cpp17").kind).toBe("page");
+		expect(routeForPath("/learn/guides/cpp17/overview").kind).toBe("page");
+		expect(routeForPath("/learn/guides/csharp").kind).toBe("page");
+		expect(routeForPath("/learn/guides/csharp/overview").kind).toBe("page");
+		expect(routeForPath("/learn/guides/go").kind).toBe("page");
+		expect(routeForPath("/learn/guides/go/overview").kind).toBe("page");
+		expect(routeForPath("/learn/guides/java").kind).toBe("page");
+		expect(routeForPath("/learn/guides/java/overview").kind).toBe("page");
+		expect(routeForPath("/learn/guides/lua").kind).toBe("page");
+		expect(routeForPath("/learn/guides/lua/overview").kind).toBe("page");
+		expect(routeForPath("/learn/guides/python").kind).toBe("page");
+		expect(routeForPath("/learn/guides/python/overview").kind).toBe("page");
 		expect(routeForPath("/learn/book/developers/rust").kind).toBe("page");
 		expect(routeForPath("/learn/book/developers/rust/mutation").kind).toBe(
 			"page",
 		);
 		expect(routeForPath("/learn/language/developers/rust/mutation").kind).toBe(
-			"doc",
+			"page",
 		);
-		expect(routeForPath("/docs/guides/rust/mutation").kind).toBe("doc");
+		expect(routeForPath("/docs/guides/rust/mutation").kind).toBe("page");
 		expect(routeForPath("/docs/book/start/getting-started").kind).toBe("doc");
 		expect(routeForPath("/docs/book/developers/mutation").kind).toBe("page");
 	});
@@ -74,7 +74,7 @@ describe("routes", () => {
 		expect(
 			routeForPath("/learn/guides/javascript-typescript/overview")
 				.canonicalPath,
-		).toBe("/learn/guides/javascript-typescript/overview");
+		).toBeUndefined();
 		expect(routeForPath("/learn").canonicalPath).toBe("/learn/book");
 	});
 
@@ -84,7 +84,7 @@ describe("routes", () => {
 			"Musi Book | The Musi Programming Language",
 		);
 		expect(routeForPath("/learn/book/start/getting-started").title).toBe(
-			"Getting Started | The Musi Programming Language",
+			"Getting started | The Musi Programming Language",
 		);
 	});
 

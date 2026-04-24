@@ -31,22 +31,20 @@ Validate before sending website or docs changes:
 ```bash
 bun run check
 bun run test
-bun run verify:lang
 ```
 
 What those commands cover:
 
-- `bun run check`: regenerate docs content, validate language docs inputs, typecheck, and run Biome checks.
-- `bun run test`: regenerate docs content, validate language docs inputs, and run Vitest tests for website code and content generation.
-- `bun run verify:lang`: build the static site and verify every generated HTML page has `<html lang="en">`.
+- `bun run check`: sync grammar, regenerate docs content, typecheck, and run Biome checks.
+- `bun run test`: sync grammar, regenerate docs content, and run Vitest tests for website code and content generation.
 
 For Lighthouse accessibility audits, use a clean browser profile or incognito window with extensions disabled. Browser automation extensions can inject nodes such as `browser-mcp-container` or `data-mcp-root`; if DevTools shows those nodes, `html[lang]` warnings are audit-context noise, not shipped site markup.
 
 ## Docs Author
 
-Human-facing language docs live under `docs/what/language`.
-Website maintainer docs live under `docs/what/website`.
-Book section landing pages live under `src/content/book/language`.
+Human-facing language docs live under `content/musi-book`.
+Website maintainer docs live under this README and source comments when needed.
+Book routing lives under `src/content/book/registry`.
 
 Docs content is repo-backed. Markdown carries authored prose, TypeScript files carry structure, and generated content is committed for the static site:
 
@@ -54,15 +52,24 @@ Docs content is repo-backed. Markdown carries authored prose, TypeScript files c
 - `src/content/book/manifest.ts` controls routing, grouping, aliases, and order.
 - `src/content/snippet-registry.ts` and `src/content/examples/` provide code examples used by Markdown placeholders.
 - `scripts/generate-content.ts` deterministically renders docs into `src/generated/rendered-docs.json` and `src/generated/rendered-snippets.json`.
-- `scripts/validate-language-docs.ts` validates frontmatter, placeholder references, and syntax-fence rules before generation.
+- `scripts/sync-musi-grammar.ts` syncs the Musi TextMate grammar from the VS Code extension before generation.
 
 Rules for language docs:
 
 - Teach current Musi syntax only.
 - Do not describe syntax as old, new, former, or transitional.
-- Do not use raw ````musi` fences in learning docs.
 - Use snippet or example placeholders so examples are highlighted and checked by generation.
+- Do not hand-edit `src/content/grammars/musi.tmLanguage.json`; the canonical grammar lives in `musi-lang/vscode-musi`.
 - Keep consumer-facing docs educational; compiler-internal notes belong under maintainer docs or crate docs.
+
+Musi grammar sync:
+
+```bash
+bun run sync:musi-grammar
+bun run sync:musi-grammar:check
+```
+
+`bun run generate:content`, `bun run check`, and `bun run test` run this sync path before rendering docs. The local grammar file is a synced artifact from `https://raw.githubusercontent.com/musi-lang/vscode-musi/main/syntaxes/musi.tmLanguage.json`.
 
 ## Local Docs Studio
 
@@ -99,18 +106,17 @@ The editor rejects paths outside the allowed docs roots.
 - `src/ui/`: site-owned primitives such as actions, surfaces, page headers, TOC, and theme controls.
 - `src/docs.ts` and `src/generated-content.ts`: generated docs route inventory and rendered HTML.
 - `scripts/generate-content.ts`: deterministic content generation entrypoint.
-- `scripts/validate-language-docs.ts`: language docs input validator used by generation.
 
 Astro owns document HTML, metadata, static routing, sitemap, robots, and 404 output. Preact is reserved for static-compatible components and small local islands when interaction needs state.
 
 ## Design And Accessibility
 
-Design target: calm institutional explicitness.
+Design target: calm, clear, easy to scan.
 
 Rules:
 
 - calm, not blank
-- explicit, not verbose
+- clear, not verbose
 - strong signifiers for links, buttons, navigation, and current location
 - warm clay/copper brand family from the Musi icon
 - supporting colors allowed when they improve contrast or hierarchy

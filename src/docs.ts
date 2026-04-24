@@ -73,7 +73,33 @@ for (const page of localizedDocs) {
 	}
 }
 
+function docPartOrder(page: DocPage) {
+	const part = localizedDocs.find(
+		(candidate) => candidate.kind === "part" && candidate.id === page.partId,
+	);
+	return part?.order ?? page.order;
+}
+
+function docSectionOrder(page: DocPage) {
+	if (!page.sectionId) {
+		return 0;
+	}
+	const section = localizedDocs.find(
+		(candidate) =>
+			candidate.kind === "section" && candidate.id === page.sectionId,
+	);
+	return section?.order ?? page.order;
+}
+
 function compareDocs(left: DocPage, right: DocPage) {
+	const partDelta = docPartOrder(left) - docPartOrder(right);
+	if (partDelta !== 0) {
+		return partDelta;
+	}
+	const sectionDelta = docSectionOrder(left) - docSectionOrder(right);
+	if (sectionDelta !== 0) {
+		return sectionDelta;
+	}
 	if (left.order !== right.order) {
 		return left.order - right.order;
 	}
@@ -137,33 +163,17 @@ export const docParts = partDocs.map((part) => {
 	} satisfies DocPart;
 });
 
-export const docGroups = docParts
-	.map((part) => {
-		const pages = childrenByParentId.get(part.id) ?? [];
-		return {
-			group: part.title,
-			groupHtml: part.titleHtml,
-			path: part.path,
-			summaryHtml: part.summaryHtml,
-			pages,
-			locale: part.locale,
-		} satisfies DocGroup;
-	})
-	.filter((group) => group.group !== "Musi for Developers");
-
-export const guideGroups = docParts
-	.filter((part) => part.id === "developers")
-	.map((part) => {
-		const pages = childrenByParentId.get(part.id) ?? [];
-		return {
-			group: part.title,
-			groupHtml: part.titleHtml,
-			path: part.path,
-			summaryHtml: part.summaryHtml,
-			pages,
-			locale: part.locale,
-		} satisfies DocGroup;
-	});
+export const docGroups = docParts.map((part) => {
+	const pages = childrenByParentId.get(part.id) ?? [];
+	return {
+		group: part.title,
+		groupHtml: part.titleHtml,
+		path: part.path,
+		summaryHtml: part.summaryHtml,
+		pages,
+		locale: part.locale,
+	} satisfies DocGroup;
+});
 
 export const docQuestionIndex: Array<{
 	label: string;
@@ -266,32 +276,7 @@ for (const part of partDocs) {
 	walkChapterTraversal(part.id);
 }
 
-function languageGuideSiblings(id: string) {
-	const page = docsById.get(id);
-	if (!page?.parentId) {
-		return null;
-	}
-	const parent = docsById.get(page.parentId);
-	if (parent?.partId !== "developers" || parent.kind !== "section") {
-		return null;
-	}
-	return (childrenByParentId.get(parent.id) ?? []).filter(
-		(child) => child.kind === "chapter",
-	);
-}
-
 export function docNeighbors(id: string) {
-	const siblings = languageGuideSiblings(id);
-	if (siblings) {
-		const index = siblings.findIndex((page) => page.id === id);
-		if (index === -1) {
-			return {};
-		}
-		return {
-			previous: siblings[index - 1],
-			next: siblings[index + 1],
-		};
-	}
 	const index = chapterIndexById.get(id);
 	if (index === undefined) {
 		return {};

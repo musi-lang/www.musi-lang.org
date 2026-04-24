@@ -53,13 +53,6 @@
 		grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
 	}
 
-	[data-mx-root] .site-heading h1.site-title--page {
-		font-size: 1.9rem;
-	}
-
-	[data-mx-root] .site-heading h2.site-title--section {
-		font-size: 1.65rem;
-	}
 }
 
 @media (min-width: 48rem) {
@@ -87,19 +80,12 @@
 		grid-template-columns: minmax(0, 1fr) auto;
 	}
 
-	[data-mx-root] .site-heading h1.site-title--page {
-		font-size: 2.15rem;
-	}
-
-	[data-mx-root] .site-heading h2.site-title--section {
-		font-size: 1.85rem;
-	}
 }
 
 @media (min-width: 72rem) {
 	.docs-body-grid {
 		grid-template-areas: "article rail";
-		grid-template-columns: minmax(0, 64ch) minmax(15rem, 17rem);
+		grid-template-columns: minmax(0, var(--site-doc-reading-width)) minmax(15rem, 17rem);
 		justify-content: center;
 		column-gap: var(--mx-step-5);
 	}

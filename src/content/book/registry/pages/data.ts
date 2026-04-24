@@ -6,29 +6,7 @@ export const dataPages = [
 		partId: "data",
 		path: "/docs/book/data/records",
 		aliases: ["/docs/language/data/records", "/learn/language/data/records"],
-		sourcePath: "docs/what/language/data/records.md",
-		questions: [],
-	},
-	{
-		id: "indexing-and-fields",
-		partId: "data",
-		path: "/docs/book/data/indexing-and-fields",
-		aliases: [
-			"/docs/language/data/indexing-and-fields",
-			"/learn/language/data/indexing-and-fields",
-		],
-		sourcePath: "docs/what/language/data/indexing-and-fields.md",
-		questions: [],
-	},
-	{
-		id: "data-definitions",
-		partId: "data",
-		path: "/docs/book/data/data-definitions",
-		aliases: [
-			"/docs/language/data/data-definitions",
-			"/learn/language/data/data-definitions",
-		],
-		sourcePath: "docs/what/language/data/data-definitions.md",
+		sourcePath: "content/musi-book/pages/data/records.md",
 		questions: [],
 	},
 	{
@@ -39,7 +17,29 @@ export const dataPages = [
 			"/docs/language/data/arrays-and-slices",
 			"/learn/language/data/arrays-and-slices",
 		],
-		sourcePath: "docs/what/language/data/arrays-and-slices.md",
+		sourcePath: "content/musi-book/pages/data/arrays-and-slices.md",
+		questions: [],
+	},
+	{
+		id: "indexing-and-fields",
+		partId: "data",
+		path: "/docs/book/data/indexing-and-fields",
+		aliases: [
+			"/docs/language/data/indexing-and-fields",
+			"/learn/language/data/indexing-and-fields",
+		],
+		sourcePath: "content/musi-book/pages/data/indexing-and-fields.md",
+		questions: [],
+	},
+	{
+		id: "data-definitions",
+		partId: "data",
+		path: "/docs/book/data/data-definitions",
+		aliases: [
+			"/docs/language/data/data-definitions",
+			"/learn/language/data/data-definitions",
+		],
+		sourcePath: "content/musi-book/pages/data/data-definitions.md",
 		questions: [],
 	},
 	{
@@ -47,7 +47,7 @@ export const dataPages = [
 		partId: "data",
 		path: "/docs/book/data/patterns",
 		aliases: ["/docs/language/data/patterns", "/learn/language/data/patterns"],
-		sourcePath: "docs/what/language/data/patterns.md",
+		sourcePath: "content/musi-book/pages/data/patterns.md",
 		questions: [],
 	},
 	{
@@ -58,7 +58,7 @@ export const dataPages = [
 			"/docs/language/data/option-and-result",
 			"/learn/language/data/option-and-result",
 		],
-		sourcePath: "docs/what/language/data/option-and-result.md",
+		sourcePath: "content/musi-book/pages/data/option-and-result.md",
 		questions: [],
 	},
 ] satisfies readonly RawBookPageDefinition[];

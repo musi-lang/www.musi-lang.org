@@ -9,7 +9,7 @@ export const typesPages = [
 			"/docs/language/types/type-annotations",
 			"/learn/language/types/type-annotations",
 		],
-		sourcePath: "docs/what/language/types/type-annotations.md",
+		sourcePath: "content/musi-book/pages/types/type-annotations.md",
 		questions: [],
 	},
 	{
@@ -20,7 +20,7 @@ export const typesPages = [
 			"/docs/language/types/callable-types",
 			"/learn/language/types/callable-types",
 		],
-		sourcePath: "docs/what/language/types/callable-types.md",
+		sourcePath: "content/musi-book/pages/types/callable-types.md",
 		questions: [],
 	},
 	{
@@ -31,7 +31,7 @@ export const typesPages = [
 			"/docs/language/types/type-inference",
 			"/learn/language/types/type-inference",
 		],
-		sourcePath: "docs/what/language/types/type-inference.md",
+		sourcePath: "content/musi-book/pages/types/type-inference.md",
 		questions: [],
 	},
 	{
@@ -42,7 +42,7 @@ export const typesPages = [
 			"/docs/language/types/generics",
 			"/learn/language/types/generics",
 		],
-		sourcePath: "docs/what/language/types/generics.md",
+		sourcePath: "content/musi-book/pages/types/generics.md",
 		questions: [],
 	},
 	{
@@ -53,29 +53,18 @@ export const typesPages = [
 			"/docs/language/types/type-tests-and-casts",
 			"/learn/language/types/type-tests-and-casts",
 		],
-		sourcePath: "docs/what/language/types/type-tests-and-casts.md",
+		sourcePath: "content/musi-book/pages/types/type-tests-and-casts.md",
 		questions: [],
 	},
 	{
-		id: "forall-types",
+		id: "optional-and-fallible-types",
 		partId: "types",
-		path: "/docs/book/types/forall-types",
+		path: "/docs/book/types/optional-and-fallible-types",
 		aliases: [
-			"/docs/language/types/forall-types",
-			"/learn/language/types/forall-types",
+			"/docs/language/types/optional-and-fallible-types",
+			"/learn/language/types/optional-and-fallible-types",
 		],
-		sourcePath: "docs/what/language/types/forall-types.md",
-		questions: [],
-	},
-	{
-		id: "dependent-types",
-		partId: "types",
-		path: "/docs/book/types/dependent-types",
-		aliases: [
-			"/docs/language/types/dependent-types",
-			"/learn/language/types/dependent-types",
-		],
-		sourcePath: "docs/what/language/types/dependent-types.md",
+		sourcePath: "content/musi-book/pages/types/optional-and-fallible-types.md",
 		questions: [],
 	},
 ] satisfies readonly RawBookPageDefinition[];
