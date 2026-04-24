@@ -14,11 +14,11 @@ For a Rust reader, this guide starts from familiar habits. It shows how Musi han
 
 ## Reading Generics and Type Constructors from Rust
 
-In Musi, records and data variants describe stored data. Behavior belongs in functions or classes/instances, not inside an object by default. For a Rust reader, the key topic is generics and type constructors.
+In Musi, records and data variants describe stored data. Behavior belongs in functions or shapes and given values, not inside an object by default. For a Rust reader, the key topic is generics and type constructors.
 
 ## Common mistake
 
-Do not treat class as stored object data from Rust while reading generics and type constructors. Start with records or variants for data. In Rust, this appears often in generics and type constructors.
+Do not treat shape as stored object data from Rust while reading generics and type constructors. Start with records or variants for data. In Rust, this appears often in generics and type constructors.
 
 ## When this pays off
 
@@ -27,5 +27,5 @@ Use records when names like `owner`, `age`, `amount`, or `route` are the point o
 ## Keep close
 
 - [Generics](/learn/book/types/generics)
-- [Classes](/learn/book/abstractions/classes)
+- [Shapes](/learn/book/abstractions/shapes)
 - [Laws](/learn/book/abstractions/laws)

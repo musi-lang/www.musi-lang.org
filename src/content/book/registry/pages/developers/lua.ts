@@ -107,15 +107,15 @@ export const luaDeveloperPages = [
 		questions: [],
 	},
 	{
-		id: "lua-metatables-classes-instances-laws",
+		id: "lua-metatables-shapes-given-laws",
 		partId: "developers",
-		path: "/docs/guides/lua/metatables-classes-instances-laws",
+		path: "/docs/guides/lua/metatables-shapes-given-laws",
 		aliases: [
-			"/docs/language/developers/lua/metatables-classes-instances-laws",
-			"/learn/language/developers/lua/metatables-classes-instances-laws",
+			"/docs/language/developers/lua/metatables-shapes-given-laws",
+			"/learn/language/developers/lua/metatables-shapes-given-laws",
 		],
 		sourcePath:
-			"docs/what/language/developers/lua/metatables-classes-instances-laws.md",
+			"docs/what/language/developers/lua/metatables-shapes-given-laws.md",
 		questions: [],
 	},
 	{

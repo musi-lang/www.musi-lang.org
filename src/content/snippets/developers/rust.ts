@@ -88,9 +88,9 @@ match selected (
 		},
 	},
 	{
-		id: "rust-trait-class-law",
+		id: "rust-trait-shape-law",
 		language: "musi",
-		sourceText: `let Vehicle[T] := class {
+		sourceText: `let Vehicle[T] := shape {
   let wheels(self : T) : Int;
   law atLeastFourWheels(vehicle : T) := vehicle.wheels() >= 4;
 };
@@ -99,11 +99,11 @@ let Car := data {
   | Car
 };
 
-let carVehicle := instance Vehicle[Car] {
+let carVehicle := given Vehicle[Car] {
   let wheels(self : Car) : Int := 4;
 };`,
 		evidence: {
-			path: "docs/what/language/developers/rust/traits-classes-laws.md",
+			path: "docs/what/language/developers/rust/traits-shapes-laws.md",
 			line: 1,
 		},
 	},
@@ -136,17 +136,17 @@ match boxed (
 		},
 	},
 	{
-		id: "rust-type-constructor-class",
+		id: "rust-type-constructor-shape",
 		language: "musi",
 		sourceText: `let Box1[T] := data {
   | Box1(value : T)
 };
 
-let Keeps[F : Type -> Type] := class {
+let Keeps[F : Type -> Type] := shape {
   let keep(value : F[Int]) : F[Int];
 };
 
-let boxKeeps := instance Keeps[Box1] {
+let boxKeeps := given Keeps[Box1] {
   let keep(value : Box1[Int]) : Box1[Int] := value;
 };`,
 		evidence: {
@@ -168,7 +168,7 @@ parsed
 		},
 	},
 	{
-		id: "rust-effect-request",
+		id: "rust-effect-ask",
 		language: "musi",
 		sourceText: `let io := import "@std/io";
 
@@ -205,7 +205,7 @@ port;`,
 		language: "musi",
 		sourceText: `let ffi := import "@std/ffi";
 
-foreign "c" let get_counter () : CPtr;
+native "c" let get_counter () : CPtr;
 
 let counter := unsafe {
   ffi.ptr.cast[Int](get_counter());

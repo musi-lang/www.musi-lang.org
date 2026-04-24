@@ -14,11 +14,11 @@ Java classes often gather identity, fields, behavior, validation, and lifecycle 
 
 ## Reading Records, Classes, and Objects from Java
 
-In Musi, records and data variants describe stored data. Behavior belongs in functions or classes/instances, not inside an object by default. For a Java reader, the key topic is records, classes, and objects.
+In Musi, records and data variants describe stored data. Behavior belongs in functions or shapes and given values, not inside an object by default. For a Java reader, the key topic is records, classes, and objects.
 
 ## Common mistake
 
-Do not treat class as stored object data from Java while reading records, classes, and objects. Start with records or variants for data. In Java, this appears often in records, classes, and objects.
+Do not treat source-language classes as stored object data from Java while reading records, classes, and objects. Start with records or variants for data. In Java, this appears often in records, classes, and objects.
 
 ## When this pays off
 
@@ -27,5 +27,5 @@ Use records when names like `owner`, `age`, `amount`, or `route` are the point o
 ## Keep close
 
 - [Records](/learn/book/data/records)
-- [Classes](/learn/book/abstractions/classes)
+- [Shapes](/learn/book/abstractions/shapes)
 - [Patterns](/learn/book/data/patterns)

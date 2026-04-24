@@ -8,13 +8,13 @@ slug: "exceptions-effects"
 summary: "Start from Java habits, then use the Musi Book for the full rule."
 ---
 
-Java exceptions and services can make outside work appear as a normal method call. Musi effect code marks the request so runtime edges stay visible.
+Java exceptions and services can make outside work appear as a normal method call. Musi effect code marks the ask so runtime edges stay visible.
 
 {{compare:java-exceptions-effects}}
 
 ## Reading Exceptions and Effects from Java
 
-Musi names outside work with effects and `request`, instead of hiding time, files, console work, or services inside a normal call. For a Java reader, the key topic is exceptions and effects.
+Musi names outside work with effects and `ask`, instead of hiding time, files, console work, or services inside a normal call. For a Java reader, the key topic is exceptions and effects.
 
 ## Common mistake
 
@@ -27,5 +27,5 @@ Use effects when the program asks the runtime, OS, user, or another service for 
 ## Keep close
 
 - [Effects](/learn/book/effects-runtime/effects)
-- [Using](/learn/book/effects-runtime/using)
+- [Requirements](/learn/book/effects-runtime/requirements)
 - [Handlers](/learn/book/effects-runtime/handlers)

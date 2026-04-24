@@ -5,16 +5,16 @@ export const advancedExampleGroups: readonly ExampleGroup[] = [
 		id: "attribute-catalog",
 		title: "Attribute families at different edges",
 		caption:
-			"Attributes mean different things depending on whether a named part is foundation-owned, foreign-linked, or target-gated.",
+			"Attributes mean different things depending on whether a named part is foundation-owned, native-linked, or target-gated.",
 		note: "Read them top to bottom as extra filters. First decide which edge the named part crosses, then pick only the attribute family that explains that edge directly.",
 		sourceText: `@known(name := "Bool")
 export let Bool := Bool;
 
 @link(name := "c")
-foreign "c" let puts (msg : CString) : Int;
+native "c" let puts (msg : CString) : Int;
 
 @when(os := "linux")
-foreign let clock_gettime (id : Int, out : CPtr) : Int;`,
+native let clock_gettime (id : Int, out : CPtr) : Int;`,
 		evidence: {
 			path: "src/content/examples/groups-advanced.ts",
 			line: 5,
@@ -25,7 +25,7 @@ foreign let clock_gettime (id : Int, out : CPtr) : Int;`,
 		title: "Code as data template (metaprogramming)",
 		caption:
 			"Build or transform code structure itself, not only runtime values.",
-		note: "When a language lacks first-class quote/splice, the closest equivalent is often macros, AST builders, or plain code generators.",
+		note: "When a language lacks first-shape quote/splice, the closest equivalent is often macros, AST builders, or plain code generators.",
 		sourceText: "let addTemplate := quote (#(x) + #(delta));",
 		evidence: {
 			path: "crates/music_syntax/src/parser/tests.rs",
@@ -34,34 +34,35 @@ foreign let clock_gettime (id : Int, out : CPtr) : Int;`,
 	},
 	{
 		id: "effect-handle",
-		title: "Define, request, and handle effects",
+		title: "Define, ask, and answer effects",
 		caption:
-			"Capture side-effect requests in one place, then resolve them through handlers.",
+			"Capture side-effect asks in one place, then resolve them through handlers.",
 		note: "At small scale this can look like callback wiring, but at larger scale handlers keep policy at edges and reduce plumbing across call chains.",
 		sourceText: `let Clock := effect {
   let tick () : Int;
 };
 
-handle Clock.tick() using Clock {
-  value => value;
+let clockAnswer := answer Clock {
   tick(k) => resume 1;
-};`,
+};
+
+handle Clock.tick() answer clockAnswer;`,
 		evidence: {
 			path: "crates/music_sema/src/tests.rs",
 			line: 263,
 		},
 	},
 	{
-		id: "class-instance",
-		title: "Typeclass-style constraints and instances",
+		id: "shape-given",
+		title: "Shape constraints and given values",
 		caption:
 			"Define shared behavior once, then attach concrete implementations per type.",
 		note: "Like one wall-socket standard with different appliance designs behind the plug. Declare one behavior form, then implement it per type.",
-		sourceText: `let Eq[T] := class {
+		sourceText: `let Eq[T] := shape {
   let (=) (a : T, b : T) : Bool;
 };
 
-let eqInt := instance Eq[Int] {
+let eqInt := given Eq[Int] {
   let (=) (a : Int, b : Int) : Bool := .True;
 };`,
 		evidence: {

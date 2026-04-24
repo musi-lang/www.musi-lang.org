@@ -18,7 +18,7 @@ In Musi, data variants name the cases directly, and `match` reads the case split
 
 ## Common mistake
 
-Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. In C#, this appears often in unions and pattern matching.
+Do not keep integer tags, string unions, subshape checks, or table marker fields when a data variant is the real form. In C#, this appears often in unions and pattern matching.
 
 ## When this pays off
 

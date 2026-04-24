@@ -22,6 +22,20 @@ const leadingNewlinePattern = /^\n+/;
 const frontmatterLinePattern = /^([A-Za-z][A-Za-z0-9_-]*):\s*(.*)$/;
 const checkedInternalLinkPattern =
 	/^\/(?:learn|docs)\/(?:book|language)\b|^\/learn\/guides\b/;
+const staleLanguagePatterns = [
+	{ pattern: /\brequest\b/, replacement: "`ask`" },
+	{ pattern: /`using`|\busing\s*\{/, replacement: "`require`" },
+	{ pattern: /\bclass\s*\{/, replacement: "`shape`" },
+	{ pattern: /\binstance\s+[A-Za-z_]/, replacement: "`given`" },
+	{ pattern: /\bforeign\b/, replacement: "`native`" },
+	{
+		pattern: /@std\/runtime/,
+		replacement: "`@std/datetime` or focused `musi:*` modules",
+	},
+	{ pattern: /@std\/slice/, replacement: "`@std/collections/slice`" },
+	{ pattern: /musi:runtime/, replacement: "focused `musi:*` modules" },
+	{ pattern: /Option\.some\[/, replacement: "`Option.someOf[`" },
+] as const;
 
 const requiredFrontmatterKeys = [
 	"title",
@@ -242,6 +256,13 @@ function validateSourceContent(
 		);
 	}
 
+	validateNoStaleLanguageForms(
+		doc.sourcePath,
+		[...Object.values(doc.frontmatter), doc.body].join("\n"),
+		entryId,
+		errors,
+	);
+
 	for (const match of doc.body.matchAll(rawPlaceholderPattern)) {
 		const rawPayload = match[1] ?? "";
 		const parsed = rawPayload.match(supportedPlaceholderPattern);
@@ -262,6 +283,22 @@ function validateSourceContent(
 		}
 		errors.push(
 			`${doc.sourcePath}: unknown ${kind} placeholder id \`${referenceId}\` for \`${entryId}\``,
+		);
+	}
+}
+
+function validateNoStaleLanguageForms(
+	sourcePath: string,
+	source: string,
+	entryId: string,
+	errors: string[],
+) {
+	for (const { pattern, replacement } of staleLanguagePatterns) {
+		if (!pattern.test(source)) {
+			continue;
+		}
+		errors.push(
+			`${sourcePath}: stale language form for \`${entryId}\`; use ${replacement}`,
 		);
 	}
 }
@@ -307,6 +344,52 @@ export async function validateLanguageDocs(): Promise<ValidateLanguageDocsResult
 		developerComparisons.map((comparison) => comparison.id),
 	);
 	const internalDocPaths = buildKnownInternalDocPaths();
+	for (const snippet of contentSnippets) {
+		validateNoStaleLanguageForms(
+			snippet.evidence.path,
+			snippet.id,
+			snippet.id,
+			errors,
+		);
+		if (snippet.language === "musi") {
+			validateNoStaleLanguageForms(
+				snippet.evidence.path,
+				snippet.sourceText,
+				snippet.id,
+				errors,
+			);
+		}
+	}
+	for (const group of exampleGroups) {
+		validateNoStaleLanguageForms(
+			group.evidence.path,
+			[group.id, group.title, group.caption, group.note, group.sourceText].join(
+				"\n",
+			),
+			group.id,
+			errors,
+		);
+	}
+	for (const comparison of developerComparisons) {
+		validateNoStaleLanguageForms(
+			comparison.evidence.path,
+			[
+				comparison.id,
+				comparison.mindset.join("\n"),
+				comparison.commonWarning,
+			].join("\n"),
+			comparison.id,
+			errors,
+		);
+		if (comparison.musiLanguage === "musi") {
+			validateNoStaleLanguageForms(
+				comparison.evidence.path,
+				comparison.musiSourceText,
+				comparison.id,
+				errors,
+			);
+		}
+	}
 
 	for (const page of bookPages) {
 		if (!page.sourcePath.startsWith("docs/what/language/")) {

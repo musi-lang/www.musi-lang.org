@@ -2,25 +2,19 @@ import type { RawBookPageDefinition } from "../types";
 
 export const abstractionsPages = [
 	{
-		id: "classes",
+		id: "shapes",
 		partId: "abstractions",
-		path: "/docs/book/abstractions/classes",
-		aliases: [
-			"/docs/language/abstractions/classes",
-			"/learn/language/abstractions/classes",
-		],
-		sourcePath: "docs/what/language/abstractions/classes.md",
+		path: "/docs/book/abstractions/shapes",
+		aliases: [],
+		sourcePath: "docs/what/language/abstractions/shapes.md",
 		questions: [],
 	},
 	{
-		id: "instances",
+		id: "given-values",
 		partId: "abstractions",
-		path: "/docs/book/abstractions/instances",
-		aliases: [
-			"/docs/language/abstractions/instances",
-			"/learn/language/abstractions/instances",
-		],
-		sourcePath: "docs/what/language/abstractions/instances.md",
+		path: "/docs/book/abstractions/given-values",
+		aliases: [],
+		sourcePath: "docs/what/language/abstractions/given-values.md",
 		questions: [],
 	},
 	{

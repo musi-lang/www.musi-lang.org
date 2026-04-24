@@ -196,9 +196,9 @@ dock;`,
 		},
 	},
 	{
-		id: "js-ts-class-instance",
+		id: "js-ts-shape-given",
 		language: "musi",
-		sourceText: `let Vehicle[T] := class {
+		sourceText: `let Vehicle[T] := shape {
   let wheels(self : T) : Int;
 };
 
@@ -206,7 +206,7 @@ let Car := data {
   | Car
 };
 
-let carVehicle := instance Vehicle[Car] {
+let carVehicle := given Vehicle[Car] {
   let wheels(self : Car) : Int := 4;
 };`,
 		evidence: {

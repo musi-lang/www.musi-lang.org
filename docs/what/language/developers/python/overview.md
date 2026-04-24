@@ -8,7 +8,7 @@ slug: "overview"
 summary: "Use this guide when Python habits make Musi feel surprising."
 ---
 
-Python favors readable names, dictionaries, classes, exceptions, None, imports, and duck typing. Musi keeps the readable topic-first style, but asks more facts to be written down: records and data for form, classes/instances for promised behavior, Option for expected absence, and effects for work that Python often hides behind a call that may raise.
+Python favors readable names, dictionaries, classes, exceptions, None, imports, and duck typing. Musi keeps the readable topic-first style, but asks more facts to be written down: records and data for form, shapes and given values for promised behavior, Option for expected absence, and effects for work that Python often hides behind a call that may raise.
 
 Use this as a translation guide for Python code. Start with the familiar habit, then ask which Musi construct owns the same promise. A page is successful when it tells you which old habit to keep and which old shortcut to drop.
 
@@ -20,7 +20,7 @@ Use this as a translation guide for Python code. Start with the familiar habit, 
 - [Records, Objects, and Dictionaries](/learn/guides/python/records-objects-dicts) - records habits get translated once, then the Musi Book owns the details.
 - [Collections and Pipelines](/learn/guides/python/collections-pipelines) - arrays habits get translated once, then the Musi Book owns the details.
 - [None, Option, and Result](/learn/guides/python/none-option-result) - absence and failure stop being hidden paths.
-- [Exceptions, Results, and Effects](/learn/guides/python/exceptions-effects) - outside work becomes a named request.
+- [Exceptions, Results, and Effects](/learn/guides/python/exceptions-effects) - outside work becomes a named ask.
 - [Data Variants and Pattern Matching](/learn/guides/python/data-variants-patterns) - patterns habits get translated once, then the Musi Book owns the details.
 - [Types, Generics, and Protocols](/learn/guides/python/types-generics-protocols) - generics habits get translated once, then the Musi Book owns the details.
 - [Modules and Packages](/learn/guides/python/modules-packages) - package edges replace compatibility-era habits.
@@ -35,8 +35,8 @@ Use this as a translation guide for Python code. Start with the familiar habit, 
 
 ## First common mistake
 
-Musi `class` is closer to a clear protocol than a Python class with attributes and methods. If you need a person, car, invoice, or package, start with records or data. If you need any type that can compare, show, encode, or step, use a class with instances.
+Musi `shape` is closer to a clear protocol than a Python class with attributes and methods. If you need a person, car, invoice, or package, start with records or data. If you need any type that can compare, show, encode, or step, use a shape with given values.
 
 ## When to switch to the Musi Book
 
-Stay in this guide while a Python habit is getting in the way. Switch to [Values and let](/learn/book/start/values-and-let), [Records](/learn/book/data/records), [Patterns](/learn/book/data/patterns), [Generics](/learn/book/types/generics), [Classes](/learn/book/abstractions/classes), and [Effects](/learn/book/effects-runtime/effects) when you need the main rule.
+Stay in this guide while a Python habit is getting in the way. Switch to [Values and let](/learn/book/start/values-and-let), [Records](/learn/book/data/records), [Patterns](/learn/book/data/patterns), [Generics](/learn/book/types/generics), [Shapes](/learn/book/abstractions/shapes), and [Effects](/learn/book/effects-runtime/effects) when you need the main rule.

@@ -8,7 +8,7 @@ slug: "overview"
 summary: "Use this guide when Go habits make Musi feel surprising."
 ---
 
-Go rewards small packages, plain structs, clear errors, interfaces by behavior, and concurrency that stays close to call sites. Musi keeps direct naming, but moves more facts into named parts: Option for absence, data for variants, classes/instances for shared behavior, and effects for operations that ask the outside world.
+Go rewards small packages, plain structs, clear errors, interfaces by behavior, and concurrency that stays close to call sites. Musi keeps direct naming, but moves more facts into named parts: Option for absence, data for variants, shapes and given values for shared behavior, and effects for operations that ask the outside world.
 
 Use this as a translation guide for Go code. Start with the familiar habit, then ask which Musi construct owns the same promise. A page is successful when it tells you which old habit to keep and which old shortcut to drop.
 
@@ -20,9 +20,9 @@ Use this as a translation guide for Go code. Start with the familiar habit, then
 - [Structs, Records, and Field Updates](/learn/guides/go/structs-records-field-updates) - records habits get translated once, then the Musi Book owns the details.
 - [Slices, Arrays, Maps, and Pipelines](/learn/guides/go/slices-arrays-maps-pipelines) - arrays habits get translated once, then the Musi Book owns the details.
 - [Nil, Option, and Result](/learn/guides/go/nil-option-result) - absence and failure stop being hidden paths.
-- [Errors, Results, and Effects](/learn/guides/go/errors-results-effects) - outside work becomes a named request.
-- [Goroutines, Channels, Context, and Effects](/learn/guides/go/goroutines-channels-context-effects) - outside work becomes a named request.
-- [Interfaces, Classes, Instances, and Laws](/learn/guides/go/interfaces-classes-laws) - behaviors stop hiding in object habits.
+- [Errors, Results, and Effects](/learn/guides/go/errors-results-effects) - outside work becomes a named ask.
+- [Goroutines, Channels, Context, and Effects](/learn/guides/go/goroutines-channels-context-effects) - outside work becomes a named ask.
+- [Interfaces, Shapes, Given Values, and Laws](/learn/guides/go/interfaces-shapes-laws) - behaviors stop hiding in object habits.
 - [Generics and Type Constructors](/learn/guides/go/generics-type-constructors) - generics habits get translated once, then the Musi Book owns the details.
 - [Methods and Receiver Calls](/learn/guides/go/methods-receiver-calls) - calls habits get translated once, then the Musi Book owns the details.
 - [Packages, Imports, and Exports](/learn/guides/go/packages-imports-exports) - package edges replace compatibility-era habits.
@@ -37,8 +37,8 @@ Use this as a translation guide for Go code. Start with the familiar habit, then
 
 ## First common mistake
 
-Musi `class` is closer to an interface rule with instances. It is not a struct. It is not a method set from package convention. If you need a person, car, invoice, or package, start with records or data. If you need any type that can compare, show, encode, or step, use a class with instances.
+Musi `shape` is closer to an interface rule with given values. It is not a struct. It is not a method set from package convention. If you need a person, car, invoice, or package, start with records or data. If you need any type that can compare, show, encode, or step, use a shape with given values.
 
 ## When to switch to the Musi Book
 
-Stay in this guide while a Go habit is getting in the way. Switch to [Values and let](/learn/book/start/values-and-let), [Records](/learn/book/data/records), [Patterns](/learn/book/data/patterns), [Generics](/learn/book/types/generics), [Classes](/learn/book/abstractions/classes), and [Effects](/learn/book/effects-runtime/effects) when you need the main rule.
+Stay in this guide while a Go habit is getting in the way. Switch to [Values and let](/learn/book/start/values-and-let), [Records](/learn/book/data/records), [Patterns](/learn/book/data/patterns), [Generics](/learn/book/types/generics), [Shapes](/learn/book/abstractions/shapes), and [Effects](/learn/book/effects-runtime/effects) when you need the main rule.

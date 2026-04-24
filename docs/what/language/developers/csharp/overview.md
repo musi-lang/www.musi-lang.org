@@ -8,7 +8,7 @@ slug: "overview"
 summary: "Use this guide when C# habits make Musi feel surprising."
 ---
 
-C# trains readers to expect strong tools, namespaces, nullable annotations, records, interfaces, LINQ, tasks, and attributes. Musi uses similar clarity but different boxes: records and data hold data, classes and instances hold behavior, Option names absence, and effects make async or outside work visible instead of hiding it behind a task-returning method.
+C# trains readers to expect strong tools, namespaces, nullable annotations, records, interfaces, LINQ, tasks, and attributes. Musi uses similar clarity but different boxes: records and data hold data, shapes and given values hold behavior, Option names absence, and effects make async or outside work visible instead of hiding it behind a task-returning method.
 
 Use this as a translation guide for C# code. Start with the familiar habit, then ask which Musi construct owns the same promise. A page is successful when it tells you which old habit to keep and which old shortcut to drop.
 
@@ -20,7 +20,7 @@ Use this as a translation guide for C# code. Start with the familiar habit, then
 - [Records, Classes, and Objects](/learn/guides/csharp/records-classes-objects) - records habits get translated once, then the Musi Book owns the details.
 - [Collections, LINQ, and Pipelines](/learn/guides/csharp/collections-linq-pipelines) - arrays habits get translated once, then the Musi Book owns the details.
 - [Null, Option, and Result](/learn/guides/csharp/null-option-result) - absence and failure stop being hidden paths.
-- [Exceptions, Results, and Effects](/learn/guides/csharp/exceptions-effects) - outside work becomes a named request.
+- [Exceptions, Results, and Effects](/learn/guides/csharp/exceptions-effects) - outside work becomes a named ask.
 - [Unions and Pattern Matching](/learn/guides/csharp/unions-pattern-matching) - patterns habits get translated once, then the Musi Book owns the details.
 - [Generics, Interfaces, and Laws](/learn/guides/csharp/generics-interfaces-laws) - generics habits get translated once, then the Musi Book owns the details.
 - [Extension Methods and Calls](/learn/guides/csharp/extension-methods-and-calls) - calls habits get translated once, then the Musi Book owns the details.
@@ -36,8 +36,8 @@ Use this as a translation guide for C# code. Start with the familiar habit, then
 
 ## First common mistake
 
-Musi `class` is a behavior, not a CLR class with fields, constructors, and inheritance. If you need a person, car, invoice, or package, start with records or data. If you need any type that can compare, show, encode, or step, use a class with instances.
+Musi `shape` is a behavior, not a CLR class with fields, constructors, and inheritance. If you need a person, car, invoice, or package, start with records or data. If you need any type that can compare, show, encode, or step, use a shape with given values.
 
 ## When to switch to the Musi Book
 
-Stay in this guide while a C# habit is getting in the way. Switch to [Values and let](/learn/book/start/values-and-let), [Records](/learn/book/data/records), [Patterns](/learn/book/data/patterns), [Generics](/learn/book/types/generics), [Classes](/learn/book/abstractions/classes), and [Effects](/learn/book/effects-runtime/effects) when you need the main rule.
+Stay in this guide while a C# habit is getting in the way. Switch to [Values and let](/learn/book/start/values-and-let), [Records](/learn/book/data/records), [Patterns](/learn/book/data/patterns), [Generics](/learn/book/types/generics), [Shapes](/learn/book/abstractions/shapes), and [Effects](/learn/book/effects-runtime/effects) when you need the main rule.

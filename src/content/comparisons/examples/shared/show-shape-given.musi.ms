@@ -1,7 +1,7 @@
-let Show [T] := class {
+let Show [T] := shape {
   let show (value : T) : String;
 };
 
-export instance Show[Int] {
+export let showInt := given Show[Int] {
   let show (value : Int) : String := "number";
 };

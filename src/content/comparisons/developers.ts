@@ -41,90 +41,90 @@ export const developerProfiles = {
 		language: "c",
 		mindset: [
 			"Treat Musi modules as source edges, not header/source pairs.",
-			"Use data for forms and variants; use classes only when a type must supply behavior.",
+			"Use data for forms and variants; use shapes only when a type must supply behavior.",
 		],
 		commonWarning:
-			"Treating convention as a contract hides intent. Musi class is not a C struct with function pointers. Records and data hold data; classes name behavior a type can provide.",
+			"Treating convention as a contract hides intent. Musi shape is not a C struct with function pointers. Records and data hold data; shapes name behavior a type can provide.",
 	},
 	cpp17: {
 		label: "C++17",
 		language: "cpp",
 		mindset: [
-			"Read Musi classes closer to concepts or traits than C++ classes.",
-			"Use records and data for stored data; use instances for behavior a type supplies.",
+			"Read Musi shapes closer to concepts or traits than C++ classes.",
+			"Use records and data for stored data; use given values for behavior a type supplies.",
 		],
 		commonWarning:
-			"Turning every Musi value into a class-heavy design causes confusion. Musi class is closer to a concept or trait than a C++ class. Records and data store data. Instances give behavior.",
+			"Turning every Musi value into a class-heavy design causes confusion. Musi shape is closer to a concept or trait than a C++ class. Records and data store data. Given values provide behavior.",
 	},
 	csharp: {
 		label: "C#",
 		language: "csharp",
 		mindset: [
-			"Do not map C# classes directly to Musi classes; Musi classes are behavior contracts.",
-			"Use records and data for composite values, then add instances when operations need shared behavior.",
+			"Do not map C# classes directly to Musi shapes; Musi shapes are behavior contracts.",
+			"Use records and data for composite values, then add given values when operations need shared behavior.",
 		],
 		commonWarning:
-			"Mapping Musi classes to object classes or service containers is wrong. Musi class is behavior, not a CLR class with fields, constructors, and inheritance.",
+			"Mapping Musi shapes to object classes or service containers is wrong. Musi shape is behavior, not a CLR class with fields, constructors, and inheritance.",
 	},
 	go: {
 		label: "Go",
 		language: "go",
 		mindset: [
-			"Read Musi classes as clear behavior rules, closer to interfaces than structs.",
-			"Use data and records for values; use instances where Go would lean on method sets.",
+			"Read Musi shapes as clear behavior rules, closer to interfaces than structs.",
+			"Use data and records for values; use given values where Go would lean on method sets.",
 		],
 		commonWarning:
-			"Using absence or failure as a hidden path makes code harder to trust. Musi class is closer to an interface rule with instances. It is not a struct or a method set from package convention.",
+			"Using absence or failure as a hidden path makes code harder to trust. Musi shape is closer to an interface rule with given values. It is not a struct or a method set from package convention.",
 	},
 	java: {
 		label: "Java",
 		language: "java",
 		mindset: [
-			"Do not read Musi class as Java class; it is a typeclass-style behavior contract.",
-			"Use records and data for composite values, and instances where Java would use interfaces plus implementations.",
+			"Do not read Musi shape as Java class; it is a typeclass-style behavior contract.",
+			"Use records and data for composite values, and given values where Java would use interfaces plus implementations.",
 		],
 		commonWarning:
-			"Reading Musi class as an object type with constructors and fields causes wrong design choices. Musi class is behavior supplied by instances. Records and data model data.",
+			"Reading Musi shape as an object type with constructors and fields causes wrong design choices. Musi shape is behavior supplied by given values. Records and data model data.",
 	},
 	"javascript-typescript": {
 		label: "TypeScript",
 		language: "typescript",
 		mindset: [
-			"Do not read Musi class as a prototype or object constructor; it is a behavior contract.",
-			"Use records and data for object-style values, and instances for shared typed behavior.",
+			"Do not read Musi shape as a prototype or object constructor; it is a behavior contract.",
+			"Use records and data for object-style values, and given values for shared typed behavior.",
 		],
 		commonWarning:
-			"Assuming runtime object data and compile-time behavior are the same thing causes bugs. Musi class is not a JavaScript constructor or TypeScript class. It is behavior kept separate from records and data.",
+			"Assuming runtime object data and compile-time behavior are the same thing causes bugs. Musi shape is not a JavaScript constructor or TypeScript class. It is behavior kept separate from records and data.",
 	},
 	lua: {
 		label: "Lua",
 		language: "lua",
 		mindset: [
-			"Do not map tables/metatables directly to Musi classes; Musi classes name required behavior.",
-			"Use records and data for table-like data, then instances for operations a type promises.",
+			"Do not map tables/metatables directly to Musi shapes; Musi shapes name required behavior.",
+			"Use records and data for table-like data, then given values for operations a type promises.",
 		],
 		commonWarning:
-			"Letting table fields, missing fields, and behavior conventions blur together hides intent. Musi class is not a metatable pattern. Records and data hold table-like data; classes and instances name promised behavior.",
+			"Letting table fields, missing fields, and behavior conventions blur together hides intent. Musi shape is not a metatable pattern. Records and data hold table-like data; shapes and given values name promised behavior.",
 	},
 	python: {
 		label: "Python",
 		language: "python",
 		mindset: [
-			"Do not read Musi class as Python class; it is closer to a clear protocol with instances.",
-			"Use records and data for object fields, and classes/laws for behavior callers rely on.",
+			"Do not read Musi shape as Python class; it is closer to a clear protocol with given values.",
+			"Use records and data for object fields, and shapes/laws for behavior callers rely on.",
 		],
 		commonWarning:
-			"Trusting runtime convention where Musi expects a visible type or effect can hide problems. Musi class is closer to a clear protocol than a Python class with attributes and methods.",
+			"Trusting runtime convention where Musi expects a visible type or effect can hide problems. Musi shape is closer to a clear protocol than a Python class with attributes and methods.",
 	},
 	rust: {
 		label: "Rust",
 		language: "rust",
 		mindset: [
-			"Read Musi classes closest to Rust traits, with laws documenting behavior contracts.",
-			"Use data for variants and records for fields; use instances where trait impl instincts apply.",
+			"Read Musi shapes closest to Rust traits, with laws documenting behavior contracts.",
+			"Use data for variants and records for fields; use given values where trait impl instincts apply.",
 		],
 		commonWarning:
-			"Expecting Musi syntax to mirror Rust in every form misses key design splits. Musi class is closest to a Rust trait plus law text. Instances give behavior.",
+			"Expecting Musi syntax to mirror Rust in every form misses key design splits. Musi shape is closest to a Rust trait plus law text. Given values provide behavior.",
 	},
 } as const satisfies Record<string, DeveloperProfile>;
 
@@ -200,22 +200,22 @@ export const developerComparisonSpecs = [
 		},
 	},
 	{
-		id: "c99-structs-classes-records",
+		id: "c99-structs-records",
 		profileId: "c99",
-		sourcePath: "c99/c99-structs-classes-records.source.c",
-		musiPath: "shared/show-class-instance.musi.ms",
+		sourcePath: "c99/c99-structs-records.source.c",
+		musiPath: "shared/show-shape-given.musi.ms",
 		evidence: {
-			path: "docs/what/language/developers/c99/structs-classes-records.md",
+			path: "docs/what/language/developers/c99/structs-records.md",
 			line: 11,
 		},
 	},
 	{
-		id: "c99-templates-concepts-classes-laws",
+		id: "c99-templates-concepts-shapes-laws",
 		profileId: "c99",
-		sourcePath: "c99/c99-templates-concepts-classes-laws.source.c",
-		musiPath: "shared/show-class-instance.musi.ms",
+		sourcePath: "c99/c99-templates-concepts-shapes-laws.source.c",
+		musiPath: "shared/show-shape-given.musi.ms",
 		evidence: {
-			path: "docs/what/language/developers/c99/templates-concepts-classes-laws.md",
+			path: "docs/what/language/developers/c99/templates-concepts-shapes-laws.md",
 			line: 11,
 		},
 	},
@@ -333,19 +333,19 @@ export const developerComparisonSpecs = [
 		id: "cpp17-structs-classes-records",
 		profileId: "cpp17",
 		sourcePath: "cpp17/cpp17-structs-classes-records.source.cpp",
-		musiPath: "shared/show-class-instance.musi.ms",
+		musiPath: "shared/show-shape-given.musi.ms",
 		evidence: {
 			path: "docs/what/language/developers/cpp17/structs-classes-records.md",
 			line: 11,
 		},
 	},
 	{
-		id: "cpp17-templates-concepts-classes-laws",
+		id: "cpp17-templates-concepts-shapes-laws",
 		profileId: "cpp17",
-		sourcePath: "cpp17/cpp17-templates-concepts-classes-laws.source.cpp",
-		musiPath: "shared/show-class-instance.musi.ms",
+		sourcePath: "cpp17/cpp17-templates-concepts-shapes-laws.source.cpp",
+		musiPath: "shared/show-shape-given.musi.ms",
 		evidence: {
-			path: "docs/what/language/developers/cpp17/templates-concepts-classes-laws.md",
+			path: "docs/what/language/developers/cpp17/templates-concepts-shapes-laws.md",
 			line: 11,
 		},
 	},
@@ -433,7 +433,7 @@ export const developerComparisonSpecs = [
 		id: "csharp-generics-interfaces-laws",
 		profileId: "csharp",
 		sourcePath: "csharp/csharp-generics-interfaces-laws.source.cs",
-		musiPath: "shared/show-class-instance.musi.ms",
+		musiPath: "shared/show-shape-given.musi.ms",
 		evidence: {
 			path: "docs/what/language/developers/csharp/generics-interfaces-laws.md",
 			line: 11,
@@ -463,7 +463,7 @@ export const developerComparisonSpecs = [
 		id: "csharp-records-classes-objects",
 		profileId: "csharp",
 		sourcePath: "csharp/csharp-records-classes-objects.source.cs",
-		musiPath: "shared/show-class-instance.musi.ms",
+		musiPath: "shared/show-shape-given.musi.ms",
 		evidence: {
 			path: "docs/what/language/developers/csharp/records-classes-objects.md",
 			line: 11,
@@ -560,12 +560,12 @@ export const developerComparisonSpecs = [
 		},
 	},
 	{
-		id: "go-interfaces-classes-laws",
+		id: "go-interfaces-shapes-laws",
 		profileId: "go",
-		sourcePath: "go/go-interfaces-classes-laws.source.go",
-		musiPath: "shared/show-class-instance.musi.ms",
+		sourcePath: "go/go-interfaces-shapes-laws.source.go",
+		musiPath: "shared/show-shape-given.musi.ms",
 		evidence: {
-			path: "docs/what/language/developers/go/interfaces-classes-laws.md",
+			path: "docs/what/language/developers/go/interfaces-shapes-laws.md",
 			line: 11,
 		},
 	},
@@ -693,7 +693,7 @@ export const developerComparisonSpecs = [
 		id: "java-generics-interfaces-laws",
 		profileId: "java",
 		sourcePath: "java/java-generics-interfaces-laws.source.java",
-		musiPath: "shared/show-class-instance.musi.ms",
+		musiPath: "shared/show-shape-given.musi.ms",
 		evidence: {
 			path: "docs/what/language/developers/java/generics-interfaces-laws.md",
 			line: 11,
@@ -743,7 +743,7 @@ export const developerComparisonSpecs = [
 		id: "java-records-classes-objects",
 		profileId: "java",
 		sourcePath: "java/java-records-classes-objects.source.java",
-		musiPath: "shared/show-class-instance.musi.ms",
+		musiPath: "shared/show-shape-given.musi.ms",
 		evidence: {
 			path: "docs/what/language/developers/java/records-classes-objects.md",
 			line: 11,
@@ -805,7 +805,7 @@ export const developerComparisonSpecs = [
 		profileId: "javascript-typescript",
 		sourcePath:
 			"javascript-typescript/javascript-typescript-classes-behavior.source.txt",
-		musiPath: "shared/show-class-instance.musi.ms",
+		musiPath: "shared/show-shape-given.musi.ms",
 		evidence: {
 			path: "docs/what/language/developers/javascript-typescript/classes-behavior.md",
 			line: 11,
@@ -970,12 +970,12 @@ export const developerComparisonSpecs = [
 		},
 	},
 	{
-		id: "lua-metatables-classes-instances-laws",
+		id: "lua-metatables-shapes-given-laws",
 		profileId: "lua",
-		sourcePath: "lua/lua-metatables-classes-instances-laws.source.lua",
-		musiPath: "shared/show-class-instance.musi.ms",
+		sourcePath: "lua/lua-metatables-shapes-given-laws.source.lua",
+		musiPath: "shared/show-shape-given.musi.ms",
 		evidence: {
-			path: "docs/what/language/developers/lua/metatables-classes-instances-laws.md",
+			path: "docs/what/language/developers/lua/metatables-shapes-given-laws.md",
 			line: 11,
 		},
 	},
@@ -1230,12 +1230,12 @@ export const developerComparisonSpecs = [
 		},
 	},
 	{
-		id: "rust-traits-classes-laws",
+		id: "rust-traits-shapes-laws",
 		profileId: "rust",
-		sourcePath: "rust/rust-traits-classes-laws.source.rs",
-		musiPath: "shared/show-class-instance.musi.ms",
+		sourcePath: "rust/rust-traits-shapes-laws.source.rs",
+		musiPath: "shared/show-shape-given.musi.ms",
 		evidence: {
-			path: "docs/what/language/developers/rust/traits-classes-laws.md",
+			path: "docs/what/language/developers/rust/traits-shapes-laws.md",
 			line: 11,
 		},
 	},

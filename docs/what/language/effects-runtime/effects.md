@@ -1,19 +1,19 @@
 ---
 title: "Effects"
-description: "Introduce effect vocabulary before using clauses or handlers."
+description: "Introduce effect vocabulary before require clauses or handlers."
 group: "Effects and Runtime"
 section: "Effects and Runtime"
 order: 24
 slug: "effects"
-summary: "Understand effects as requests for work, not immediate hidden side effects."
+summary: "Understand effects as asks for work, not immediate hidden side effects."
 ---
-Effects describe work that reaches outside plain value calculation. Reading the clock, asking the environment for a variable, printing a line, or requesting randomness all depend on something beyond the current expression.
+Effects describe work that reaches outside plain value calculation. Reading the clock, asking the environment for a variable, printing a line, or asking for randomness all depend on something beyond the current expression.
 
 {{snippet:chapter-effects}}
 
-Think of an effect as a service desk. A function can fill out a request, but some handler or runtime must actually answer it. That separation lets normal code stay clear about what it wants without pretending that outside work is the same as arithmetic.
+Think of an effect as a service desk. A function can fill out an ask, but some handler or runtime must actually answer it. That separation lets normal code stay clear about what it wants without pretending that outside work is the same as arithmetic.
 
-## Why requests are named
+## Why asks are named
 
 Named operations make edges visible. `Clock.tick` tells the reader that time is involved. `Runtime.envGet` tells the reader that the process environment is involved. That is much clearer than hiding those facts behind a helper that looks pure.
 
@@ -23,4 +23,4 @@ A shipping estimate may need the current date, but the rule for choosing the del
 
 ## Reading named parts inside an effect
 
-Each `let` inside an effect body describes one operation that may be requested. A large runtime effect can list many operations, just like a city office lists many counters: permits, tax forms, records, and payments. The list is not the code; it is the menu of requests.
+Each `let` inside an effect body describes one operation that may be asked. A large runtime effect can list many operations, just like a city office lists many counters: permits, tax forms, records, and payments. The list is not the code; it is the menu of asks.

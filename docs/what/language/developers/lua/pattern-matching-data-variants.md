@@ -18,7 +18,7 @@ In Musi, data variants name the cases directly, and `match` reads the case split
 
 ## Common mistake
 
-Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. In Lua, this appears often in pattern matching and data variants.
+Do not keep integer tags, string unions, subshape checks, or table marker fields when a data variant is the real form. In Lua, this appears often in pattern matching and data variants.
 
 ## When this pays off
 

@@ -96,12 +96,12 @@ export const tryBlocks = [
 		],
 	},
 	{
-		id: "classes-instances-and-laws",
+		id: "shapes-given-values-and-laws",
 		title: "Try it",
 		steps: [
-			"Define one class.",
-			"Add one instance for `Int`.",
-			"Call the behavior through the class API.",
+			"Define one shape.",
+			"Add one given value for `Int`.",
+			"Call the behavior through the shape API.",
 		],
 	},
 	{
@@ -123,10 +123,10 @@ export const tryBlocks = [
 		],
 	},
 	{
-		id: "attributes-and-foreign",
+		id: "attributes-and-native",
 		title: "Try it",
 		steps: [
-			"Declare one `foreign` binding.",
+			"Declare one `native` binding.",
 			"Add one attribute to it.",
 			"Keep the named part small and clear.",
 		],

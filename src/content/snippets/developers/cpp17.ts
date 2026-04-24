@@ -214,14 +214,14 @@ match state (
 let port := identity[Int](8080);
 port;`,
 		evidence: {
-			path: "docs/what/language/developers/cpp17/templates-concepts-classes-laws.md",
+			path: "docs/what/language/developers/cpp17/templates-concepts-shapes-laws.md",
 			line: 1,
 		},
 	},
 	{
-		id: "cpp17-concept-class-law",
+		id: "cpp17-concept-shape-law",
 		language: "musi",
-		sourceText: `let Vehicle[T] := class {
+		sourceText: `let Vehicle[T] := shape {
   let wheels(self : T) : Int;
   law atLeastFourWheels(vehicle : T) := vehicle.wheels() >= 4;
 };
@@ -230,11 +230,11 @@ let Car := data {
   | Car
 };
 
-let carVehicle := instance Vehicle[Car] {
+let carVehicle := given Vehicle[Car] {
   let wheels(self : Car) : Int := 4;
 };`,
 		evidence: {
-			path: "docs/what/language/developers/cpp17/templates-concepts-classes-laws.md",
+			path: "docs/what/language/developers/cpp17/templates-concepts-shapes-laws.md",
 			line: 1,
 		},
 	},
@@ -289,7 +289,7 @@ testing.endDescribe();`,
 		language: "musi",
 		sourceText: `let ffi := import "@std/ffi";
 
-foreign "c" let puts (message : ffi.CString) : ffi.CInt;
+native "c" let puts (message : ffi.CString) : ffi.CInt;
 
 export let announce (message : ffi.CString) : ffi.CInt :=
   unsafe { puts(message); };`,

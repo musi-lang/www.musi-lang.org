@@ -13,14 +13,11 @@ export const advancedPages = [
 		questions: [],
 	},
 	{
-		id: "foreign",
+		id: "native",
 		partId: "advanced",
-		path: "/docs/book/advanced/foreign",
-		aliases: [
-			"/docs/language/advanced/foreign",
-			"/learn/language/advanced/foreign",
-		],
-		sourcePath: "docs/what/language/advanced/foreign.md",
+		path: "/docs/book/advanced/native",
+		aliases: [],
+		sourcePath: "docs/what/language/advanced/native.md",
 		questions: [],
 	},
 	{

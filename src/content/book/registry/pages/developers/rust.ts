@@ -57,14 +57,14 @@ export const rustDeveloperPages = [
 		questions: [],
 	},
 	{
-		id: "rust-traits-classes-laws",
+		id: "rust-traits-shapes-laws",
 		partId: "developers",
-		path: "/docs/guides/rust/traits-classes-laws",
+		path: "/docs/guides/rust/traits-shapes-laws",
 		aliases: [
-			"/docs/language/developers/rust/traits-classes-laws",
-			"/learn/language/developers/rust/traits-classes-laws",
+			"/docs/language/developers/rust/traits-shapes-laws",
+			"/learn/language/developers/rust/traits-shapes-laws",
 		],
-		sourcePath: "docs/what/language/developers/rust/traits-classes-laws.md",
+		sourcePath: "docs/what/language/developers/rust/traits-shapes-laws.md",
 		questions: [],
 	},
 	{

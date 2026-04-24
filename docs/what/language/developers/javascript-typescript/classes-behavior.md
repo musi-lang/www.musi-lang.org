@@ -14,11 +14,11 @@ TypeScript structural objects make form feel lightweight. Musi keeps that benefi
 
 ## Reading Classes, Objects, and Shared Behavior from JavaScript/TypeScript
 
-In Musi, records and data variants describe stored data. Behavior belongs in functions or classes/instances, not inside an object by default. For a TypeScript reader, the key topic is classes, objects, and shared behavior.
+In Musi, records and data variants describe stored data. Behavior belongs in functions or shapes and given values, not inside an object by default. For a TypeScript reader, the key topic is classes, objects, and shared behavior.
 
 ## Common mistake
 
-Do not treat class as stored object data from JavaScript and TypeScript while reading classes, objects, and shared behavior. Start with records or variants for data. In JavaScript and TypeScript, this appears often in classes, objects, and shared behavior.
+Do not treat source-language classes as stored object data from JavaScript and TypeScript while reading classes, objects, and shared behavior. Start with records or variants for data. In JavaScript and TypeScript, this appears often in classes, objects, and shared behavior.
 
 ## When this pays off
 
@@ -27,5 +27,5 @@ Use records when names like `owner`, `age`, `amount`, or `route` are the point o
 ## Keep close
 
 - [Records](/learn/book/data/records)
-- [Classes](/learn/book/abstractions/classes)
+- [Shapes](/learn/book/abstractions/shapes)
 - [Patterns](/learn/book/data/patterns)

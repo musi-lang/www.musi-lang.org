@@ -14,11 +14,11 @@ For a C++ reader, this guide starts from familiar habits. It shows how Musi hand
 
 ## Reading Unsafe, FFI, and Native Edges from C++17
 
-In Musi, foreign named parts use `foreign "c" let ...` or a parenthesized foreign group, and unsafe calls stay inside `unsafe { ... }`. For a C++ reader, the key topic is unsafe, ffi, and native edges.
+In Musi, native named parts use `native "c" let ...` or a parenthesized native group, and unsafe calls stay inside `unsafe { ... }`. For a C++ reader, the key topic is unsafe, ffi, and native edges.
 
 ## Common mistake
 
-Do not invent a C-like foreign block or spread unsafe assumptions through normal Musi code. In C++, this appears often in unsafe, ffi, and native edges.
+Do not invent a C-like native block or spread unsafe assumptions through normal Musi code. In C++, this appears often in unsafe, ffi, and native edges.
 
 ## When this pays off
 
@@ -27,5 +27,5 @@ Use this pattern when a clock, driver, C library, host VM, or platform handle mu
 ## Keep close
 
 - [Unsafe and FFI](/learn/book/advanced/unsafe-and-ffi)
-- [Foreign](/learn/book/advanced/foreign)
+- [Native](/learn/book/advanced/native)
 - [Runtime](/learn/book/effects-runtime/runtime)

@@ -25,4 +25,4 @@ If an operator form makes the format tool choose strange line breaks, that is a 
 
 Advanced chapters are for special cases: extra data, native calls, compile-time work, syntax values, and command-line use. Use them when normal named parts are not enough.
 
-Use advanced forms only when a tool, runtime, foreign library, or build step needs them. Keep normal program logic in normal named parts.
+Use advanced forms only when a tool, runtime, native library, or build step needs them. Keep normal program logic in normal named parts.

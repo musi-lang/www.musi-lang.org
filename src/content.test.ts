@@ -34,7 +34,6 @@ const BANNED_WEBSITE_DOC_STAGING_PATTERNS = [
 	/richer fields.*later/i,
 ];
 const BANNED_A2_B1_PUBLIC_COPY_PATTERNS = [
-	/\bshape\b/i,
 	/\bexplicit\b/i,
 	/\bimplicit\b/i,
 	/\bdomain\b/i,
@@ -130,7 +129,8 @@ const checkedInternalLinkPattern =
 const topLevelLetPattern = /^let\s/;
 const codeExampleEscapedNewlinePattern =
 	/(?:sourceText|musiSourceText|code)\s*:\s*(["'])(?:(?:\\.)|(?!\1)[\s\S])*?\\n/;
-const classMindsetPattern = /class.*(?:behavior|contract)|behavior.*class/i;
+const shapeMindsetPattern =
+	/shape.*(?:behavior|contract|rule)|behavior.*shape/i;
 const markdownParagraphBreakPattern = /\n{2,}/;
 const repeatedGuideMistakePattern = /For [^<\n]+, common mistake:/i;
 
@@ -508,7 +508,7 @@ describe("content generation", () => {
 			"let copiedPort := tools.identity[Int](port);",
 		);
 		expect(genericsSource).toContain("| Box1(value : T)");
-		expect(genericsSource).toContain("let Keeps[F : Type -> Type] := class");
+		expect(genericsSource).toContain("let Keeps[F : Type -> Type] := shape");
 		expect(genericsSource).toContain("\n\nlet tools :=");
 		expect(genericsSource).toContain("\n\nlet Box1[T] :=");
 		expect(genericsSource).toContain("\n\nlet Keeps[F : Type -> Type] :=");
@@ -976,7 +976,7 @@ describe("content generation", () => {
 		}
 	});
 
-	it("teaches class mindset per source language", () => {
+	it("teaches shape mindset per source language", () => {
 		for (const [profileId, profile] of Object.entries(developerProfiles)) {
 			expect(profile.mindset.length, profileId).toBeGreaterThan(0);
 		}
@@ -988,7 +988,7 @@ describe("content generation", () => {
 			"python",
 		] as const) {
 			expect(developerProfiles[profileId].mindset.join(" "), profileId).toMatch(
-				classMindsetPattern,
+				shapeMindsetPattern,
 			);
 		}
 	});

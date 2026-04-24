@@ -1,3 +1,3 @@
-let runtime := import "@std/runtime";
+let datetime := import "@std/datetime";
 
-export let stamp () : Int := request runtime.timeNowUnixMs();
+export let stamp () : Int := datetime.unixTimeMillis(datetime.nowUnix());

@@ -27,5 +27,5 @@ Use Option when a badge, ticket, receipt, search result, or lookup may honestly 
 ## Keep close
 
 - [Effects](/learn/book/effects-runtime/effects)
-- [Using](/learn/book/effects-runtime/using)
+- [Requirements](/learn/book/effects-runtime/requirements)
 - [Handlers](/learn/book/effects-runtime/handlers)

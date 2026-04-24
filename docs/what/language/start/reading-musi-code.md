@@ -5,7 +5,7 @@ group: "Start"
 section: "Start"
 order: 3
 slug: "reading-musi-code"
-summary: "Read named parts, imports, final expressions, type notes, and effect requests in the order a beginner sees them."
+summary: "Read named parts, imports, final expressions, type notes, and effect asks in the order a beginner sees them."
 ---
 Reading code is a separate skill from writing code. A beginner often opens a file and tries to understand every symbol at once. That is like walking into a kitchen during dinner service and staring at every pan, timer, receipt, and shelf label. Start with the labels that tell you where things belong.
 
@@ -25,12 +25,12 @@ A name should feel like a label on an object in the room. `driver`, `route`, `an
 
 ## Look for edges
 
-Imports and effects are edges. An import says this file uses code from another place. An effect request says this expression needs an answer from outside normal calculation. A receipt total can be calculated locally. Reading the current time, printing the receipt, or reading the process environment crosses an edge.
+Imports and effects are edges. An import says this file uses code from another place. An effect ask says this expression needs an answer from outside normal calculation. A receipt total can be calculated locally. Reading the current time, printing the receipt, or reading the process environment crosses an edge.
 
-When a file is hard to read, mark the edges first. Which imports come from packages? Which names are exported? Which functions say `using`? Which lines use `request`? After that, the local named parts become much smaller.
+When a file is hard to read, mark the edges first. Which imports come from packages? Which names are exported? Which functions say `require`? Which lines use `ask`? After that, the local named parts become much smaller.
 
 ## Read small programs like real errands
 
 A program is often just an errand with names. Make a label for a parcel. Count animals in a shelter. Find the first open appointment. Choose the price for a ticket. Musi syntax matters because it keeps those errands honest, but the errand is what gives the code meaning.
 
-If a page later shows records, variants, classes, or effects, use the same habit. Ask what real thing is being named and which impossible states the type is trying to remove.
+If a page later shows records, variants, shapes, or effects, use the same habit. Ask what real thing is being named and which impossible states the type is trying to remove.

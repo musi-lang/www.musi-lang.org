@@ -27,5 +27,5 @@ Use this pattern when a receipt total, label, distance, or score is pure data mo
 ## Keep close
 
 - [Effects](/learn/book/effects-runtime/effects)
-- [Using](/learn/book/effects-runtime/using)
+- [Requirements](/learn/book/effects-runtime/requirements)
 - [Handlers](/learn/book/effects-runtime/handlers)

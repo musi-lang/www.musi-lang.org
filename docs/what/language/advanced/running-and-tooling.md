@@ -25,4 +25,4 @@ Project tools should also be boring in review. If formatting, generated docs, or
 
 Advanced chapters are for special cases: extra data, native calls, compile-time work, syntax values, and command-line use. Use them when normal named parts are not enough.
 
-Use advanced forms only when a tool, runtime, foreign library, or build step needs them. Keep normal program logic in normal named parts.
+Use advanced forms only when a tool, runtime, native library, or build step needs them. Keep normal program logic in normal named parts.

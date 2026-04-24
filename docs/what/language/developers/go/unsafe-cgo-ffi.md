@@ -14,11 +14,11 @@ For a Go reader, this guide starts from familiar habits. It shows how Musi handl
 
 ## Reading Unsafe, Cgo, and FFI from Go
 
-In Musi, foreign named parts use `foreign "c" let ...` or a parenthesized foreign group, and unsafe calls stay inside `unsafe { ... }`. For a Go reader, the key topic is unsafe, cgo, and ffi.
+In Musi, native named parts use `native "c" let ...` or a parenthesized native group, and unsafe calls stay inside `unsafe { ... }`. For a Go reader, the key topic is unsafe, cgo, and ffi.
 
 ## Common mistake
 
-Do not invent a C-like foreign block or spread unsafe assumptions through normal Musi code. In Go, this appears often in unsafe, cgo, and ffi.
+Do not invent a C-like native block or spread unsafe assumptions through normal Musi code. In Go, this appears often in unsafe, cgo, and ffi.
 
 ## When this pays off
 
@@ -27,5 +27,5 @@ Use this pattern when a clock, driver, C library, host VM, or platform handle mu
 ## Keep close
 
 - [Unsafe and FFI](/learn/book/advanced/unsafe-and-ffi)
-- [Foreign](/learn/book/advanced/foreign)
+- [Native](/learn/book/advanced/native)
 - [Runtime](/learn/book/effects-runtime/runtime)

@@ -220,9 +220,9 @@ port;`,
 		},
 	},
 	{
-		id: "python-protocol-class",
+		id: "python-protocol-shape",
 		language: "musi",
-		sourceText: `let Sized[T] := class {
+		sourceText: `let Sized[T] := shape {
   let size(self : T) : Int;
 };
 
@@ -230,7 +230,7 @@ let Crate := data {
   | Crate(items : Int)
 };
 
-let crateSized := instance Sized[Crate] {
+let crateSized := given Sized[Crate] {
   let size(self : Crate) : Int :=
     match self (
     | .Crate(items) => items
@@ -286,7 +286,7 @@ export let test () :=
 		language: "musi",
 		sourceText: `let ffi := import "@std/ffi";
 
-foreign "c" let puts (message : ffi.CString) : ffi.CInt;
+native "c" let puts (message : ffi.CString) : ffi.CInt;
 
 export let announce (message : ffi.CString) : ffi.CInt :=
   unsafe { puts(message); };`,

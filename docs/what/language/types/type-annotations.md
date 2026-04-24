@@ -11,7 +11,7 @@ Type annotations make a promise visible. They tell the compiler and the reader w
 
 {{snippet:chapter-type-annotations}}
 
-Annotations are useful at edges: exported functions, effect operations, class members, and places where inference would be correct but not obvious to a human.
+Annotations are useful at edges: exported functions, effect operations, shape members, and places where inference would be correct but not obvious to a human.
 
 ## Public code should speak clearly
 

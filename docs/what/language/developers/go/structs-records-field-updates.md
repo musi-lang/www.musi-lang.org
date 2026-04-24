@@ -14,11 +14,11 @@ For a Go reader, this guide starts from familiar habits. It shows how Musi handl
 
 ## Reading Structs, Records, and Field Updates from Go
 
-In Musi, records and data variants describe stored data. Behavior belongs in functions or classes/instances, not inside an object by default. For a Go reader, the key topic is structs, records, and field updates.
+In Musi, records and data variants describe stored data. Behavior belongs in functions or shapes and given values, not inside an object by default. For a Go reader, the key topic is structs, records, and field updates.
 
 ## Common mistake
 
-Do not treat class as stored object data from Go while reading structs, records, and field updates. Start with records or variants for data. In Go, this appears often in structs, records, and field updates.
+Do not treat shape as stored object data from Go while reading structs, records, and field updates. Start with records or variants for data. In Go, this appears often in structs, records, and field updates.
 
 ## When this pays off
 
@@ -27,5 +27,5 @@ Use records when names like `owner`, `age`, `amount`, or `route` are the point o
 ## Keep close
 
 - [Records](/learn/book/data/records)
-- [Classes](/learn/book/abstractions/classes)
+- [Shapes](/learn/book/abstractions/shapes)
 - [Patterns](/learn/book/data/patterns)

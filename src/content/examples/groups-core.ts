@@ -24,7 +24,7 @@ answer;`,
 		caption:
 			"One value may be present or missing. Musi does this with the real stdlib <code>Option</code> family.",
 		note: "Think of a spare house key: if the usual key exists, use it; otherwise use the backup. Musi writes that choice with constructors and <code>match</code>.",
-		sourceText: `let port := Option.some[Int](8080)
+		sourceText: `let port := Option.someOf[Int](8080)
   |> Option.unwrapOr[Int](3000);`,
 		evidence: {
 			path: "packages/std/option/index.ms",

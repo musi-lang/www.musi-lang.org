@@ -8,17 +8,17 @@ slug: "unsafe-ffi"
 summary: "Start from Rust habits, then use the Musi Book for the full rule."
 ---
 
-Rust unsafe marks code the compiler cannot fully protect. Musi uses the same warning form: declare foreign symbols, then keep calls inside `unsafe { ... }`.
+Rust unsafe marks code the compiler cannot fully protect. Musi uses the same warning form: declare native symbols, then keep calls inside `unsafe { ... }`.
 
 {{compare:rust-unsafe-ffi}}
 
 ## Reading Unsafe and FFI from Rust
 
-In Musi, foreign named parts use `foreign "c" let ...` or a parenthesized foreign group, and unsafe calls stay inside `unsafe { ... }`. For a Rust reader, the key topic is unsafe and ffi.
+In Musi, native named parts use `native "c" let ...` or a parenthesized native group, and unsafe calls stay inside `unsafe { ... }`. For a Rust reader, the key topic is unsafe and ffi.
 
 ## Common mistake
 
-Do not invent a C-like foreign block or spread unsafe assumptions through normal Musi code. In Rust, this appears often in unsafe and ffi.
+Do not invent a C-like native block or spread unsafe assumptions through normal Musi code. In Rust, this appears often in unsafe and ffi.
 
 ## When this pays off
 
@@ -27,5 +27,5 @@ Use this pattern when a clock, driver, C library, host VM, or platform handle mu
 ## Keep close
 
 - [Unsafe and FFI](/learn/book/advanced/unsafe-and-ffi)
-- [Foreign](/learn/book/advanced/foreign)
+- [Native](/learn/book/advanced/native)
 - [Runtime](/learn/book/effects-runtime/runtime)

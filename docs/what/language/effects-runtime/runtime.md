@@ -5,7 +5,7 @@ group: "Effects and Runtime"
 section: "Effects and Runtime"
 order: 29
 slug: "runtime"
-summary: "Use musi:runtime for runtime-backed capabilities and host services."
+summary: "Use musi:time for runtime-backed capabilities and host services."
 ---
 Runtime operations are the built-in doors to the host system. They cover things such as process data, file access, logging, time, randomness, text helpers, and path handling.
 
@@ -23,4 +23,4 @@ Runtime names should make the outside dependency obvious. `fsReadText`, `timeMon
 
 Effect chapters draw a line between local calculation and outside answers. Adding prices is local. Reading time, asking a process, or writing a log needs an answer from outside the expression.
 
-A useful test is to ask whether the result could be known from the input alone. If yes, keep the function plain. If no, name the request and make the effect edge visible.
+A useful test is to ask whether the result could be known from the input alone. If yes, keep the function plain. If no, name the ask and make the effect edge visible.

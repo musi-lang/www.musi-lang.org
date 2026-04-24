@@ -28,4 +28,4 @@ Use modules when billing, routing, text, option, runtime, or encoding code has a
 
 - [Imports and exports](/learn/book/organization/imports-and-exports)
 - [Packages](/learn/book/organization/packages)
-- [Foreign](/learn/book/advanced/foreign)
+- [Native](/learn/book/advanced/native)

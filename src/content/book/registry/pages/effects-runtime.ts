@@ -13,14 +13,11 @@ export const effectsRuntimePages = [
 		questions: [],
 	},
 	{
-		id: "using",
+		id: "requirements",
 		partId: "effects-runtime",
-		path: "/docs/book/effects-runtime/using",
-		aliases: [
-			"/docs/language/effects-runtime/using",
-			"/learn/language/effects-runtime/using",
-		],
-		sourcePath: "docs/what/language/effects-runtime/using.md",
+		path: "/docs/book/effects-runtime/requirements",
+		aliases: [],
+		sourcePath: "docs/what/language/effects-runtime/requirements.md",
 		questions: [],
 	},
 	{

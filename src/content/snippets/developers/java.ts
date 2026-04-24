@@ -219,9 +219,9 @@ dock;`,
 		},
 	},
 	{
-		id: "java-interface-class-law",
+		id: "java-interface-shape-law",
 		language: "musi",
-		sourceText: `let Vehicle[T] := class {
+		sourceText: `let Vehicle[T] := shape {
   let wheels(self : T) : Int;
   law atLeastFourWheels(vehicle : T) := vehicle.wheels() >= 4;
 };
@@ -230,7 +230,7 @@ let Bus := data {
   | Bus
 };
 
-let busVehicle := instance Vehicle[Bus] {
+let busVehicle := given Vehicle[Bus] {
   let wheels(self : Bus) : Int := 6;
 };`,
 		evidence: {
@@ -289,7 +289,7 @@ testing.endDescribe();`,
 		language: "musi",
 		sourceText: `let ffi := import "@std/ffi";
 
-foreign "c" let puts (message : ffi.CString) : ffi.CInt;
+native "c" let puts (message : ffi.CString) : ffi.CInt;
 
 export let announce (message : ffi.CString) : ffi.CInt :=
   unsafe { puts(message); };`,

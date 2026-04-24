@@ -226,7 +226,7 @@ one.abs();`,
 	{
 		id: "slice-helpers",
 		language: "musi",
-		sourceText: `let Slice := import "@std/slice";
+		sourceText: `let Slice := import "@std/collections/slice";
 Slice.concat[Int]([1], [2, 3]);`,
 		evidence: {
 			path: "packages/std/slice/index.test.ms",
@@ -267,9 +267,9 @@ next;`,
 		},
 	},
 	{
-		id: "request-console",
+		id: "ask-console",
 		language: "musi",
-		sourceText: "request Clock.tick();",
+		sourceText: "ask Clock.tick();",
 		evidence: {
 			path: "src/content/snippets/core.ts",
 			line: 270,
@@ -278,29 +278,30 @@ next;`,
 	{
 		id: "handle-console",
 		language: "musi",
-		sourceText: `handle Clock.tick() using Clock {
-  value => value;
+		sourceText: `let clockAnswer := answer Clock {
   tick(k) => resume 1;
-};`,
+};
+
+handle Clock.tick() answer clockAnswer;`,
 		evidence: {
 			path: "crates/music_sema/src/tests.rs",
 			line: 331,
 		},
 	},
 	{
-		id: "using-signature",
+		id: "require-signature",
 		language: "musi",
-		sourceText: `let nextTick () : Int using { Clock } :=
-  request Clock.tick();`,
+		sourceText: `let nextTick () : Int require { Clock } :=
+  ask Clock.tick();`,
 		evidence: {
 			path: "crates/music_sema/src/tests.rs",
 			line: 1444,
 		},
 	},
 	{
-		id: "class-eq",
+		id: "shape-eq",
 		language: "musi",
-		sourceText: `let Eq[T] := class {
+		sourceText: `let Eq[T] := shape {
   let (=) (a : T, b : T) : Bool;
   law reflexive (x : T) := .True;
 };`,
@@ -310,9 +311,9 @@ next;`,
 		},
 	},
 	{
-		id: "instance-eq-int",
+		id: "given-eq-int",
 		language: "musi",
-		sourceText: `let eqInt := instance Eq[Int] {
+		sourceText: `let eqInt := given Eq[Int] {
   let (=) (a : Int, b : Int) : Bool := .True;
 };`,
 		evidence: {
@@ -321,19 +322,18 @@ next;`,
 		},
 	},
 	{
-		id: "foreign-puts",
+		id: "native-puts",
 		language: "musi",
-		sourceText: 'foreign "c" let puts (msg : CString) : Int;',
+		sourceText: 'native "c" let puts (msg : CString) : Int;',
 		evidence: {
 			path: "crates/music_syntax/src/parser/tests.rs",
 			line: 70,
 		},
 	},
 	{
-		id: "attr-link-foreign",
+		id: "attr-link-native",
 		language: "musi",
-		sourceText:
-			'@link(name := "c") foreign "c" let puts (msg : CString) : Int;',
+		sourceText: '@link(name := "c") native "c" let puts (msg : CString) : Int;',
 		evidence: {
 			path: "crates/music_syntax/src/parser/tests.rs",
 			line: 78,
@@ -425,10 +425,10 @@ Core;`,
 	{
 		id: "runtime-import",
 		language: "musi",
-		sourceText: `let Runtime := import "musi:runtime";
+		sourceText: `let Runtime := import "musi:time";
 Runtime.envGet("HOME");`,
 		evidence: {
-			path: "packages/std/env/index.ms",
+			path: "packages/std/env.ms",
 			line: 2,
 		},
 	},
@@ -459,10 +459,10 @@ musi test`,
 	{
 		id: "stdlib-option-import",
 		language: "musi",
-		sourceText: `Option.some[Int](8080)
+		sourceText: `Option.someOf[Int](8080)
   |> Option.unwrapOr[Int](3000);`,
 		evidence: {
-			path: "packages/std/option/index.ms",
+			path: "packages/std/option.ms",
 			line: 6,
 		},
 	},
@@ -472,7 +472,7 @@ musi test`,
 		sourceText: `Result.ok[Int, String](8080)
   |> Result.unwrapOr[Int, String](3000);`,
 		evidence: {
-			path: "packages/std/result/index.ms",
+			path: "packages/std/result.ms",
 			line: 6,
 		},
 	},
@@ -663,7 +663,7 @@ moved;`,
 	{
 		id: "chapter-arrays-and-slices",
 		language: "musi",
-		sourceText: `let Slice := import "@std/slice";
+		sourceText: `let Slice := import "@std/collections/slice";
 let values := [1, 2, 3];
 Slice.concat[Int](values, [4]);`,
 		evidence: {
@@ -779,11 +779,11 @@ let Box1[T] := data {
   | Box1(value : T)
 };
 
-let Keeps[F : Type -> Type] := class {
+let Keeps[F : Type -> Type] := shape {
   let keep(value : F[Int]) : F[Int];
 };
 
-let boxKeeps := instance Keeps[Box1] {
+let boxKeeps := given Keeps[Box1] {
   let keep(value : Box1[Int]) : Box1[Int] := value;
 };
 
@@ -794,9 +794,9 @@ copiedPort;`,
 		},
 	},
 	{
-		id: "chapter-classes",
+		id: "chapter-shapes",
 		language: "musi",
-		sourceText: `let Eq[T] := class {
+		sourceText: `let Eq[T] := shape {
   let (=) (a : T, b : T) : Bool;
   law reflexive (x : T) := .True;
 };`,
@@ -806,9 +806,9 @@ copiedPort;`,
 		},
 	},
 	{
-		id: "chapter-instances",
+		id: "chapter-given-values",
 		language: "musi",
-		sourceText: `let eqInt := instance Eq[Int] {
+		sourceText: `let eqInt := given Eq[Int] {
   let (=) (a : Int, b : Int) : Bool := .True;
 };`,
 		evidence: {
@@ -819,7 +819,7 @@ copiedPort;`,
 	{
 		id: "chapter-laws",
 		language: "musi",
-		sourceText: `let Vehicle[T] := class {
+		sourceText: `let Vehicle[T] := shape {
   let wheels(self : T) : Int;
   law atLeastFourWheels(vehicle : T) := vehicle.wheels() >= 4;
 };
@@ -829,7 +829,7 @@ let Car := data {
   | Family
 };
 
-let carLaw := instance Vehicle[Car] {
+let carLaw := given Vehicle[Car] {
   let wheels(self : Car) : Int := 4;
 };`,
 		evidence: {
@@ -844,17 +844,17 @@ let carLaw := instance Vehicle[Car] {
   let tick () : Int;
 };
 
-request Clock.tick();`,
+ask Clock.tick();`,
 		evidence: {
 			path: "crates/music_sema/src/tests.rs",
 			line: 317,
 		},
 	},
 	{
-		id: "chapter-using",
+		id: "chapter-requirements",
 		language: "musi",
-		sourceText: `let nextTick () : Int using { Clock } :=
-  request Clock.tick();`,
+		sourceText: `let nextTick () : Int require { Clock } :=
+  ask Clock.tick();`,
 		evidence: {
 			path: "crates/music_sema/src/tests.rs",
 			line: 1444,
@@ -872,7 +872,7 @@ let Printer := effect {
 
 let coupon := Option.noneOf[Int]();
 let charge := Result.err[Int, String]("card declined");
-request Printer.printReceipt("receipt");`,
+ask Printer.printReceipt("receipt");`,
 		evidence: {
 			path: "docs/what/language/effects-runtime/errors-and-recovery.md",
 			line: 11,
@@ -881,10 +881,11 @@ request Printer.printReceipt("receipt");`,
 	{
 		id: "chapter-handlers",
 		language: "musi",
-		sourceText: `handle Clock.tick() using Clock {
-  value => value;
+		sourceText: `let clockAnswer := answer Clock {
   tick(k) => resume 1;
-};`,
+};
+
+handle Clock.tick() answer clockAnswer;`,
 		evidence: {
 			path: "crates/music_sema/src/tests.rs",
 			line: 331,
@@ -903,10 +904,11 @@ Core;`,
 	{
 		id: "chapter-runtime",
 		language: "musi",
-		sourceText: `let Runtime := import "musi:runtime";
-Runtime.envGet("HOME");`,
+		sourceText: `let env := import "@std/env";
+let home := env.key("HOME");
+env.get(home);`,
 		evidence: {
-			path: "packages/std/env/index.ms",
+			path: "packages/std/env.ms",
 			line: 2,
 		},
 	},
@@ -914,10 +916,10 @@ Runtime.envGet("HOME");`,
 		id: "chapter-stdlib",
 		language: "musi",
 		sourceText: `let Option := import "@std/option";
-Option.some[Int](8080)
+Option.someOf[Int](8080)
   |> Option.unwrapOr[Int](3000);`,
 		evidence: {
-			path: "packages/std/option/index.ms",
+			path: "packages/std/option.ms",
 			line: 6,
 		},
 	},
@@ -928,34 +930,34 @@ Option.some[Int](8080)
 export let Bool := Bool;
 
 @link(name := "c")
-foreign "c" let puts (msg : CString) : Int;
+native "c" let puts (msg : CString) : Int;
 
 @when(os := "linux")
-foreign let clock_gettime (id : Int, out : CPtr) : Int;`,
+native let clock_gettime (id : Int, out : CPtr) : Int;`,
 		evidence: {
 			path: "src/content/snippets/core.ts",
 			line: 869,
 		},
 	},
 	{
-		id: "chapter-foreign",
+		id: "chapter-native",
 		language: "musi",
-		sourceText: 'foreign "c" let puts (msg : CString) : Int;',
+		sourceText: 'native "c" let puts (msg : CString) : Int;',
 		evidence: {
 			path: "crates/music_syntax/src/parser/tests.rs",
 			line: 70,
 		},
 	},
 	{
-		id: "foreign-safe-wrapper",
+		id: "native-safe-wrapper",
 		language: "musi",
-		sourceText: `foreign "c" let puts (message : CString) : Int;
+		sourceText: `native "c" let puts (message : CString) : Int;
 
 export let printLine (message : CString) : Int := unsafe {
   puts(message);
 };`,
 		evidence: {
-			path: "docs/what/language/advanced/foreign.md",
+			path: "docs/what/language/advanced/native.md",
 			line: 1,
 		},
 	},
@@ -964,7 +966,7 @@ export let printLine (message : CString) : Int := unsafe {
 		language: "musi",
 		sourceText: `let Ffi := import "@std/ffi";
 
-foreign "c" let get_counter () : CPtr;
+native "c" let get_counter () : CPtr;
 
 let counter := unsafe {
   let raw := get_counter();
@@ -983,8 +985,8 @@ let next := unsafe {
 	{
 		id: "ffi-c-abi-signatures",
 		language: "musi",
-		sourceText: `foreign "c" let puts (message : CString) : Int;
-foreign "c" let memset (dst : CPtr, byte : Int, count : Int) : CPtr;`,
+		sourceText: `native "c" let puts (message : CString) : Int;
+native "c" let memset (dst : CPtr, byte : Int, count : Int) : CPtr;`,
 		evidence: {
 			path: "docs/what/language/advanced/unsafe-and-ffi.md",
 			line: 1,
@@ -995,7 +997,7 @@ foreign "c" let memset (dst : CPtr, byte : Int, count : Int) : CPtr;`,
 		language: "musi",
 		sourceText: `let Ffi := import "@std/ffi";
 
-foreign "c" let get_counter () : CPtr;
+native "c" let get_counter () : CPtr;
 
 let counter := unsafe {
   let raw := get_counter();
@@ -1009,7 +1011,7 @@ let counter := unsafe {
 	{
 		id: "unsafe-safe-wrapper",
 		language: "musi",
-		sourceText: `foreign "c" let clock () : Int;
+		sourceText: `native "c" let clock () : Int;
 
 export let currentTicks () : Int := unsafe {
   clock();
@@ -1071,7 +1073,7 @@ comptime generated;`,
   let tick () : Int;
 };
 
-export let answer () : Int := comptime request Clock.tick();`,
+export let answer () : Int := comptime ask Clock.tick();`,
 		evidence: {
 			path: "crates/music_session/src/tests.rs",
 			line: 220,

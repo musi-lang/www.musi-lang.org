@@ -19,7 +19,7 @@ Use a tuple when the grouped values stay close to the code and the order is clea
 
 ## Unit in everyday terms
 
-Unit is like a signed delivery receipt that says the action happened, not a box of new data. Printing a line or sending a request may return unit because the important result is outside the value.
+Unit is like a signed delivery receipt that says the action happened, not a box of new data. Printing a line or sending an ask may return unit because the important result is outside the value.
 
 Core forms are the basic parts of the language. Literals are values, calls ask for work, operators join values, ranges mark spans, and lambdas carry a small action. Learn each form before using it in larger data or effect code.
 

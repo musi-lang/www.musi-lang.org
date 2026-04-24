@@ -219,9 +219,9 @@ dock;`,
 		},
 	},
 	{
-		id: "csharp-interface-class-law",
+		id: "csharp-interface-shape-law",
 		language: "musi",
-		sourceText: `let Vehicle[T] := class {
+		sourceText: `let Vehicle[T] := shape {
   let wheels(self : T) : Int;
   law atLeastFourWheels(vehicle : T) := vehicle.wheels() >= 4;
 };
@@ -230,7 +230,7 @@ let Car := data {
   | Car
 };
 
-let carVehicle := instance Vehicle[Car] {
+let carVehicle := given Vehicle[Car] {
   let wheels(self : Car) : Int := 4;
 };`,
 		evidence: {
@@ -294,7 +294,7 @@ export let test () :=
 		language: "musi",
 		sourceText: `let ffi := import "@std/ffi";
 
-foreign "c" let puts (message : ffi.CString) : ffi.CInt;
+native "c" let puts (message : ffi.CString) : ffi.CInt;
 
 export let announce (message : ffi.CString) : ffi.CInt :=
   unsafe { puts(message); };`,

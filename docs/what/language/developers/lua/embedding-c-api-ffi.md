@@ -8,17 +8,17 @@ slug: "embedding-c-api-ffi"
 summary: "Start from Lua habits, then use the Musi Book for the full rule."
 ---
 
-Embedding and C APIs are natural to Lua users. Musi keeps native edges possible, but the foreign named part and unsafe block make the edge easy to check.
+Embedding and C APIs are natural to Lua users. Musi keeps native edges possible, but the native named part and unsafe block make the edge easy to check.
 
 {{compare:lua-embedding-c-api-ffi}}
 
 ## Reading Embedding, C API, and FFI from Lua
 
-In Musi, foreign named parts use `foreign "c" let ...` or a parenthesized foreign group, and unsafe calls stay inside `unsafe { ... }`. For a Lua reader, the key topic is embedding, c api, and ffi.
+In Musi, native named parts use `native "c" let ...` or a parenthesized native group, and unsafe calls stay inside `unsafe { ... }`. For a Lua reader, the key topic is embedding, c api, and ffi.
 
 ## Common mistake
 
-Do not invent a C-like foreign block or spread unsafe assumptions through normal Musi code. In Lua, this appears often in embedding, c api, and ffi.
+Do not invent a C-like native block or spread unsafe assumptions through normal Musi code. In Lua, this appears often in embedding, c api, and ffi.
 
 ## When this pays off
 
@@ -27,5 +27,5 @@ Use this pattern when a clock, driver, C library, host VM, or platform handle mu
 ## Keep close
 
 - [Unsafe and FFI](/learn/book/advanced/unsafe-and-ffi)
-- [Foreign](/learn/book/advanced/foreign)
+- [Native](/learn/book/advanced/native)
 - [Runtime](/learn/book/effects-runtime/runtime)

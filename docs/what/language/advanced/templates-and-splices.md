@@ -21,8 +21,8 @@ Repeated code is not always a problem. Regular repeated code can be generated sa
 
 Generated named parts should be easy to inspect. If the splice makes format tool output, error messages, or editor highlighting confusing, the template is doing too much.
 
-Templates work best for regular families: one operation per field, one wrapper per foreign symbol, or one test case per known example. They work poorly when each generated piece immediately needs hand-written exceptions. In that case the repetition is telling you about missing design, not missing automation.
+Templates work best for regular families: one operation per field, one wrapper per native symbol, or one test case per known example. They work poorly when each generated piece immediately needs hand-written exceptions. In that case the repetition is telling you about missing design, not missing automation.
 
 Advanced chapters are for special cases: extra data, native calls, compile-time work, syntax values, and command-line use. Use them when normal named parts are not enough.
 
-Use advanced forms only when a tool, runtime, foreign library, or build step needs them. Keep normal program logic in normal named parts.
+Use advanced forms only when a tool, runtime, native library, or build step needs them. Keep normal program logic in normal named parts.

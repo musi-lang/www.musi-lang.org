@@ -23,4 +23,4 @@ Examples should teach the feature under discussion, not rebuild the world around
 
 Effect chapters draw a line between local calculation and outside answers. Adding prices is local. Reading time, asking a process, or writing a log needs an answer from outside the expression.
 
-A useful test is to ask whether the result could be known from the input alone. If yes, keep the function plain. If no, name the request and make the effect edge visible.
+A useful test is to ask whether the result could be known from the input alone. If yes, keep the function plain. If no, name the ask and make the effect edge visible.

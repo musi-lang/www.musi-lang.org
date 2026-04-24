@@ -1,6 +1,6 @@
 ---
 title: "Errors and Recovery"
-description: "Separate absent values, recoverable failures, and outside requests."
+description: "Separate absent values, recoverable failures, and outside asks."
 group: "Effects and Runtime"
 section: "Effects and Runtime"
 order: 25
@@ -9,11 +9,11 @@ summary: "Use Option for absence, Result for explained failure, and effects for 
 ---
 Error handling becomes confusing when every unwanted outcome uses the same form. A missing discount code, a declined payment, and a printer that is out of paper are not the same kind of problem. One is absence, one is a recoverable business failure, and one is outside work needing a response.
 
-Musi code reads better when those stories stay separate. `Option` handles the empty shelf. `Result` handles work that can explain why it did not produce the wanted value. Effects handle requests that leave normal calculation and need a handler or runtime to answer.
+Musi code reads better when those stories stay separate. `Option` handles the empty shelf. `Result` handles work that can explain why it did not produce the wanted value. Effects handle asks that leave normal calculation and need a handler or runtime to answer.
 
 {{snippet:chapter-errors-and-recovery}}
 
-Read the example like a checkout counter. Looking up a coupon may return nothing; that is normal. Charging a card may fail and give a reason; the cashier needs the reason. Printing the receipt asks a machine outside the calculation; that request belongs at an effect edge.
+Read the example like a checkout counter. Looking up a coupon may return nothing; that is normal. Charging a card may fail and give a reason; the cashier needs the reason. Printing the receipt asks a machine outside the calculation; that ask belongs at an effect edge.
 
 ## Recovery means the caller has a useful next step
 
@@ -25,8 +25,8 @@ The best recovery examples are mundane. A file path can be wrong. A badge number
 
 A helper named `currentTime()` may look like a local calculation, but the time comes from the host. A helper named `printReceipt()` may look like string formatting, but printing talks to a device. Effects make that crossing visible.
 
-When tests become hard, check whether outside work is hiding in plain sight. Pure calculation should be easy to call. Requests should be close to the code that handles or exposes them.
+When tests become hard, check whether outside work is hiding in plain sight. Pure calculation should be easy to call. Asks should be close to the code that handles or exposes them.
 
 ## Pick the smallest honest form
 
-Use `Option` for empty-but-normal. Use `Result` for failure-with-reason. Use effects for outside requests. Some real programs use all three in one flow, but each part still has its own job.
+Use `Option` for empty-but-normal. Use `Result` for failure-with-reason. Use effects for outside asks. Some real programs use all three in one flow, but each part still has its own job.

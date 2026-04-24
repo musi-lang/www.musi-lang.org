@@ -23,4 +23,4 @@ Use precise names and types so the contract is visible. If a pointer must be non
 
 Advanced chapters are for special cases: extra data, native calls, compile-time work, syntax values, and command-line use. Use them when normal named parts are not enough.
 
-Use advanced forms only when a tool, runtime, foreign library, or build step needs them. Keep normal program logic in normal named parts.
+Use advanced forms only when a tool, runtime, native library, or build step needs them. Keep normal program logic in normal named parts.

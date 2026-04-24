@@ -196,14 +196,14 @@ io.writeLine(name);`,
 		},
 	},
 	{
-		id: "lua-effect-request",
+		id: "lua-effect-ask",
 		language: "musi",
 		sourceText: `let PortSource := effect {
   let loadPort () : Int;
 };
 
-let loadPort () using { PortSource } : Int :=
-  request PortSource.loadPort();`,
+let loadPort () require { PortSource } : Int :=
+  ask PortSource.loadPort();`,
 		evidence: {
 			path: "docs/what/language/developers/lua/coroutines-effect-boundaries.md",
 			line: 1,
@@ -216,19 +216,20 @@ let loadPort () using { PortSource } : Int :=
   let loadPort () : Int;
 };
 
-handle PortSource.loadPort() using PortSource {
-  value => value;
+let portAnswer := answer PortSource {
   loadPort(k) => resume 8080;
-};`,
+};
+
+handle PortSource.loadPort() answer portAnswer;`,
 		evidence: {
 			path: "docs/what/language/developers/lua/coroutines-effect-boundaries.md",
 			line: 1,
 		},
 	},
 	{
-		id: "lua-metatable-class-law",
+		id: "lua-metatable-shape-law",
 		language: "musi",
-		sourceText: `let Vehicle[T] := class {
+		sourceText: `let Vehicle[T] := shape {
   let wheels(self : T) : Int;
   law atLeastFourWheels(vehicle : T) := vehicle.wheels() >= 4;
 };
@@ -237,11 +238,11 @@ let Car := data {
   | Car
 };
 
-let carVehicle := instance Vehicle[Car] {
+let carVehicle := given Vehicle[Car] {
   let wheels(self : Car) : Int := 4;
 };`,
 		evidence: {
-			path: "docs/what/language/developers/lua/metatables-classes-instances-laws.md",
+			path: "docs/what/language/developers/lua/metatables-shapes-given-laws.md",
 			line: 1,
 		},
 	},
@@ -304,7 +305,7 @@ testing.endDescribe();`,
 		language: "musi",
 		sourceText: `let ffi := import "@std/ffi";
 
-foreign "c" let puts (message : ffi.CString) : ffi.CInt;
+native "c" let puts (message : ffi.CString) : ffi.CInt;
 
 export let announce (message : ffi.CString) : ffi.CInt :=
   unsafe { puts(message); };`,

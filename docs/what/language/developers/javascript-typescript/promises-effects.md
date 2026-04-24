@@ -8,13 +8,13 @@ slug: "promises-effects"
 summary: "Start from TypeScript habits, then use the Musi Book for the full rule."
 ---
 
-Promises make time and outside work composable in TypeScript. Musi uses effects to name the outside request first, then lets handlers or runtime code decide how it runs.
+Promises make time and outside work composable in TypeScript. Musi uses effects to name the outside ask first, then lets handlers or runtime code decide how it runs.
 
 {{compare:javascript-typescript-promises-effects}}
 
 ## Reading Promises, Async, and I/O Edges from JavaScript/TypeScript
 
-Musi names outside work with effects and `request`, instead of hiding time, files, console work, or services inside a normal call. For a TypeScript reader, the key topic is promises, async, and i/o edges.
+Musi names outside work with effects and `ask`, instead of hiding time, files, console work, or services inside a normal call. For a TypeScript reader, the key topic is promises, async, and i/o edges.
 
 ## Common mistake
 
@@ -27,5 +27,5 @@ Use effects when the program asks the runtime, OS, user, or another service for 
 ## Keep close
 
 - [Effects](/learn/book/effects-runtime/effects)
-- [Using](/learn/book/effects-runtime/using)
+- [Requirements](/learn/book/effects-runtime/requirements)
 - [Handlers](/learn/book/effects-runtime/handlers)

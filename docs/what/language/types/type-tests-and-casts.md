@@ -15,7 +15,7 @@ Prefer data forms that avoid casting. When a cast is needed, keep it close to th
 
 ## Check before trusting
 
-If a value comes from outside the package, a file, or foreign code, the program may need to verify it. A cast without a nearby reason asks the reader to trust too much.
+If a value comes from outside the package, a file, or native code, the program may need to verify it. A cast without a nearby reason asks the reader to trust too much.
 
 ## Better than scattered casts
 

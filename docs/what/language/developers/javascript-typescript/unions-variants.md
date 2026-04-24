@@ -18,7 +18,7 @@ In Musi, data variants name the cases directly, and `match` reads the case split
 
 ## Common mistake
 
-Do not keep integer tags, string unions, subclass checks, or table marker fields when a data variant is the real form. In JavaScript and TypeScript, this appears often in unions, variants, and pattern matching.
+Do not keep integer tags, string unions, subshape checks, or table marker fields when a data variant is the real form. In JavaScript and TypeScript, this appears often in unions, variants, and pattern matching.
 
 ## When this pays off
 

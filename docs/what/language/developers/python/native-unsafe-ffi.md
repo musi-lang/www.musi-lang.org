@@ -14,11 +14,11 @@ For a Python reader, this guide starts from familiar habits. It shows how Musi h
 
 ## Reading Native Edges, Unsafe, and FFI from Python
 
-In Musi, foreign named parts use `foreign "c" let ...` or a parenthesized foreign group, and unsafe calls stay inside `unsafe { ... }`. For a Python reader, the key topic is native edges, unsafe, and ffi.
+In Musi, native named parts use `native "c" let ...` or a parenthesized native group, and unsafe calls stay inside `unsafe { ... }`. For a Python reader, the key topic is native edges, unsafe, and ffi.
 
 ## Common mistake
 
-Do not invent a C-like foreign block or spread unsafe assumptions through normal Musi code. In Python, this appears often in native edges, unsafe, and ffi.
+Do not invent a C-like native block or spread unsafe assumptions through normal Musi code. In Python, this appears often in native edges, unsafe, and ffi.
 
 ## When this pays off
 
@@ -27,5 +27,5 @@ Use this pattern when a clock, driver, C library, host VM, or platform handle mu
 ## Keep close
 
 - [Unsafe and FFI](/learn/book/advanced/unsafe-and-ffi)
-- [Foreign](/learn/book/advanced/foreign)
+- [Native](/learn/book/advanced/native)
 - [Runtime](/learn/book/effects-runtime/runtime)

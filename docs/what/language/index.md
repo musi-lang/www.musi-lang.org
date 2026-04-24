@@ -20,7 +20,7 @@ Use code examples as the main guide for how examples should look. Every Musi exa
 
 ## How Musi code reads
 
-Musi code reads as values flowing through expressions. A `let` introduces a name. A block produces its last expression. A `match` chooses by data form. Effects make outside work visible through `request` and handlers. Unsafe native work stays in `unsafe { ... }`.
+Musi code reads as values flowing through expressions. A `let` introduces a name. A block produces its last expression. A `match` chooses by data form. Effects make outside work visible through `ask` and handlers. Unsafe native work stays in `unsafe { ... }`.
 
 This means Musi has no normal `return` keyword, no base loop form, no hidden effect marker, and no pointer mark model in user code. The language favors named forms where the operation would otherwise be easy to miss.
 
@@ -30,8 +30,8 @@ This means Musi has no normal `return` keyword, no base loop form, no hidden eff
 - Use bindings, blocks, functions, lambdas, and methods.
 - Model data with records, arrays, variants, payloads, and patterns.
 - Use annotations, inference, generics, callable types, and dependent-style parameters.
-- Describe behavior with classes, instances, and laws.
+- Describe behavior with shapes, given values, and laws.
 - Keep capabilities visible with effects and handlers.
-- Keep raw native work small with attributes, foreign named parts, unsafe blocks, and FFI.
+- Keep raw native work small with attributes, native named parts, unsafe blocks, and FFI.
 
 Continue to [Getting Started](/learn/book/start/foundations/getting-started).

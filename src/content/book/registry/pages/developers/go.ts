@@ -106,14 +106,14 @@ export const goDeveloperPages = [
 		questions: [],
 	},
 	{
-		id: "go-interfaces-classes-laws",
+		id: "go-interfaces-shapes-laws",
 		partId: "developers",
-		path: "/docs/guides/go/interfaces-classes-laws",
+		path: "/docs/guides/go/interfaces-shapes-laws",
 		aliases: [
-			"/docs/language/developers/go/interfaces-classes-laws",
-			"/learn/language/developers/go/interfaces-classes-laws",
+			"/docs/language/developers/go/interfaces-shapes-laws",
+			"/learn/language/developers/go/interfaces-shapes-laws",
 		],
-		sourcePath: "docs/what/language/developers/go/interfaces-classes-laws.md",
+		sourcePath: "docs/what/language/developers/go/interfaces-shapes-laws.md",
 		questions: [],
 	},
 	{

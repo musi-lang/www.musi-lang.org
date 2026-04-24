@@ -7,7 +7,7 @@ order: 28
 slug: "foundation"
 summary: "Understand what belongs to musi:core before reaching for stdlib modules."
 ---
-The foundation layer contains the small concepts that many other pages rely on: values, names, types, imports, data forms, and requests. It is less like a special feature and more like the floor under the rest of the language.
+The foundation layer contains the small concepts that many other pages rely on: values, names, types, imports, data forms, and asks. It is less like a special feature and more like the floor under the rest of the language.
 
 {{snippet:chapter-foundation}}
 
@@ -23,4 +23,4 @@ Functions, records, variants, effects, and packages are not separate tricks. The
 
 Effect chapters draw a line between local calculation and outside answers. Adding prices is local. Reading time, asking a process, or writing a log needs an answer from outside the expression.
 
-A useful test is to ask whether the result could be known from the input alone. If yes, keep the function plain. If no, name the request and make the effect edge visible.
+A useful test is to ask whether the result could be known from the input alone. If yes, keep the function plain. If no, name the ask and make the effect edge visible.
